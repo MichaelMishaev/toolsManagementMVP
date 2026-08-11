@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="תצוגת לקוח מקומית של LiftVoltraq עבור ליפט פרו 26 ישראל בע״מ.">
+  <meta id="themeColor" name="theme-color" content="">
+  <title>LiftVoltraq | מערכת שירות שטח</title>
+  <link rel="icon" href="assets/liftvoltraq-badge.webp" type="image/webp">
+  <link rel="preload" href="assets/generated/equipment-forklift.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="assets/design-tokens.css?v=20260811g">
+  <link rel="stylesheet" href="assets/app.css?v=20260811g">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">דלג לתוכן הראשי</a>
+
+  <div class="ambient" id="ambient" aria-hidden="true">
+    <img class="ambient__poster" src="assets/generated/industrial-ambient-poster.webp" alt="" width="1672" height="941">
+    <video
+      class="ambient__video"
+      id="ambientVideo"
+      muted
+      loop
+      playsinline
+      preload="none"
+      tabindex="-1"
+      poster="assets/generated/industrial-ambient-poster.webp"
+      data-webm="assets/generated/industrial-ambient-loop.webm"
+      data-mp4="assets/generated/industrial-ambient-loop.mp4"
+    ></video>
+    <div class="ambient__wash"></div>
+  </div>
+
+  <div id="app"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="sr-only" id="routeAnnouncer" aria-live="polite"></div>
+
+  <noscript>
+    <main class="no-script">
+      <h1>נדרש JavaScript להצגת ההדגמה</h1>
+      <p>זוהי תצוגת Frontend מקומית ואינה שולחת מידע לשרת.</p>
+    </main>
+  </noscript>
+
+  <script src="assets/demo-data.js?v=20260811g"></script>
+  <script src="assets/app.js?v=20260811g"></script>
+</body>
+</html>
