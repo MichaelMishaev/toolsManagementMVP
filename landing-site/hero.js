@@ -9,9 +9,33 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const themedSections = [...document.querySelectorAll("[data-page-section][data-theme]")];
 const revealGroups = [...document.querySelectorAll(".reveal-group")];
 const themeColor = document.querySelector('meta[name="theme-color"]');
+const pageProgress = document.querySelector("[data-page-progress]");
+const contentShell = document.querySelector(".content-shell");
+const mobileAction = document.querySelector("[data-mobile-action]");
+const currentSection = document.querySelector("[data-current-section]");
+const sectionLinks = [...document.querySelectorAll('.section-links a[href^="#"]')];
+const workflowSteps = [...document.querySelectorAll(".workflow-list > li")];
+const roleCarousel = document.querySelector("[data-role-carousel]");
+const roleCards = [...document.querySelectorAll("[data-role-card]")];
+const previousRole = document.querySelector("[data-role-prev]");
+const nextRole = document.querySelector("[data-role-next]");
+const rolePosition = document.querySelector("[data-role-position]");
+const roleViewport = window.matchMedia("(max-width: 47.99rem)");
+
+const sectionLabels = {
+  workflow: "מהלך השירות",
+  roles: "תפקידי המערכת",
+  field: "עבודה בשטח",
+  records: "דוחות והיסטוריה",
+  mvp: "גבולות ה-MVP",
+  final: "הדגמה מלאה",
+};
 
 let duration = 0;
 let frameRequested = false;
+let activeRoleIndex = 0;
+
+document.body.classList.add("ux-ready");
 
 const clamp = (value, min = 0, max = 1) =>
   Math.min(max, Math.max(min, value));
@@ -32,6 +56,22 @@ function describeProgress(progress) {
 
 function render() {
   frameRequested = false;
+
+  const pageTravel = Math.max(
+    1,
+    document.documentElement.scrollHeight - window.innerHeight,
+  );
+  const pageScrollProgress = clamp(window.scrollY / pageTravel);
+  if (pageProgress) {
+    pageProgress.style.transform = `scaleX(${pageScrollProgress.toFixed(4)})`;
+  }
+
+  if (mobileAction && contentShell) {
+    const contentHasArrived =
+      contentShell.getBoundingClientRect().top <= window.innerHeight * 0.72;
+    mobileAction.classList.toggle("is-visible", contentHasArrived);
+  }
+
   if (!story || reducedMotion.matches) return;
 
   const progress = getProgress();
@@ -96,14 +136,15 @@ if (video && story && !reducedMotion.matches) {
     video.addEventListener("loadedmetadata", initializeVideo, { once: true });
   }
   video.addEventListener("error", showFallback);
-  window.addEventListener("scroll", requestRender, { passive: true });
-  window.addEventListener("resize", requestRender, { passive: true });
-  requestRender();
 } else if (reducedMotion.matches) {
   showFallback();
   completeMessage?.removeAttribute("aria-hidden");
   completeMessage?.removeAttribute("inert");
 }
+
+window.addEventListener("scroll", requestRender, { passive: true });
+window.addEventListener("resize", requestRender, { passive: true });
+requestRender();
 
 function updateActiveTheme() {
   if (!themedSections.length) return;
@@ -129,6 +170,21 @@ function updateActiveTheme() {
   });
 
   const theme = activeSection.dataset.theme || "workflow";
+  const activeSectionId = activeSection.id;
+
+  sectionLinks.forEach((link) => {
+    const isCurrent = link.hash === `#${activeSectionId}`;
+    if (isCurrent) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+
+  if (currentSection) {
+    currentSection.textContent = sectionLabels[theme] || "LiftVoltraq";
+  }
+
   if (document.body.dataset.activeTheme !== theme) {
     document.body.dataset.activeTheme = theme;
     const background = getComputedStyle(document.querySelector(".content-shell"))
@@ -136,6 +192,34 @@ function updateActiveTheme() {
       .trim();
     if (background) themeColor?.setAttribute("content", background);
   }
+}
+
+function updateActiveWorkflowStep() {
+  if (!workflowSteps.length) return;
+
+  const activationLine = window.innerHeight * 0.5;
+  let activeStep = workflowSteps[0];
+  let smallestDistance = Number.POSITIVE_INFINITY;
+
+  workflowSteps.forEach((step) => {
+    const rect = step.getBoundingClientRect();
+    const center = rect.top + rect.height / 2;
+    const distance = Math.abs(center - activationLine);
+    if (distance < smallestDistance) {
+      activeStep = step;
+      smallestDistance = distance;
+    }
+  });
+
+  workflowSteps.forEach((step) => {
+    const isActive = step === activeStep;
+    step.classList.toggle("is-active", isActive);
+    if (isActive) {
+      step.setAttribute("aria-current", "step");
+    } else {
+      step.removeAttribute("aria-current");
+    }
+  });
 }
 
 if (themedSections.length) {
@@ -147,6 +231,82 @@ if (themedSections.length) {
   themedSections.forEach((section) => themeObserver.observe(section));
   window.addEventListener("resize", updateActiveTheme, { passive: true });
   updateActiveTheme();
+}
+
+if (workflowSteps.length) {
+  const workflowObserver = new IntersectionObserver(updateActiveWorkflowStep, {
+    rootMargin: "-35% 0px -45% 0px",
+    threshold: [0, 0.25, 0.5, 1],
+  });
+
+  workflowSteps.forEach((step) => workflowObserver.observe(step));
+  window.addEventListener("resize", updateActiveWorkflowStep, { passive: true });
+  updateActiveWorkflowStep();
+}
+
+function getActiveRoleIndex() {
+  if (!roleCarousel || !roleCards.length) return 0;
+
+  const carouselRect = roleCarousel.getBoundingClientRect();
+  const carouselCenter = carouselRect.left + carouselRect.width / 2;
+  let closestIndex = 0;
+  let closestDistance = Number.POSITIVE_INFINITY;
+
+  roleCards.forEach((card, index) => {
+    const rect = card.getBoundingClientRect();
+    const cardCenter = rect.left + rect.width / 2;
+    const distance = Math.abs(cardCenter - carouselCenter);
+    if (distance < closestDistance) {
+      closestIndex = index;
+      closestDistance = distance;
+    }
+  });
+
+  return closestIndex;
+}
+
+function updateRoleControls() {
+  if (!roleCards.length) return;
+  activeRoleIndex = getActiveRoleIndex();
+
+  if (rolePosition) {
+    rolePosition.value = `${activeRoleIndex + 1} / ${roleCards.length}`;
+    rolePosition.textContent = `${activeRoleIndex + 1} / ${roleCards.length}`;
+  }
+
+  if (previousRole) previousRole.disabled = activeRoleIndex === 0;
+  if (nextRole) nextRole.disabled = activeRoleIndex === roleCards.length - 1;
+}
+
+function moveToRole(offset) {
+  const targetIndex = clamp(activeRoleIndex + offset, 0, roleCards.length - 1);
+  roleCards[targetIndex]?.scrollIntoView({
+    behavior: reducedMotion.matches ? "auto" : "smooth",
+    block: "nearest",
+    inline: "center",
+  });
+}
+
+if (roleCarousel && roleCards.length) {
+  let roleFrameRequested = false;
+  const requestRoleUpdate = () => {
+    if (roleFrameRequested) return;
+    roleFrameRequested = true;
+    window.requestAnimationFrame(() => {
+      roleFrameRequested = false;
+      updateRoleControls();
+    });
+  };
+
+  roleCarousel.tabIndex = roleViewport.matches ? 0 : -1;
+  roleCarousel.addEventListener("scroll", requestRoleUpdate, { passive: true });
+  previousRole?.addEventListener("click", () => moveToRole(-1));
+  nextRole?.addEventListener("click", () => moveToRole(1));
+  roleViewport.addEventListener("change", (event) => {
+    roleCarousel.tabIndex = event.matches ? 0 : -1;
+    updateRoleControls();
+  });
+  updateRoleControls();
 }
 
 if (!reducedMotion.matches && revealGroups.length) {

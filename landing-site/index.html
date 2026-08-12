@@ -14,6 +14,9 @@
   </head>
   <body data-active-theme="workflow">
     <a class="skip-link" href="#main-content">דלגו לתוכן הראשי</a>
+    <div class="page-progress" aria-hidden="true">
+      <span data-page-progress></span>
+    </div>
 
     <main id="main-content">
       <section
@@ -236,28 +239,39 @@
               </p>
             </div>
 
-            <div class="role-list">
-              <article class="role-row reveal-group">
+            <div class="role-controls" aria-label="שליטה בתצוגת התפקידים">
+              <button type="button" data-role-prev aria-label="התפקיד הקודם">→</button>
+              <output data-role-position aria-live="polite">1 / 5</output>
+              <button type="button" data-role-next aria-label="התפקיד הבא">←</button>
+            </div>
+
+            <div
+              class="role-list"
+              id="role-carousel"
+              aria-label="תפקידי המערכת"
+              data-role-carousel
+            >
+              <article class="role-row reveal-group" data-role-card>
                 <p class="role-index" dir="ltr">01</p>
                 <h3>לקוח</h3>
                 <p>פותח קריאות, בוחר ציוד, עוקב אחר סטטוס וצופה בדוחות קודמים.</p>
               </article>
-              <article class="role-row reveal-group">
+              <article class="role-row reveal-group" data-role-card>
                 <p class="role-index" dir="ltr">02</p>
                 <h3>מוקד שירות</h3>
                 <p>מרכז קריאות, בודק פרטים, קובע דחיפות, משבץ טכנאי ומתזמן טיפול.</p>
               </article>
-              <article class="role-row reveal-group">
+              <article class="role-row reveal-group" data-role-card>
                 <p class="role-index" dir="ltr">03</p>
                 <h3>טכנאי שטח</h3>
                 <p>רואה רק את הקריאות שלו, מעדכן סטטוס ומתעד את העבודה עד לסגירה.</p>
               </article>
-              <article class="role-row reveal-group">
+              <article class="role-row reveal-group" data-role-card>
                 <p class="role-index" dir="ltr">04</p>
                 <h3>מנהל שירות</h3>
                 <p>מקבל מבט רוחבי על קריאות, לקוחות, טכנאים, ציוד ודוחות שירות.</p>
               </article>
-              <article class="role-row reveal-group">
+              <article class="role-row reveal-group" data-role-card>
                 <p class="role-index" dir="ltr">05</p>
                 <h3>מחסן וחלפים</h3>
                 <p>מנהל קטלוג בסיסי ומסייע לזהות את החלקים שנעשה בהם שימוש.</p>
@@ -462,5 +476,13 @@
         </footer>
       </div>
     </main>
+
+    <aside class="mobile-action" data-mobile-action aria-label="קיצור דרך להדגמה">
+      <span>
+        <small>כעת בדף</small>
+        <strong data-current-section>מהלך השירות</strong>
+      </span>
+      <a class="button button-small" href="../mock/">פתחו הדגמה</a>
+    </aside>
   </body>
 </html>
