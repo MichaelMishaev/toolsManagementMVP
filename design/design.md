@@ -23,7 +23,7 @@ Design dials:
 
 - LiftVoltraq is the application name and primary product identity, as defined by `docs/PRDs/PRD.md` and `docs/clientSystemAnaluse_1.html`.
 - Lift Pro 26 Israel Ltd. is the customer/tenant and must remain visually subordinate to the product.
-- Use the approved transparent LiftVoltraq badge from `assets/brand/liftvoltraq-badge-transparent-v2.png`; the optimized runtime copy is `mock/assets/liftvoltraq-badge.webp`.
+- Use the approved transparent LiftVoltraq badge from `assets/brand/liftvoltraq-badge-transparent-v2.png` directly. `assets/brand/` is the only logo directory; do not create runtime copies elsewhere.
 - Do not redraw, recolor, regenerate, or replace the product logo with the tenant logo.
 - The visible lockup pairs `LiftVoltraq` with the subordinate tenant label `עבור ליפט פרו 26`.
 - Generated media may not contain logos, text, trademarks, or watermarks.

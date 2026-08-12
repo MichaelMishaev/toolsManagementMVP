@@ -148,7 +148,7 @@ function brandLockup() {
   return `
     <a class="brand-lockup" href="#/technician/home" aria-label="LiftVoltraq, מערכת שירות שטח">
       <span class="brand-lockup__plate">
-        <img src="assets/liftvoltraq-badge.webp" alt="LiftVoltraq" width="512" height="512">
+        <img src="../assets/brand/liftvoltraq-badge-transparent-v2.png" alt="LiftVoltraq" width="512" height="512">
       </span>
       <span class="brand-lockup__tenant">
         <strong>LiftVoltraq</strong>
@@ -660,7 +660,7 @@ function renderReport() {
     <div class="report-toolbar"><button class="primary-action" type="button" data-action="print-report">${icon("print")}הדפס דוח</button></div>
     <article class="report-paper" aria-label="דוח טיפול לקריאה 2458">
       <header class="report-header">
-        <img src="assets/liftvoltraq-badge.webp" alt="LiftVoltraq" width="512" height="512">
+        <img src="../assets/brand/liftvoltraq-badge-transparent-v2.png" alt="LiftVoltraq" width="512" height="512">
         <div><p>דוח טיפול</p><strong class="report-number">${bdi("#2458")}</strong><span>הופק: ${bdi(state.report.generatedAt)}</span></div>
       </header>
       ${reportSection("פרטי הקריאה", `<dl class="report-grid"><div><dt>מספר קריאה</dt><dd>${bdi("#2458")}</dd></div><div><dt>תאריך פתיחה</dt><dd>${bdi("11.08.2026, 08:42")}</dd></div><div><dt>תאריך טיפול</dt><dd>${bdi(state.assignment.date)}</dd></div><div><dt>סטטוס סופי</dt><dd>${escapeHtml(STATUS_LABELS[state.callStatus])}</dd></div></dl>`)}

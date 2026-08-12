@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="LiftVoltraq — ציוד מכני שמתחיל בהנדסה מדויקת ומוכן לעבודה."
+    />
+    <meta name="theme-color" content="#070a0c" />
+    <title>LiftVoltraq | ציוד שמוכן לעבודה</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./hero.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">דלגו לתוכן הראשי</a>
+
+    <main id="main-content">
+      <section
+        class="assembly-story"
+        aria-labelledby="hero-title"
+        data-assembly-story
+      >
+        <div class="assembly-sticky">
+          <header class="site-header" aria-label="LiftVoltraq">
+            <a class="brand" href="./" aria-label="LiftVoltraq — דף הבית">
+              <img
+                src="../assets/brand/liftvoltraq-badge-transparent-v2.png"
+                width="512"
+                height="512"
+                alt=""
+              />
+              <span>LiftVoltraq</span>
+            </a>
+
+            <p class="header-status">ציוד מכני · פתרונות לעבודה</p>
+          </header>
+
+          <div class="hero-layout">
+            <figure class="assembly-stage">
+              <div class="media-frame" data-media-frame>
+                <video
+                  class="assembly-video"
+                  muted
+                  playsinline
+                  preload="auto"
+                  poster="./assets/assembly/loader-assembly-start-exploded-v2.png"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  data-assembly-video
+                >
+                  <source
+                    src="./assets/assembly/loader-assembly-scroll.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <img
+                  class="assembly-fallback"
+                  src="./assets/assembly/loader-assembly-end-complete.png"
+                  width="1672"
+                  height="941"
+                  alt="מעמיס אופני צהוב מורכב ומוכן לעבודה"
+                  data-assembly-fallback
+                />
+                <div class="media-wash" aria-hidden="true"></div>
+              </div>
+              <figcaption>
+                <span>מהחלק הקטן ביותר ועד לכלי השלם</span>
+                <span class="assembly-state" data-assembly-state>מפורק</span>
+              </figcaption>
+            </figure>
+
+            <div class="hero-copy">
+              <div class="hero-message hero-message-opening">
+                <h1 id="hero-title">הכוח נמצא <span>בפרטים.</span></h1>
+                <p>
+                  ציוד מכני שנבנה מחיבורים מדויקים, מערכות חזקות ותכנון שמכוון
+                  לדבר אחד — עבודה רציפה בשטח.
+                </p>
+              </div>
+
+              <div class="hero-message hero-message-middle" aria-hidden="true">
+                <p class="resolution-title">חיבור אחר <span>חיבור.</span></p>
+                <p>
+                  המערכות נכנסות למקומן, עד שהכלי מקבל צורה.
+                </p>
+              </div>
+
+              <div class="hero-message hero-message-complete" aria-hidden="true">
+                <p class="resolution-title">כשהכול מתחבר.</p>
+                <p>
+                  מקבלים כלי שלם, מדויק ומוכן לעבודה.
+                </p>
+              </div>
+
+              <div class="scroll-progress" aria-hidden="true">
+                <span>גללו כדי להרכיב</span>
+                <span class="progress-track">
+                  <span class="progress-fill"></span>
+                </span>
+                <output data-progress-output>0%</output>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

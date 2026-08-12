@@ -1,0 +1,36 @@
+{
+  "brand": {
+    "name": "LiftVoltraq",
+    "language": "he",
+    "direction": "rtl",
+    "logo": "../assets/brand/liftvoltraq-badge-transparent-v2.png",
+    "palette": {
+      "background": "#070A0C",
+      "surface": "#141A1D",
+      "ink": "#F3F6F4",
+      "muted": "#B3BCBE",
+      "accent": "#9BCB42",
+      "focus": "#C9F77E"
+    },
+    "usage": "Shared website identity for homepage, catalogue, category, and product pages"
+  },
+  "hero": {
+    "eyebrow": "כל פרט במקום. כל כלי למשימה.",
+    "title": "הכוח נמצא בפרטים.",
+    "description": "ציוד מכני שנבנה מחיבורים מדויקים, מערכות חזקות ותכנון שמכוון לדבר אחד — עבודה רציפה בשטח.",
+    "resolution": "וכשהכול מתחבר — מקבלים כלי שמוכן לעבוד.",
+    "interaction": "Native scroll scrubs the loader assembly in both directions; no autoplay or scroll interception"
+  },
+  "media": {
+    "startFrame": "assets/assembly/loader-assembly-start-exploded-v2.png",
+    "endFrame": "assets/assembly/loader-assembly-end-complete.png",
+    "video": "assets/assembly/loader-assembly-scroll.mp4",
+    "higgsfieldJobId": "0307d9ff-03d3-4620-acf7-bcf95d9c070a",
+    "productStatus": "visual-concept-not-catalogue-model"
+  },
+  "openDecisions": [
+    "Primary enquiry destination",
+    "Verified company claims",
+    "Catalogue taxonomy and product records"
+  ]
+}
