@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#070a0c" />
     <title>LiftVoltraq | כל תהליך שירות השטח, במקום אחד</title>
     <link rel="stylesheet" href="./styles.css" />
-    <script type="module" src="./hero.js?v=2"></script>
+    <script type="module" src="./hero.js?v=3"></script>
   </head>
   <body data-active-theme="workflow">
     <a class="skip-link" href="#main-content">דלגו לתוכן הראשי</a>
@@ -47,21 +47,26 @@
                   muted
                   playsinline
                   preload="auto"
-                  poster="./assets/assembly/loader-assembly-start-exploded-v2.png"
+                  poster="./assets/assembly/loader-assembly-start.webp"
                   tabindex="-1"
                   aria-hidden="true"
                   data-assembly-video
                 >
                   <source
-                    src="./assets/assembly/loader-assembly-scroll.mp4?v=2"
+                    src="./assets/assembly/loader-assembly-scroll-mobile.mp4?v=3"
+                    media="(max-width: 47.99rem)"
+                    type="video/mp4"
+                  />
+                  <source
+                    src="./assets/assembly/loader-assembly-scroll.mp4?v=3"
                     type="video/mp4"
                   />
                 </video>
                 <img
                   class="assembly-fallback"
-                  src="./assets/assembly/loader-assembly-end-complete.png"
-                  width="1672"
-                  height="941"
+                  src="./assets/assembly/loader-assembly-end.webp"
+                  width="960"
+                  height="540"
                   alt="מעמיס אופני צהוב מורכב ומוכן לעבודה"
                   data-assembly-fallback
                 />

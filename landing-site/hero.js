@@ -34,8 +34,15 @@ const sectionLabels = {
 let duration = 0;
 let frameRequested = false;
 let activeRoleIndex = 0;
-let pendingVideoTime = null;
-let videoSeekInFlight = false;
+let videoTargetTime = 0;
+let videoScrubFrame = 0;
+let videoScrubTimestamp = 0;
+let resumeAfterSeek = null;
+let unlockedVideoSource = "";
+let unlockingVideoSource = "";
+
+const videoFrameTolerance = 1 / 120;
+const videoSmoothingMilliseconds = 55;
 
 document.body.classList.add("ux-ready");
 
@@ -56,21 +63,100 @@ function describeProgress(progress) {
   return "מפורק";
 }
 
-function flushVideoSeek() {
-  if (!video || duration <= 0 || pendingVideoTime === null) return;
+function scrubVideo(timestamp) {
+  videoScrubFrame = 0;
+  if (!video || !video.isConnected || video.readyState < 1 || duration <= 0) return;
 
-  const targetTime = pendingVideoTime;
-  pendingVideoTime = null;
+  if (video.seeking) {
+    if (!resumeAfterSeek) {
+      resumeAfterSeek = () => {
+        resumeAfterSeek = null;
+        if (!videoScrubFrame) {
+          videoScrubFrame = window.requestAnimationFrame(scrubVideo);
+        }
+      };
+      video.addEventListener("seeked", resumeAfterSeek, { once: true });
+    }
+    return;
+  }
 
-  if (Math.abs(video.currentTime - targetTime) <= 1 / 48) return;
+  const difference = videoTargetTime - video.currentTime;
+  if (Math.abs(difference) <= videoFrameTolerance) {
+    video.currentTime = videoTargetTime;
+    videoScrubTimestamp = 0;
+    return;
+  }
 
-  videoSeekInFlight = true;
-  video.currentTime = targetTime;
+  const elapsed = videoScrubTimestamp
+    ? Math.min(50, timestamp - videoScrubTimestamp)
+    : 16.667;
+  const smoothing = 1 - Math.exp(-elapsed / videoSmoothingMilliseconds);
+  videoScrubTimestamp = timestamp;
+  video.currentTime += difference * smoothing;
+  videoScrubFrame = window.requestAnimationFrame(scrubVideo);
 }
 
-function queueVideoSeek(targetTime) {
-  pendingVideoTime = targetTime;
-  if (!videoSeekInFlight) flushVideoSeek();
+function seekVideo(progress, immediate = false) {
+  if (!video) return;
+  video.dataset.scrollProgress = String(progress);
+  video.pause();
+  if (video.readyState < 1 || duration <= 0) return;
+
+  videoTargetTime = clamp(progress * duration, 0, Math.max(0, duration - 0.001));
+
+  if (immediate) {
+    if (videoScrubFrame) window.cancelAnimationFrame(videoScrubFrame);
+    if (resumeAfterSeek) {
+      video.removeEventListener("seeked", resumeAfterSeek);
+      resumeAfterSeek = null;
+    }
+    videoScrubFrame = 0;
+    videoScrubTimestamp = 0;
+    if (Math.abs(video.currentTime - videoTargetTime) > videoFrameTolerance) {
+      video.currentTime = videoTargetTime;
+    }
+    return;
+  }
+
+  if (!videoScrubFrame) {
+    videoScrubFrame = window.requestAnimationFrame(scrubVideo);
+  }
+}
+
+function unlockVideoLoading() {
+  if (!video) return;
+  const source = video.currentSrc || video.src;
+  if (!source || unlockedVideoSource === source || unlockingVideoSource === source) return;
+
+  video.muted = true;
+  const finishUnlock = () => {
+    if (unlockingVideoSource === source) unlockingVideoSource = "";
+    if (!video.isConnected) return;
+    if ((video.currentSrc || video.src) !== source) {
+      unlockVideoLoading();
+      return;
+    }
+    video.pause();
+    unlockedVideoSource = source;
+    seekVideo(Number(video.dataset.scrollProgress || 0), true);
+  };
+
+  try {
+    const playAttempt = video.play();
+    if (playAttempt?.then) {
+      unlockingVideoSource = source;
+      playAttempt
+        .then(() => window.requestAnimationFrame(finishUnlock))
+        .catch(() => {
+          if (unlockingVideoSource === source) unlockingVideoSource = "";
+        });
+      return;
+    }
+  } catch {
+    return;
+  }
+
+  finishUnlock();
 }
 
 function render() {
@@ -123,8 +209,7 @@ function render() {
   }
 
   if (video && duration > 0) {
-    const targetTime = clamp(progress * duration, 0, Math.max(0, duration - 0.02));
-    queueVideoSeek(targetTime);
+    seekVideo(progress);
   }
 }
 
@@ -142,7 +227,8 @@ function initializeVideo() {
   if (!video) return;
   duration = Number.isFinite(video.duration) ? video.duration : 0;
   video.pause();
-  render();
+  seekVideo(Number(video.dataset.scrollProgress || getProgress()), true);
+  requestRender();
 }
 
 if (video && story && !reducedMotion.matches) {
@@ -153,12 +239,9 @@ if (video && story && !reducedMotion.matches) {
     video.addEventListener("loadedmetadata", initializeVideo, { once: true });
   }
   video.addEventListener("error", showFallback);
-  video.addEventListener("seeked", () => {
-    videoSeekInFlight = false;
-    if (pendingVideoTime !== null) {
-      window.requestAnimationFrame(flushVideoSeek);
-    }
-  });
+  unlockVideoLoading();
+  window.addEventListener("touchstart", unlockVideoLoading, { passive: true });
+  window.addEventListener("pointerdown", unlockVideoLoading, { passive: true });
 } else if (reducedMotion.matches) {
   showFallback();
   completeMessage?.removeAttribute("aria-hidden");
