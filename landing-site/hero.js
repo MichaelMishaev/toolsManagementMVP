@@ -76,13 +76,20 @@ function showFallback() {
   mediaFrame?.classList.add("is-fallback");
 }
 
+function initializeVideo() {
+  if (!video) return;
+  duration = Number.isFinite(video.duration) ? video.duration : 0;
+  video.pause();
+  render();
+}
+
 if (video && story && !reducedMotion.matches) {
   video.pause();
-  video.addEventListener("loadedmetadata", () => {
-    duration = Number.isFinite(video.duration) ? video.duration : 0;
-    video.pause();
-    render();
-  });
+  if (video.readyState >= HTMLMediaElement.HAVE_METADATA) {
+    initializeVideo();
+  } else {
+    video.addEventListener("loadedmetadata", initializeVideo, { once: true });
+  }
   video.addEventListener("error", showFallback);
   window.addEventListener("scroll", requestRender, { passive: true });
   window.addEventListener("resize", requestRender, { passive: true });
