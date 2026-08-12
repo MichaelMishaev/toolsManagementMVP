@@ -1,146 +1,79 @@
-# LiftVoltraq Product Landing Page Source of Truth
+# Lift Pro 26 Israel Commercial Landing Page
 
 These instructions apply to all work under `landing-site/`.
 
-## Purpose and boundary
+## Purpose and product boundary
 
-- `landing-site/` is the public Hebrew product page for LiftVoltraq, the field-service management system defined in `docs/PRDs/PRD.md`.
-- The page explains the complete confirmed MVP: customer request, service-desk handling, technician assignment and field work, parts used, customer signature, call closure, service report, and operational history.
-- LiftVoltraq is the product. Lift Pro 26 Israel Ltd. may appear only as a customer or demo tenant and must remain visually subordinate.
-- The supplied equipment-catalogue PDFs under `catalogue/` are retained source material for a possible separate equipment-catalogue project. They are not the product source of truth for this landing page and must not drive its routes or claims unless Michael explicitly reopens that scope.
-- This remains a static HTML, CSS, and JavaScript implementation. Do not add a framework, backend, CMS, database, authentication system, analytics, or deployment architecture by assumption.
+- `landing-site/` is the public Hebrew commercial website for **Lift Pro 26 Israel Ltd.**
+- The company imports and markets forklifts, construction machinery, industrial equipment, heavy equipment, and spare parts for the Israeli market.
+- The landing page is not a marketing page for the field-service application under `../mock/`, even though both now use the Lift Pro 26 identity.
+- The service-management application and its PRD remain separate repository artifacts and must not drive this landing page's messaging, navigation, or conversion actions.
+- Keep the landing implementation static HTML, CSS, and JavaScript unless Michael explicitly approves a different stack.
 - Follow the repository-local `premium-landing-pages` skill for landing-page design and implementation work.
 
-## Product source hierarchy
+## Commercial source hierarchy
 
 Use these sources in order:
 
-1. The Apple Pages specification under `../docs/PRDs/`.
-2. `../docs/PRDs/PRD.md` for structured requirements and requirement IDs.
-3. `../docs/clientSystemAnaluse_1.html` for client-facing Hebrew wording and tone.
-4. `../design/design.md` for the approved dark-industrial LiftVoltraq visual system.
-5. `../docs/mock/PLAN.md` and `../mock/` for the implemented fictional demo flow.
+1. Company documents explicitly supplied by Michael, including the Lift Pro 26 Israel about document.
+2. Approved company catalogues under `catalogue/` for model-level and technical content.
+3. `data/site-content.json` for structured page traceability.
+4. `competitors.md` only for market and interaction reference, never as a source for company claims.
 
-If the sources conflict, report the discrepancy. Never resolve an open product question by inventing functionality or commercial wording.
+Do not use the application PRD or demo as commercial truth for this page. If company documents and catalogue specifications conflict, report the discrepancy.
 
-## Confirmed MVP coverage
+## Confirmed positioning
 
-The landing page may present these confirmed areas:
+- Brand: `Lift Pro 26 Israel`.
+- Core line: `ציוד גדול. חשיבה חדשה. מחיר שעובד בשביל העסק שלך.`
+- Audience: warehouse owners, small and medium contractors, infrastructure companies, quarries, ports, logistics operations, and other Israeli businesses that need working equipment.
+- Product range: electric and diesel forklifts, telescopic handlers, excavators, loaders, quarry and port equipment, logistics equipment, and heavy tools for infrastructure projects.
+- Value mechanism: direct international sourcing, fewer intermediary layers, lean operating structure, competitive pricing, local warranty/service, and spare-parts sourcing.
+- Named international relationships in the supplied company document: `LOVOL` and `NICOSAIL`.
+- Named Israeli working relationship in the supplied company document: Olnik Group, presented as a relationship intended to learn field needs and develop suitable solutions.
 
-- customer login/personal area, equipment list, new call, photos, active calls, history, and reports (`FR-1.1`–`FR-1.8`);
-- service-desk queue, review, urgency, technician assignment, scheduling, internal notes, and in-system closure notification (`FR-2.1`–`FR-2.7`);
-- assigned calls, customer/site/equipment/fault context, status changes, treatment summary, completion photos, parts, signature, and closure (`FR-3.1`–`FR-3.10`);
-- customers, contacts, sites, equipment records, and service history (`FR-4.1`–`FR-4.6`);
-- basic parts catalogue, name/SKU search, and parts-used records (`FR-5.1`–`FR-5.4`);
-- the complete status lifecycle, structured service report, call history/audit events, and in-system notifications;
-- initial setup inputs for customers, contacts, sites, equipment, technicians, fault types, parts, and report wording;
-- the intended PWA delivery model when the application is implemented.
+## Claims and trust boundaries
 
-The page must explain the full product coherently rather than presenting a disconnected set of feature claims.
+- Do not invent model specifications, prices, stock availability, delivery times, financing terms, warranties, certifications, customer counts, testimonials, or contact details.
+- The document states that spare-parts costs may in many cases be approximately 35%-40% lower than customary official-importer pricing. Always retain the qualification that the result depends on the part, model, and supply source.
+- Do not imply exclusive distribution rights unless a supplied agreement explicitly proves exclusivity.
+- Do not describe the assembly-animation machine as a named catalogue model or derive technical specifications from it.
+- Company registration details found on third-party websites are not approved marketing copy unless Michael explicitly adds them to the source set.
 
-## Scope that must not be advertised as MVP
+## Catalogue experience
 
-Do not present these as current MVP functionality:
-
-- complete warehouse inventory, purchasing, or parts ordering;
-- invoices, accounting, ERP, or Ituran integrations;
-- automatic WhatsApp or SMS sending;
-- full offline operation;
-- complete preventive-maintenance scheduling;
-- store-published native apps;
-- video attachments as a core service-call feature;
-- QR equipment call opening or other future-phase items.
-
-The following remain open or candidate requirements and may be mentioned only as unresolved: structured fault categories, an exact equipment-category taxonomy, technician identity as a formal report field, in-app navigation, customer documents, and customer settings.
-
-## Audience and conversion goal
-
-- The audience is an equipment-service company evaluating LiftVoltraq for its customers, service desk, technicians, managers, and parts staff.
-- The page should make the end-to-end service workflow understandable and lead the visitor to the existing interactive demo under `../mock/`.
-- The primary action is to open the interactive demo. The structured Hebrew specification is a secondary information action.
-- Contact method, form handling, phone number, WhatsApp destination, price, availability, implementation timeline, warranties, customer counts, performance metrics, and other commercial claims remain undecided. Do not invent them.
-- Clearly identify fictional demo data and do not imply that the static demo stores or transmits real customer data.
+- Raw PDF files are source/download artifacts, not the primary customer experience.
+- Catalogue models and specifications must be presented as designed semantic HTML pages or components that customers can browse without downloading a PDF.
+- Each designed catalogue entry may include a clearly labeled PDF download link to its source file.
+- Preserve exact model names, units, tables, warnings, and technical qualifications from the source PDF.
+- Do not expose a bare directory listing or build the catalogue as PDF thumbnails alone.
 
 ## Page structure
 
-Keep this complete conversion flow unless the PRD changes:
+Keep this commercial flow unless later source material changes it:
 
-1. Assembly hero — an industrial metaphor for the product’s connected workflow.
-2. End-to-end service-call workflow.
-3. Five product roles and their distinct responsibilities.
-4. Technician field-work experience and the next-call hierarchy.
-5. Structured service report and audit history.
-6. Explicit MVP inclusions, exclusions, and unresolved product decisions.
-7. Final action into the interactive multi-role demo.
+1. Assembly hero - direct-import equipment becoming ready for work.
+2. Equipment categories and customer use cases.
+3. Direct-import and ownership value proposition.
+4. International manufacturers and Israeli field relationships.
+5. Warranty, service, maintenance, and spare-parts value.
+6. Company origin story and long-term vision.
+7. Clear movement toward equipment selection or an approved contact channel.
 
-Each major section must have one clear message. Remove repeated marketing copy or claims that are not traceable to the PRD.
+## Language, identity, and motion
 
-## Approved assembly hero
+- Keep `lang="he"` and `dir="rtl"` at document level and use natural professional Hebrew.
+- Use the canonical badge/logo directly from `../assets/brand/`; do not create or copy alternative logos.
+- Preserve the approved black industrial visual language: near-black and charcoal fields, off-white text, and lime as the primary interaction accent.
+- The assembly hero is an approved exception: native scrolling may scrub one sticky video in both directions. Never intercept input, autoplay continuously, or keep changing frames after scrolling stops.
+- Serve responsive video assets, preserve the mobile loading unlock, and keep the complete static frame for reduced motion and media failure.
+- Major content sections may transition among accessible dark industrial background tones over 500-800ms.
+- Entrance reveals must run once, remain subtle, and be disabled under `prefers-reduced-motion`.
 
-- The opening assembly hero is a Michael-approved exception to the landing-page skill's ban on scroll-controlled video and pinned storytelling.
-- It may use one sticky viewport segment while native page scroll deterministically scrubs the supplied assembly video down and back up.
-- Never intercept wheel, touch, keyboard, browser-find, anchor, or scrollbar input.
-- Never autoplay or loop the video.
-- Stop changing frames whenever scrolling stops.
-- Under `prefers-reduced-motion: reduce`, replace the scrubbed video with the complete static frame and show all essential copy without scroll-dependent reveals.
-- The machine image is a visual metaphor, not a named catalogue model. Do not derive technical claims from it.
+## Accessibility and verification
 
-## Language and visual direction
-
-- Keep `lang="he"` and `dir="rtl"` at document level.
-- Write concise, natural professional Hebrew.
-- Keep model names, call numbers, times, units, `PWA`, and other LTR runs directionally stable.
-- Use the dark-industrial LiftVoltraq design tokens from `../design/design.md`: near-black and charcoal surfaces, off-white text, and lime green as the only interaction accent.
-- Build mobile-first and preserve logical DOM order across breakpoints.
-- Use large editorial typography, generous whitespace, deliberate alignment, and actual product/workflow content rather than decorative card grids.
-- Use the canonical logo directly from `../assets/brand/`; do not copy, redraw, recolor, or regenerate it.
-
-## Motion and section backgrounds
-
-- Preserve native scrolling everywhere outside the approved hero scrub.
-- Assign every major section an accessible charcoal-family palette and transition the global content shell as the active section crosses a center-biased activation zone.
-- Make activation deterministic in both directions; reverse scrolling must restore previous colors.
-- Keep section background and foreground transitions in the `500–800ms` range.
-- Reveal meaningful content groups once using opacity and a `16px` vertical offset over `400–600ms`.
-- Do not replay entrance reveals on reverse scroll.
-- Do not add another sticky storytelling section, parallax, animated background, continuous decorative motion, or heavy animation library.
-- Respect changes to `prefers-reduced-motion` and keep all content visible if JavaScript is unavailable.
-
-## Accessibility and trust
-
-- Use semantic landmarks, correctly ordered headings, native links, and descriptive Hebrew control names.
-- Keep a visible-on-focus skip link and a visible `:focus-visible` treatment against every active palette.
-- Maintain at least 44px touch targets.
-- Meet WCAG AA contrast for text and essential UI boundaries.
-- Do not rely on color alone for urgency, status, inclusion, or exclusion.
-- Keep the hidden hero-resolution action inert until its message is visibly active.
-- Avoid horizontal overflow at all supported widths.
-- Preserve usable copy, navigation, and demo links when animation or JavaScript is disabled.
-
-## Current local implementation
-
-- Entry document: `index.html`.
-- Styles and palettes: `styles.css`.
-- Hero scrub, section activation, and one-time reveals: `hero.js`.
-- Structured content traceability: `data/site-content.json`.
-- Assembly media: `assets/assembly/`.
-- Primary destination: `../mock/`.
-
-The implementation has no package manager, build step, linter, or automated test suite.
-
-## Verification gates
-
-Before calling the page complete:
-
-1. Reconcile all visible product claims against the PRD and its explicit MVP exclusions.
-2. Confirm the assembly hero scrubs from start to finish and back to the start without intercepting native input.
-3. Scroll down and back up through every marketing section and confirm the correct palette activates in both directions.
-4. Confirm entrance reveals run once and do not replay on reverse scroll.
-5. Test representative desktop and narrow mobile viewports for wrapping, touch targets, RTL behavior, and horizontal overflow.
-6. Test reduced-motion behavior: static complete hero frame, visible content, no reveal motion, and functioning palette updates.
-7. Verify keyboard focus treatment on all relevant links and actions.
-8. Confirm the interactive demo and Hebrew specification links resolve locally.
-9. Confirm the browser console has no warnings or errors.
-10. Run `node --check landing-site/hero.js`, parse `landing-site/data/site-content.json`, and run `git diff --check`.
-
-Report the section/color flow, PRD coverage, changed files, browser checks, and any unverified behavior or unresolved business decision.
+- Use semantic landmarks, ordered headings, native links, visible focus states, and at least 44px touch targets.
+- Meet WCAG AA contrast and preserve logical DOM order across breakpoints.
+- Avoid horizontal overflow and keep essential content usable without JavaScript.
+- Before completion, verify desktop, narrow mobile, reverse scrolling, reduced motion, keyboard navigation, media loading, console output, and all approved destinations.
+- Run `node --check landing-site/hero.js`, parse `landing-site/data/site-content.json`, run the Impeccable detector once, and run `git diff --check`.

@@ -1,66 +1,72 @@
 {
   "brand": {
-    "name": "LiftVoltraq",
+    "name": "Lift Pro 26 Israel",
     "language": "he",
     "direction": "rtl",
-    "logo": "../assets/brand/liftvoltraq-badge-transparent-v2.png",
+    "logo": "../assets/brand/lift-pro-26-logo-client.png",
+    "tagline": "ציוד גדול. חשיבה חדשה. מחיר שעובד בשביל העסק שלך.",
     "palette": {
       "background": "#070A0C",
       "surface": "#141A1D",
-      "ink": "#F3F6F4",
-      "muted": "#B3BCBE",
+      "ink": "#F4F7F4",
+      "muted": "#B5BEC0",
       "accent": "#9BCB42",
       "focus": "#C9F77E"
-    },
-    "usage": "Field-service product identity across the landing page and interactive customer demo"
+    }
+  },
+  "business": {
+    "purpose": "Import and market forklifts, construction machinery, heavy equipment and spare parts for Israeli businesses at competitive prices with local warranty and service.",
+    "audiences": [
+      "warehouse owners",
+      "small and medium contractors",
+      "infrastructure companies",
+      "quarries",
+      "ports",
+      "logistics operations"
+    ],
+    "equipmentCategories": [
+      "electric and diesel forklifts",
+      "telescopic handlers",
+      "excavators",
+      "wheel loaders",
+      "quarry and port equipment",
+      "logistics and infrastructure equipment"
+    ],
+    "manufacturerRelationships": ["LOVOL", "NICOSAIL"],
+    "israeliFieldRelationship": "Olnik Group",
+    "qualifiedPartsClaim": "In many cases, spare parts may cost approximately 35%-40% less than customary official-importer pricing, depending on the part, model and supply source."
   },
   "hero": {
-    "title": "הכוח נמצא בפרטים.",
-    "description": "מערכת שירות שטח שמחברת בין הלקוח, המוקד, הטכנאי והציוד — מהדיווח הראשון ועד לדוח שירות חתום.",
-    "resolution": "כשהכול מתחבר מתקבלת תמונה מלאה של השירות — ברורה ללקוח ושימושית לצוות.",
-    "interaction": "Native scroll scrubs the loader assembly in both directions; no autoplay or scroll interception"
+    "title": "ציוד גדול. מחיר שעובד.",
+    "description": "מלגזות, צמ״ה וציוד כבד ביבוא ישיר, עם אחריות, שירות וחלפים.",
+    "interaction": "Native scroll scrubs the loader assembly in both directions; responsive video is unlocked on mobile interaction and never autoplays continuously."
   },
   "landingPage": {
     "primaryAction": {
-      "label": "התחילו את ההדגמה",
-      "href": "../mock/"
+      "label": "מצאו את הכלי שלכם",
+      "href": "#equipment"
     },
     "sections": [
-      "hero",
-      "service-workflow",
-      "roles",
-      "technician-field-work",
-      "service-report-and-audit",
-      "mvp-boundaries",
-      "interactive-demo"
-    ],
-    "prdCoverage": [
-      "FR-1.1-FR-1.8",
-      "FR-2.1-FR-2.7",
-      "FR-3.1-FR-3.10",
-      "FR-4.1-FR-4.6",
-      "FR-5.1-FR-5.4",
-      "service-call-status-lifecycle",
-      "service-report",
-      "audit-trail",
-      "in-system-notifications",
-      "initial-setup-and-client-inputs",
-      "mvp-exclusions"
+      "assembly-hero",
+      "equipment-categories",
+      "direct-import-advantage",
+      "manufacturers-and-field-relationships",
+      "service-and-spare-parts",
+      "company-story",
+    "equipment-selection-brief"
     ]
   },
-  "media": {
-    "startFrame": "assets/assembly/loader-assembly-start-exploded-v2.png",
-    "endFrame": "assets/assembly/loader-assembly-end-complete.png",
-    "video": "assets/assembly/loader-assembly-scroll.mp4",
-    "higgsfieldJobId": "0307d9ff-03d3-4620-acf7-bcf95d9c070a",
-    "productStatus": "visual-metaphor-not-catalogue-model"
+  "catalogue": {
+    "sourceDirectory": "../catalogue/",
+    "customerExperience": "designed semantic HTML with optional source-PDF downloads",
+    "status": "model-level catalogue pages not yet implemented"
   },
   "openDecisions": [
-    "Primary commercial contact destination",
-    "Fault taxonomy owner and approved urgency scale",
-    "Photo count and size limits",
-    "Awaiting-parts SLA behavior",
-    "Customer cancellation permission",
-    "Service-report branding variability"
+    "Approved commercial phone number",
+    "Approved commercial email address",
+    "Approved WhatsApp destination",
+    "Lead-form handling destination",
+    "Verified warranty terms by model",
+    "Verified inventory and delivery-time data"
   ]
 }
