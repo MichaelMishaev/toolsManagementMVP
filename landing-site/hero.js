@@ -267,9 +267,11 @@ function getActiveRoleIndex() {
 
 function updateRoleControls() {
   if (!roleCards.length) return;
-  activeRoleIndex = getActiveRoleIndex();
+  const nextRoleIndex = getActiveRoleIndex();
+  const roleChanged = nextRoleIndex !== activeRoleIndex;
+  activeRoleIndex = nextRoleIndex;
 
-  if (rolePosition) {
+  if (rolePosition && roleChanged) {
     rolePosition.value = `${activeRoleIndex + 1} / ${roleCards.length}`;
     rolePosition.textContent = `${activeRoleIndex + 1} / ${roleCards.length}`;
   }
