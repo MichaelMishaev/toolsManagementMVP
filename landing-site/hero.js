@@ -34,6 +34,8 @@ const sectionLabels = {
 let duration = 0;
 let frameRequested = false;
 let activeRoleIndex = 0;
+let pendingVideoTime = null;
+let videoSeekInFlight = false;
 
 document.body.classList.add("ux-ready");
 
@@ -52,6 +54,23 @@ function describeProgress(progress) {
   if (progress >= 0.62) return "הרכבה סופית";
   if (progress >= 0.24) return "מתחבר";
   return "מפורק";
+}
+
+function flushVideoSeek() {
+  if (!video || duration <= 0 || pendingVideoTime === null) return;
+
+  const targetTime = pendingVideoTime;
+  pendingVideoTime = null;
+
+  if (Math.abs(video.currentTime - targetTime) <= 1 / 48) return;
+
+  videoSeekInFlight = true;
+  video.currentTime = targetTime;
+}
+
+function queueVideoSeek(targetTime) {
+  pendingVideoTime = targetTime;
+  if (!videoSeekInFlight) flushVideoSeek();
 }
 
 function render() {
@@ -105,9 +124,7 @@ function render() {
 
   if (video && duration > 0) {
     const targetTime = clamp(progress * duration, 0, Math.max(0, duration - 0.02));
-    if (Math.abs(video.currentTime - targetTime) > 1 / 48) {
-      video.currentTime = targetTime;
-    }
+    queueVideoSeek(targetTime);
   }
 }
 
@@ -136,6 +153,12 @@ if (video && story && !reducedMotion.matches) {
     video.addEventListener("loadedmetadata", initializeVideo, { once: true });
   }
   video.addEventListener("error", showFallback);
+  video.addEventListener("seeked", () => {
+    videoSeekInFlight = false;
+    if (pendingVideoTime !== null) {
+      window.requestAnimationFrame(flushVideoSeek);
+    }
+  });
 } else if (reducedMotion.matches) {
   showFallback();
   completeMessage?.removeAttribute("aria-hidden");
