@@ -78,7 +78,7 @@ a {
 
 .assembly-story {
   position: relative;
-  height: 310svh;
+  height: 210svh;
   background: var(--page);
 }
 
@@ -318,7 +318,7 @@ h1 span {
 
 @media (min-width: 48rem) {
   .assembly-story {
-    height: 330svh;
+    height: 220svh;
   }
 
   .site-header {
