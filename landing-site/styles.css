@@ -356,6 +356,40 @@ h1 span {
   }
 }
 
+@media (min-width: 48rem) and (max-height: 50rem) {
+  .hero-layout {
+    inset-block: 7rem 1.5rem;
+  }
+
+  .assembly-stage {
+    height: min(68svh, 34rem);
+  }
+
+  .hero-copy {
+    min-height: 23.5rem;
+    padding-block-start: 0.75rem;
+  }
+
+  .hero-message {
+    inset-block-start: 0.75rem;
+  }
+
+  h1,
+  .resolution-title {
+    font-size: clamp(3.25rem, 6.25vw, 4.75rem);
+  }
+
+  .hero-message > p:not(.resolution-title) {
+    margin-block-start: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .scroll-progress {
+    inset-block-end: 0.5rem;
+  }
+}
+
 @media (max-width: 30rem) {
   .header-status {
     max-width: 8rem;
