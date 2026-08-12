@@ -253,6 +253,7 @@ video {
 .icon--urgent { -webkit-mask-image: url("icons/warning.svg"); mask-image: url("icons/warning.svg"); }
 .icon--site { -webkit-mask-image: url("icons/buildings.svg"); mask-image: url("icons/buildings.svg"); }
 .icon--fault { -webkit-mask-image: url("icons/wrench.svg"); mask-image: url("icons/wrench.svg"); }
+.icon--back { -webkit-mask-image: url("icons/caret-left.svg"); mask-image: url("icons/caret-left.svg"); }
 
 .workspace {
   inline-size: min(100%, var(--size-content-max));
@@ -266,6 +267,30 @@ video {
   justify-content: space-between;
   gap: var(--space-lg);
   margin-block-end: var(--space-2xl);
+}
+
+.page-back {
+  display: inline-flex;
+  min-block-size: var(--size-tap);
+  align-items: center;
+  gap: var(--space-xs);
+  margin-block-end: var(--space-md);
+  padding-inline: var(--space-xs);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+}
+
+.page-back:hover {
+  color: var(--color-accent-strong);
+  background: var(--color-accent-muted);
+}
+
+.page-back .icon {
+  inline-size: 1.1rem;
+  block-size: 1.1rem;
 }
 
 .page-heading__date {

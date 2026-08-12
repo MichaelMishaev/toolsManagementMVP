@@ -1,252 +1,146 @@
-# Landing Site Source of Truth
+# LiftVoltraq Product Landing Page Source of Truth
 
-These instructions apply to all work under `landing-site/`. They capture the decisions made for the public marketing website and catalogue.
+These instructions apply to all work under `landing-site/`.
 
-## Purpose and Boundary
+## Purpose and boundary
 
-- `landing-site/` is the dedicated home for the public-facing equipment website. Keep it separate from `docs/`, which contains the field-service product specification and client presentation.
-- The site is for an Israeli company selling or presenting heavy mechanical equipment, including excavators, loaders, electric loaders, and spare parts. Do not reinterpret it as an elevator-service website.
-- The website must help a prospective customer understand the available equipment, compare relevant specifications, and make an enquiry.
-- The public website and catalogue are not the field-service management application described in `docs/PRDs/PRD.md`. Do not mix their routes, roles, workflows, or requirements unless explicitly requested.
-- This repository does not yet define a landing-site framework or architecture. Before implementation, inspect the current repository and use the smallest suitable approach. Do not add a framework, backend, CMS, database, authentication system, or deployment architecture by assumption.
-- Follow the repository-local `premium-landing-pages` skill for all landing-page design and implementation work.
-- The opening assembly hero is an explicit, Michael-approved exception to that skill's ban on scroll-controlled video and pinned storytelling. It may use one sticky viewport segment while native page scroll deterministically scrubs the supplied assembly video down and back up. Never intercept wheel, touch, keyboard, or scrollbar input; never autoplay or loop the video; stop changing frames whenever scroll stops; and replace the interaction with the complete static frame under `prefers-reduced-motion: reduce`.
+- `landing-site/` is the public Hebrew product page for LiftVoltraq, the field-service management system defined in `docs/PRDs/PRD.md`.
+- The page explains the complete confirmed MVP: customer request, service-desk handling, technician assignment and field work, parts used, customer signature, call closure, service report, and operational history.
+- LiftVoltraq is the product. Lift Pro 26 Israel Ltd. may appear only as a customer or demo tenant and must remain visually subordinate.
+- The supplied equipment-catalogue PDFs under `catalogue/` are retained source material for a possible separate equipment-catalogue project. They are not the product source of truth for this landing page and must not drive its routes or claims unless Michael explicitly reopens that scope.
+- This remains a static HTML, CSS, and JavaScript implementation. Do not add a framework, backend, CMS, database, authentication system, analytics, or deployment architecture by assumption.
+- Follow the repository-local `premium-landing-pages` skill for landing-page design and implementation work.
 
-## Current Inputs
+## Product source hierarchy
 
-- `catalogue/` contains the original manufacturer and supplier PDFs. They are authoritative source material for product images, model names, part numbers, measurements, units, and technical specifications.
-- `competitors.md` contains the approved market-reference list.
-- Current competitor references are:
-  - `https://ge-sany.co.il/`
-  - `https://www.feldman.co.il/`
-  - `https://comasco.co.il/`
-  - `https://vce.co.il/`
-  - `https://www.czapnik.co.il/`
-- Use `https://msx.co.il/` only as inspiration for the global section-background transition behavior described below.
-- Competitor sites are research references only. Do not copy their wording, brand identity, page composition, code, imagery, or catalogue content. Confirm usage rights before reusing any third-party asset.
-- `../assets/brand/` is the only canonical logo directory. Reference its files directly; do not create optimized, copied, or renamed logo assets inside `landing-site/`, `design/`, `mock/`, or other folders.
+Use these sources in order:
 
-## Product and Conversion Goal
+1. The Apple Pages specification under `../docs/PRDs/`.
+2. `../docs/PRDs/PRD.md` for structured requirements and requirement IDs.
+3. `../docs/clientSystemAnaluse_1.html` for client-facing Hebrew wording and tone.
+4. `../design/design.md` for the approved dark-industrial LiftVoltraq visual system.
+5. `../docs/mock/PLAN.md` and `../mock/` for the implemented fictional demo flow.
 
-- Present the company as a credible, professional equipment supplier with a clear, modern catalogue.
-- Make equipment discovery faster and easier than a large dropdown menu or a folder of brochures.
-- Use one primary conversion action throughout the experience, normally a product-specific enquiry or request for a quote. The exact contact method, destination, phone number, WhatsApp number, form handling, and commercial wording remain undecided until Michael confirms them.
-- Never invent prices, availability, delivery times, warranties, certifications, years of experience, customer counts, service coverage, exclusive-distributor status, testimonials, or other business claims.
-- Keep secondary actions subordinate. Downloading a catalogue is secondary to understanding a product and making an enquiry.
+If the sources conflict, report the discrepancy. Never resolve an open product question by inventing functionality or commercial wording.
 
-## Recommended Information Architecture
+## Confirmed MVP coverage
 
-Use this as the current direction, adapting only when the extracted catalogue proves that another grouping is needed:
+The landing page may present these confirmed areas:
 
-- `/` - marketing homepage;
-- `/catalogue` - designed HTML catalogue index with categories, search, and useful filters;
-- `/catalogue/excavators` - excavator category;
-- `/catalogue/wheel-loaders` - wheel-loader category;
-- `/catalogue/electric-wheel-loaders` - electric-loader category;
-- `/catalogue/spare-parts` - searchable parts catalogue;
-- `/catalogue/{category}/{model}` - individual HTML product page;
-- `/service-and-parts` - service, maintenance, and parts proposition when verified content exists;
-- `/contact` - concise enquiry path.
+- customer login/personal area, equipment list, new call, photos, active calls, history, and reports (`FR-1.1`–`FR-1.8`);
+- service-desk queue, review, urgency, technician assignment, scheduling, internal notes, and in-system closure notification (`FR-2.1`–`FR-2.7`);
+- assigned calls, customer/site/equipment/fault context, status changes, treatment summary, completion photos, parts, signature, and closure (`FR-3.1`–`FR-3.10`);
+- customers, contacts, sites, equipment records, and service history (`FR-4.1`–`FR-4.6`);
+- basic parts catalogue, name/SKU search, and parts-used records (`FR-5.1`–`FR-5.4`);
+- the complete status lifecycle, structured service report, call history/audit events, and in-system notifications;
+- initial setup inputs for customers, contacts, sites, equipment, technicians, fault types, parts, and report wording;
+- the intended PWA delivery model when the application is implemented.
 
-Do not create empty routes merely to match this list. Add other categories only after identifying real products in the supplied source material.
+The page must explain the full product coherently rather than presenting a disconnected set of feature claims.
 
-## Homepage Structure
+## Scope that must not be advertised as MVP
 
-Prefer a concise conversion flow:
+Do not present these as current MVP functionality:
 
-1. Hero - a clear Hebrew value proposition, one strong equipment image, and the primary CTA.
-2. Equipment categories - direct visual entry to the catalogue.
-3. Featured models - a small, deliberate selection rather than an indiscriminate grid.
-4. Trust or company proof - only verified facts, brands, certifications, service capabilities, or other evidence.
-5. Service and spare parts - explain the local support proposition when confirmed.
-6. Objection handling - answer the few questions that block an enquiry.
-7. Final CTA/contact - restate the value and provide one obvious next action.
+- complete warehouse inventory, purchasing, or parts ordering;
+- invoices, accounting, ERP, or Ituran integrations;
+- automatic WhatsApp or SMS sending;
+- full offline operation;
+- complete preventive-maintenance scheduling;
+- store-published native apps;
+- video attachments as a core service-call feature;
+- QR equipment call opening or other future-phase items.
 
-Give each section one message and one conversion purpose. Remove sections that repeat another section without adding evidence or clarity.
+The following remain open or candidate requirements and may be mentioned only as unresolved: structured fault categories, an exact equipment-category taxonomy, technician identity as a formal report field, in-app navigation, customer documents, and customer settings.
 
-## HTML Catalogue Is the Product Experience
+## Audience and conversion goal
 
-- Treat every PDF in `catalogue/` as input material, not as the customer-facing catalogue.
-- Customers must be able to browse and understand the catalogue as designed, responsive HTML without opening or downloading a PDF.
-- Build real HTML category pages, product cards, individual product pages, specification tables, search, and filters.
-- Do not embed a PDF viewer or reproduce the brochure page-by-page in the browser.
-- A PDF download must never be the only way to see product information.
+- The audience is an equipment-service company evaluating LiftVoltraq for its customers, service desk, technicians, managers, and parts staff.
+- The page should make the end-to-end service workflow understandable and lead the visitor to the existing interactive demo under `../mock/`.
+- The primary action is to open the interactive demo. The structured Hebrew specification is a secondary information action.
+- Contact method, form handling, phone number, WhatsApp destination, price, availability, implementation timeline, warranties, customer counts, performance metrics, and other commercial claims remain undecided. Do not invent them.
+- Clearly identify fictional demo data and do not imply that the static demo stores or transmits real customer data.
 
-### Category Pages
+## Page structure
 
-- Show a clear category introduction and a scannable product grid or list.
-- Each product card should use a real product image and show the model, product type, a few decision-useful specifications, and a clear link to the product page.
-- Add filters only when the source data supports accurate, useful comparison. Examples may include operating weight, power, bucket capacity, equipment type, compatible brand, or part category.
-- Search and filter results must remain usable with keyboard and touch input and must expose a helpful empty state.
+Keep this complete conversion flow unless the PRD changes:
 
-### Product Pages
+1. Assembly hero — an industrial metaphor for the product’s connected workflow.
+2. End-to-end service-call workflow.
+3. Five product roles and their distinct responsibilities.
+4. Technician field-work experience and the next-call hierarchy.
+5. Structured service report and audit history.
+6. Explicit MVP inclusions, exclusions, and unresolved product decisions.
+7. Final action into the interactive multi-role demo.
 
-Include, when the source provides the information:
+Each major section must have one clear message. Remove repeated marketing copy or claims that are not traceable to the PRD.
 
-- product name and exact model identifier;
-- category and breadcrumb navigation;
-- optimized image gallery;
-- short natural-Hebrew explanation of what the machine is for;
-- four or five important specifications near the top;
-- complete semantic HTML specification tables grouped by topic;
-- suitable applications, compatible equipment, or attachments when verified;
-- product-specific enquiry or quote action;
-- related products when the relationship is supported by the catalogue;
-- an optional `Download original catalogue (PDF)` action near the lower-detail area.
+## Approved assembly hero
 
-### Spare-Parts Catalogue
+- The opening assembly hero is a Michael-approved exception to the landing-page skill's ban on scroll-controlled video and pinned storytelling.
+- It may use one sticky viewport segment while native page scroll deterministically scrubs the supplied assembly video down and back up.
+- Never intercept wheel, touch, keyboard, browser-find, anchor, or scrollbar input.
+- Never autoplay or loop the video.
+- Stop changing frames whenever scrolling stops.
+- Under `prefers-reduced-motion: reduce`, replace the scrubbed video with the complete static frame and show all essential copy without scroll-dependent reveals.
+- The machine image is a visual metaphor, not a named catalogue model. Do not derive technical claims from it.
 
-- Convert large parts PDFs into searchable or filterable HTML product listings.
-- Show a product image, exact part number, part name or type, compatible brand/model information, and an enquiry action when available.
-- Do not expose hundreds of parts as screenshots of brochure pages.
-- Do not infer compatibility from appearance alone. Ambiguous compatibility must be flagged for review.
+## Language and visual direction
 
-## Prohibited PDF Presentation
+- Keep `lang="he"` and `dir="rtl"` at document level.
+- Write concise, natural professional Hebrew.
+- Keep model names, call numbers, times, units, `PWA`, and other LTR runs directionally stable.
+- Use the dark-industrial LiftVoltraq design tokens from `../design/design.md`: near-black and charcoal surfaces, off-white text, and lime green as the only interaction accent.
+- Build mobile-first and preserve logical DOM order across breakpoints.
+- Use large editorial typography, generous whitespace, deliberate alignment, and actual product/workflow content rather than decorative card grids.
+- Use the canonical logo directly from `../assets/brand/`; do not copy, redraw, recolor, or regenerate it.
 
-Do not:
+## Motion and section backgrounds
 
-- embed a PDF viewer as the main catalogue experience;
-- display a raw PDF in an iframe;
-- require a download before customers can view specifications;
-- use screenshots of complete PDF pages as category or product pages;
-- automatically convert the printed PDF layout into unstructured or inaccessible HTML;
-- expose a directory-style list of PDF filenames as the public catalogue;
-- load entire PDFs during ordinary HTML browsing;
-- represent a PDF page image as selectable or searchable product information.
+- Preserve native scrolling everywhere outside the approved hero scrub.
+- Assign every major section an accessible charcoal-family palette and transition the global content shell as the active section crosses a center-biased activation zone.
+- Make activation deterministic in both directions; reverse scrolling must restore previous colors.
+- Keep section background and foreground transitions in the `500–800ms` range.
+- Reveal meaningful content groups once using opacity and a `16px` vertical offset over `400–600ms`.
+- Do not replay entrance reveals on reverse scroll.
+- Do not add another sticky storytelling section, parallax, animated background, continuous decorative motion, or heavy animation library.
+- Respect changes to `prefers-reduced-motion` and keep all content visible if JavaScript is unavailable.
 
-## PDF Extraction and Content Accuracy
+## Accessibility and trust
 
-- Extract and normalize the useful content; do not reproduce the print layout literally.
-- Preserve model names, measurements, units, part numbers, engine identifiers, capacities, and technical values exactly as supplied.
-- Never guess a missing value or silently correct suspicious source data.
-- Flag unreadable, contradictory, duplicated, or uncertain content before publishing it as fact.
-- Where multiple PDFs describe the same model, reconcile them explicitly and record the chosen source rather than silently merging conflicting values.
-- Translate or rewrite customer-facing prose into natural Hebrew while preserving technical meaning. Do not translate model identifiers, part numbers, or units.
-- Keep a traceable source association for every HTML product and part record, including its source PDF and relevant page or spread where practical.
-- Use structured catalogue data as the rendering source instead of hardcoding repeated specifications independently across cards and detail pages.
-- Changes to structured data must update every consuming view consistently.
+- Use semantic landmarks, correctly ordered headings, native links, and descriptive Hebrew control names.
+- Keep a visible-on-focus skip link and a visible `:focus-visible` treatment against every active palette.
+- Maintain at least 44px touch targets.
+- Meet WCAG AA contrast for text and essential UI boundaries.
+- Do not rely on color alone for urgency, status, inclusion, or exclusion.
+- Keep the hidden hero-resolution action inert until its message is visibly active.
+- Avoid horizontal overflow at all supported widths.
+- Preserve usable copy, navigation, and demo links when animation or JavaScript is disabled.
 
-## Images and Assets
+## Current local implementation
 
-- Reuse legitimate product photography from the supplied PDFs when its resolution, crop, and usage rights are suitable.
-- Extract product imagery as standalone optimized web assets; do not ship full brochure pages as images.
-- Preserve aspect ratio and avoid stretching, low-resolution enlargement, careless background removal, or crops that hide important machine details.
-- Use responsive image sizes, explicit width and height, and lazy loading below the fold.
-- Write useful Hebrew alt text for informative images. Use empty alt text for purely decorative duplicates.
-- When suitable source imagery is unavailable, obtain or generate a real visual asset through the approved design workflow. Do not use placeholder boxes, emoji, CSS drawings, or fake equipment silhouettes.
+- Entry document: `index.html`.
+- Styles and palettes: `styles.css`.
+- Hero scrub, section activation, and one-time reveals: `hero.js`.
+- Structured content traceability: `data/site-content.json`.
+- Assembly media: `assets/assembly/`.
+- Primary destination: `../mock/`.
 
-## Original PDF Downloads
+The implementation has no package manager, build step, linter, or automated test suite.
 
-- Preserve original PDF files without destructive modification.
-- Provide an original PDF only as an optional secondary download from the related category or product context.
-- Use a clear customer-facing label such as `הורדת הקטלוג המקורי (PDF)` rather than exposing an unclear source filename.
-- Show that the file is a PDF and show file size when useful, especially for large downloads.
-- Make sure each download points to the correct original file and does not silently replace it with a lower-quality export.
-- Use stable public URLs or mappings even when source filenames contain spaces, Chinese characters, or other non-Latin text.
-- Do not rename or reorganize source PDFs destructively without preserving a traceable mapping from the original file.
+## Verification gates
 
-## Language and Layout
+Before calling the page complete:
 
-- The public site is Hebrew-first and RTL. Use `lang="he"` and `dir="rtl"` at the document level unless a deliberately localized route requires otherwise.
-- Write natural, professional Hebrew rather than literal machine translation.
-- Keep recognized technical terms, Latin model names, numbers, and units directionally stable inside RTL content.
-- Build mobile-first, then increase whitespace and composition sophistication on larger screens.
-- Preserve logical DOM and reading order when visual positioning changes across breakpoints.
+1. Reconcile all visible product claims against the PRD and its explicit MVP exclusions.
+2. Confirm the assembly hero scrubs from start to finish and back to the start without intercepting native input.
+3. Scroll down and back up through every marketing section and confirm the correct palette activates in both directions.
+4. Confirm entrance reveals run once and do not replay on reverse scroll.
+5. Test representative desktop and narrow mobile viewports for wrapping, touch targets, RTL behavior, and horizontal overflow.
+6. Test reduced-motion behavior: static complete hero frame, visible content, no reveal motion, and functioning palette updates.
+7. Verify keyboard focus treatment on all relevant links and actions.
+8. Confirm the interactive demo and Hebrew specification links resolve locally.
+9. Confirm the browser console has no warnings or errors.
+10. Run `node --check landing-site/hero.js`, parse `landing-site/data/site-content.json`, and run `git diff --check`.
 
-## Visual Direction
-
-- Use a clean, premium industrial design rather than a generic template.
-- Prefer large editorial typography, strong hierarchy, generous whitespace, deliberate alignment, and a minimal confident composition.
-- Use large real machinery photography as the primary visual language.
-- Use the dark-industrial LiftVoltraq system in `../design/design.md`: near-black and charcoal surfaces, off-white text, and lime green as the only interaction accent. Keep sections within the charcoal family and do not introduce a separate marketing palette.
-- Make categories and key product facts easier to scan than on the competitor references.
-- Avoid enormous navigation trees. Use clear top-level navigation, visual categories, search, and contextual filtering.
-- Make the primary enquiry CTA visibly dominant while keeping PDF downloads and secondary navigation quiet.
-
-## Global Section Background Behavior
-
-- Use native browser scrolling.
-- Assign every major marketing section an explicit accessible color set: background, primary text, muted text, border, button, button text, icon, and focus ring.
-- As a section crosses a stable center-biased viewport activation zone, transition the global page background to that section's assigned background.
-- The behavior must be deterministic in both directions. Scrolling back up restores every previous section palette.
-- Prefer `IntersectionObserver` and choose the section closest to the activation line; do not depend on observer callback order when multiple sections intersect.
-- Apply active colors through global design tokens on the page shell or document root.
-- Transition background and foreground colors over `500-800ms` with subtle `ease-in-out` easing.
-- Update text, links, borders, buttons, icons, and focus states along with the background so contrast remains accessible.
-- Set the first section's palette in initial HTML/CSS to avoid a flash during startup.
-
-## Entrance Motion
-
-- Add subtle entrance animation only when a meaningful content group first enters the viewport.
-- Animate from `opacity: 0` and `translateY(16px)` to full opacity and `translateY(0)`.
-- Use a `400-600ms` duration with subtle easing.
-- Stagger related cards or list items by `60-100ms`.
-- Animate once and unobserve the element; do not replay entrances while scrolling back and forth.
-- Keep content visible by default. Apply pre-animation hiding only after JavaScript confirms that motion is enabled.
-- Do not animate every small label, icon, or paragraph separately.
-
-## Reduced Motion
-
-- Respect `prefers-reduced-motion: reduce` in CSS and JavaScript.
-- Show all content immediately with no reveal opacity or transform.
-- Remove or effectively eliminate global color-transition animation while continuing to update the active palette correctly.
-- Do not initialize entrance observers when reduced motion is enabled.
-- Handle motion-preference changes during the session when practical.
-
-## Prohibited Motion and Interaction
-
-Do not use:
-
-- scroll hijacking, wheel interception, or artificial smooth-scroll systems;
-- canvas, WebGL, or image-sequence animations;
-- animated background imagery;
-- excessive parallax;
-- continuous or looping decorative motion;
-- heavy animation libraries when CSS and `IntersectionObserver` are sufficient.
-
-Normal sticky navigation is acceptable when it aids wayfinding and does not pin narrative content.
-
-The approved opening assembly hero is the sole exception for one native-scroll sticky segment and one scroll-scrubbed video. No other section may inherit that behavior without a new explicit decision.
-
-## Accessibility and Performance
-
-- Use semantic landmarks, correctly ordered headings, native controls, and descriptive link/button names.
-- Keep every navigation, filter, form, gallery control, enquiry action, and download keyboard-operable.
-- Provide visible `:focus-visible` states against every active section background.
-- Meet WCAG AA contrast: at least `4.5:1` for normal text and `3:1` for large text and essential UI boundaries.
-- Recheck hover, active, selected, disabled, and focus states for every palette.
-- Avoid horizontal overflow and maintain comfortable touch targets on narrow screens.
-- Avoid layout shifts, oversized assets, duplicate observers, unnecessary client JavaScript, and loading full-resolution media before it is needed.
-- Preserve catalogue content and enquiry paths when animation is disabled or JavaScript fails.
-- Use native scrolling, anchor navigation, browser find, keyboard scrolling, and scrollbar interaction without interference.
-
-## Implementation Workflow
-
-Before building:
-
-1. Read this file and the repository-level instructions.
-2. Inspect `git status` and preserve unrelated work.
-3. Inspect the current stack, design tokens, brand assets, catalogue files, and existing conventions.
-4. Inventory the PDFs and create a proposed category/model map with traceable sources.
-5. Define the target customer, confirmed offer, and primary conversion action; keep missing commercial details open.
-6. Propose the homepage sections and a concise section-color flow before implementation.
-7. Implement the smallest coherent HTML catalogue slice using real source data rather than scaffolding an unsupported architecture.
-
-## Verification Gates
-
-Do not call landing-site or catalogue work complete until all applicable checks pass:
-
-1. Confirm every published product can be understood without opening its PDF.
-2. Compare model names, part numbers, units, specifications, images, and claims against their source PDFs.
-3. Confirm every optional PDF action downloads or opens the correct original file.
-4. Confirm no public route exposes only a PDF viewer, brochure-page screenshots, or a raw PDF filename list.
-5. Test the homepage, a representative category page, a representative product page, and the parts experience when implemented.
-6. Test at least one representative desktop viewport and one narrow mobile viewport for wrapping, cropping, touch targets, RTL behavior, and horizontal overflow.
-7. Scroll down and back up through all major marketing sections and confirm background and foreground palettes activate in the correct order both ways.
-8. Confirm entrance animations play once only.
-9. Enable reduced motion and confirm all content is immediately visible, palette changes still work, and no reveal motion plays.
-10. Navigate every relevant interaction by keyboard and confirm visible focus against each active background.
-11. Verify native wheel, touch, keyboard, scrollbar, anchor-link, and browser-find behavior.
-12. Run the smallest relevant lint, type, test, build, and real-browser checks provided by the selected implementation stack.
-
-Report the implemented information architecture, section/color flow, structured catalogue coverage, changed files, browser checks, and any unverified catalogue content or missing business decisions.
+Report the section/color flow, PRD coverage, changed files, browser checks, and any unverified behavior or unresolved business decision.

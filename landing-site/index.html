@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="LiftVoltraq — ציוד מכני שמתחיל בהנדסה מדויקת ומוכן לעבודה."
+      content="LiftVoltraq — מערכת ניהול שירות שטח שמחברת לקוחות, מוקד, טכנאים, ציוד ודוחות בתהליך אחד ברור."
     />
     <meta name="theme-color" content="#070a0c" />
-    <title>LiftVoltraq | ציוד שמוכן לעבודה</title>
+    <title>LiftVoltraq | כל תהליך שירות השטח, במקום אחד</title>
     <link rel="stylesheet" href="./styles.css" />
     <script type="module" src="./hero.js"></script>
   </head>
-  <body>
+  <body data-active-theme="workflow">
     <a class="skip-link" href="#main-content">דלגו לתוכן הראשי</a>
 
     <main id="main-content">
@@ -33,7 +33,7 @@
               <span>LiftVoltraq</span>
             </a>
 
-            <p class="header-status">ציוד מכני · פתרונות לעבודה</p>
+            <p class="header-status">מערכת ניהול שירות שטח</p>
           </header>
 
           <div class="hero-layout">
@@ -65,7 +65,7 @@
                 <div class="media-wash" aria-hidden="true"></div>
               </div>
               <figcaption>
-                <span>מהחלק הקטן ביותר ועד לכלי השלם</span>
+                <span>מהפרט הראשון ועד לתהליך שירות שלם</span>
                 <span class="assembly-state" data-assembly-state>מפורק</span>
               </figcaption>
             </figure>
@@ -74,27 +74,28 @@
               <div class="hero-message hero-message-opening">
                 <h1 id="hero-title">הכוח נמצא <span>בפרטים.</span></h1>
                 <p>
-                  ציוד מכני שנבנה מחיבורים מדויקים, מערכות חזקות ותכנון שמכוון
-                  לדבר אחד — עבודה רציפה בשטח.
+                  מערכת שירות שטח שמחברת בין הלקוח, המוקד, הטכנאי והציוד —
+                  מהדיווח הראשון ועד לדוח שירות חתום.
                 </p>
               </div>
 
               <div class="hero-message hero-message-middle" aria-hidden="true">
-                <p class="resolution-title">חיבור אחר <span>חיבור.</span></p>
+                <p class="resolution-title">שלב אחר <span>שלב.</span></p>
                 <p>
-                  המערכות נכנסות למקומן, עד שהכלי מקבל צורה.
+                  כל עדכון, תמונה, חלק ופעולה נכנסים למקום הנכון.
                 </p>
               </div>
 
-              <div class="hero-message hero-message-complete" aria-hidden="true">
+              <div class="hero-message hero-message-complete" aria-hidden="true" inert>
                 <p class="resolution-title">כשהכול מתחבר.</p>
                 <p>
-                  מקבלים כלי שלם, מדויק ומוכן לעבודה.
+                  מתקבלת תמונה מלאה של השירות — ברורה ללקוח ושימושית לצוות.
                 </p>
+                <a class="text-link hero-link" href="#workflow">ראו את התהליך המלא</a>
               </div>
 
               <div class="scroll-progress" aria-hidden="true">
-                <span>גללו כדי להרכיב</span>
+                <span>גללו כדי לחבר</span>
                 <span class="progress-track">
                   <span class="progress-fill"></span>
                 </span>
@@ -104,6 +105,362 @@
           </div>
         </div>
       </section>
+
+      <div class="content-shell">
+        <nav class="section-nav" aria-label="ניווט בדף">
+          <a class="brand brand-compact" href="./" aria-label="LiftVoltraq — דף הבית">
+            <img
+              src="../assets/brand/liftvoltraq-badge-transparent-v2.png"
+              width="512"
+              height="512"
+              alt=""
+            />
+            <span>LiftVoltraq</span>
+          </a>
+          <div class="section-links">
+            <a href="#workflow">מהלך השירות</a>
+            <a href="#roles">תפקידים</a>
+            <a href="#field-work">עבודה בשטח</a>
+            <a href="#mvp">גבולות ה-MVP</a>
+          </div>
+          <a class="button button-small" href="../mock/">לצפייה בהדגמה</a>
+        </nav>
+
+        <section
+          class="page-section workflow-section"
+          id="workflow"
+          aria-labelledby="workflow-title"
+          data-theme="workflow"
+          data-page-section
+        >
+          <div class="section-inner">
+            <div class="section-heading reveal-group">
+              <p class="eyebrow"><span dir="ltr">01</span> · קריאת שירות אחת</p>
+              <h2 id="workflow-title">מקצה לקצה, בלי לאבד את התמונה.</h2>
+              <p class="section-lead">
+                LiftVoltraq מרכזת את כל מה שקורה לקריאת שירות אחת — פתיחה,
+                תעדוף, שיבוץ, טיפול, חתימה וסגירה — בהיסטוריה אחת שנשארת עם
+                הלקוח והציוד.
+              </p>
+            </div>
+
+            <ol class="workflow-list" aria-label="תהליך קריאת השירות">
+              <li class="reveal-group">
+                <span class="step-number" dir="ltr">01</span>
+                <div>
+                  <h3>הלקוח פותח קריאה</h3>
+                  <p>מתאר את התקלה, בוחר ציוד אם רלוונטי ומצרף תמונות.</p>
+                </div>
+              </li>
+              <li class="reveal-group">
+                <span class="step-number" dir="ltr">02</span>
+                <div>
+                  <h3>המוקד בודק ומתעדף</h3>
+                  <p>מוודא פרטים, מעדכן דחיפות ומוסיף הערות פנימיות.</p>
+                </div>
+              </li>
+              <li class="reveal-group">
+                <span class="step-number" dir="ltr">03</span>
+                <div>
+                  <h3>משבצים טכנאי ומועד</h3>
+                  <p>הקריאה מקבלת טכנאי, תאריך וחלון זמן לטיפול.</p>
+                </div>
+              </li>
+              <li class="reveal-group">
+                <span class="step-number" dir="ltr">04</span>
+                <div>
+                  <h3>הטכנאי מקבל את ההקשר</h3>
+                  <p>לקוח, אתר, איש קשר, ציוד, תיאור התקלה והתמונות זמינים יחד.</p>
+                </div>
+              </li>
+              <li class="reveal-group">
+                <span class="step-number" dir="ltr">05</span>
+                <div>
+                  <h3>הטיפול מתועד בשטח</h3>
+                  <p>סטטוס, סיכום טיפול, תמונות השלמה וחלקים שנעשה בהם שימוש.</p>
+                </div>
+              </li>
+              <li class="reveal-group">
+                <span class="step-number" dir="ltr">06</span>
+                <div>
+                  <h3>הלקוח חותם</h3>
+                  <p>שם החותם, חתימה, תאריך ושעה נשמרים עם הקריאה.</p>
+                </div>
+              </li>
+              <li class="reveal-group">
+                <span class="step-number" dir="ltr">07</span>
+                <div>
+                  <h3>הקריאה נסגרת</h3>
+                  <p>המוקד מתעדכן ודוח שירות מובנה נוצר ללקוח ולחברה.</p>
+                </div>
+              </li>
+            </ol>
+
+            <div class="status-model reveal-group" aria-labelledby="status-title">
+              <div>
+                <p class="micro-label">מחזור חיי הקריאה</p>
+                <h3 id="status-title">כל סטטוס אומר לצוות בדיוק מה קורה עכשיו.</h3>
+              </div>
+              <ul class="status-list">
+                <li>פתוחה</li>
+                <li>שויכה לטכנאי</li>
+                <li>נקבע מועד</li>
+                <li>הטכנאי בדרך</li>
+                <li>בטיפול</li>
+                <li>ממתינה לחלקים</li>
+                <li>סגורה</li>
+                <li>בוטלה</li>
+              </ul>
+              <p class="status-note">
+                “ממתינה לחלקים” ו“בוטלה” הן הסתעפויות תפעוליות, לא הבטחה למסלול
+                ליניארי אחד.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="page-section roles-section"
+          id="roles"
+          aria-labelledby="roles-title"
+          data-theme="roles"
+          data-page-section
+        >
+          <div class="section-inner">
+            <div class="roles-intro reveal-group">
+              <p class="eyebrow"><span dir="ltr">02</span> · חמישה תפקידים</p>
+              <h2 id="roles-title">אותו מידע. הפעולה הנכונה לכל תפקיד.</h2>
+              <p class="section-lead">
+                כל משתמש רואה את החלק בתהליך שהוא צריך — בלי לערבב בין העבודה
+                של הלקוח, המוקד, הטכנאי, המנהל והחלפים.
+              </p>
+            </div>
+
+            <div class="role-list">
+              <article class="role-row reveal-group">
+                <p class="role-index" dir="ltr">01</p>
+                <h3>לקוח</h3>
+                <p>פותח קריאות, בוחר ציוד, עוקב אחר סטטוס וצופה בדוחות קודמים.</p>
+              </article>
+              <article class="role-row reveal-group">
+                <p class="role-index" dir="ltr">02</p>
+                <h3>מוקד שירות</h3>
+                <p>מרכז קריאות, בודק פרטים, קובע דחיפות, משבץ טכנאי ומתזמן טיפול.</p>
+              </article>
+              <article class="role-row reveal-group">
+                <p class="role-index" dir="ltr">03</p>
+                <h3>טכנאי שטח</h3>
+                <p>רואה רק את הקריאות שלו, מעדכן סטטוס ומתעד את העבודה עד לסגירה.</p>
+              </article>
+              <article class="role-row reveal-group">
+                <p class="role-index" dir="ltr">04</p>
+                <h3>מנהל שירות</h3>
+                <p>מקבל מבט רוחבי על קריאות, לקוחות, טכנאים, ציוד ודוחות שירות.</p>
+              </article>
+              <article class="role-row reveal-group">
+                <p class="role-index" dir="ltr">05</p>
+                <h3>מחסן וחלפים</h3>
+                <p>מנהל קטלוג בסיסי ומסייע לזהות את החלקים שנעשה בהם שימוש.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="page-section field-section"
+          id="field-work"
+          aria-labelledby="field-title"
+          data-theme="field"
+          data-page-section
+        >
+          <div class="section-inner field-layout">
+            <div class="field-copy reveal-group">
+              <p class="eyebrow"><span dir="ltr">03</span> · בשטח</p>
+              <h2 id="field-title">הטכנאי יודע מה לעשות עכשיו.</h2>
+              <p class="section-lead">
+                הקריאה הבאה נמצאת במרכז. פרטי הלקוח, האתר, הציוד והתקלה זמינים
+                לפני תחילת העבודה, והעדכונים החשובים נשמרים בתוך אותו תהליך.
+              </p>
+              <ul class="check-list">
+                <li>צפייה בקריאות שהוקצו לטכנאי בלבד</li>
+                <li>עדכון סטטוס במהלך הטיפול</li>
+                <li>סיכום עבודה ותמונות לאחר הטיפול</li>
+                <li>בחירת חלקים מהקטלוג הבסיסי</li>
+                <li>חתימת לקוח וסגירה מובנית</li>
+              </ul>
+              <a class="text-link" href="../mock/#/technician/home">פתחו את הדגמת הטכנאי</a>
+            </div>
+
+            <div class="call-preview reveal-group" aria-label="דוגמה לקריאה שהוקצתה לטכנאי">
+              <div class="preview-topline">
+                <span class="call-number" dir="ltr">#2458</span>
+                <span class="urgency-label">דחוף</span>
+              </div>
+              <p class="preview-kicker">הקריאה הבאה</p>
+              <h3>מרכז לוגיסטי דרום</h3>
+              <p class="equipment-name">מלגזת Toyota · 3 טון</p>
+              <dl class="call-facts">
+                <div>
+                  <dt>תקלה</dt>
+                  <dd>נזילה במערכת ההידראולית</dd>
+                </div>
+                <div>
+                  <dt>מועד</dt>
+                  <dd><span dir="ltr">10:30–12:00</span> · היום</dd>
+                </div>
+                <div>
+                  <dt>אתר</dt>
+                  <dd>באר שבע</dd>
+                </div>
+                <div>
+                  <dt>סטטוס</dt>
+                  <dd>נקבע מועד</dd>
+                </div>
+              </dl>
+              <a class="button preview-button" href="../mock/#/technician/call/2458">פתחו קריאה</a>
+              <p class="preview-note">נתוני הדוגמה בדיוניים ומיועדים להמחשת הזרימה בלבד.</p>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="page-section record-section"
+          id="records"
+          aria-labelledby="records-title"
+          data-theme="records"
+          data-page-section
+        >
+          <div class="section-inner record-layout">
+            <div class="record-copy reveal-group">
+              <p class="eyebrow"><span dir="ltr">04</span> · זיכרון תפעולי</p>
+              <h2 id="records-title">הטיפול נגמר. ההיסטוריה נשארת.</h2>
+              <p class="section-lead">
+                בסגירה נוצר דוח שירות מובנה, ובמקביל נשמרת היסטוריה של הפעולות
+                המרכזיות. כך אפשר להבין מה קרה בכל קריאה, לכל לקוח ולכל כלי.
+              </p>
+              <div class="report-facts">
+                <p>פרטי הקריאה, הלקוח והציוד</p>
+                <p>תיאור התקלה וסיכום הטיפול</p>
+                <p>חלקים וכמויות</p>
+                <p>תמונות לפני ואחרי</p>
+                <p>שם החותם, חתימה, תאריך ושעה</p>
+              </div>
+            </div>
+
+            <div class="audit-preview reveal-group" aria-label="דוגמה להיסטוריית קריאת שירות">
+              <div class="audit-header">
+                <p>היסטוריית קריאה</p>
+                <span dir="ltr">#2458</span>
+              </div>
+              <ol>
+                <li><span>08:12</span><strong>הקריאה נפתחה</strong><small>נוצרה על ידי הלקוח</small></li>
+                <li><span>08:27</span><strong>שויכה לטכנאי</strong><small>המוקד קבע חלון טיפול</small></li>
+                <li><span>10:41</span><strong>הטיפול התחיל</strong><small>הסטטוס עודכן בשטח</small></li>
+                <li><span>11:36</span><strong>הקריאה נסגרה</strong><small>נשמרו חתימה ודוח שירות</small></li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="page-section mvp-section"
+          id="mvp"
+          aria-labelledby="mvp-title"
+          data-theme="mvp"
+          data-page-section
+        >
+          <div class="section-inner">
+            <div class="section-heading reveal-group">
+              <p class="eyebrow"><span dir="ltr">05</span> · גבול ברור</p>
+              <h2 id="mvp-title">MVP ממוקד בתהליך השירות עצמו.</h2>
+              <p class="section-lead">
+                השלב הראשון מרכז את העבודה שמייצרת ערך תפעולי מיידי. הרחבות
+                שלא הוגדרו באפיון נשארות מחוץ להבטחה.
+              </p>
+            </div>
+
+            <div class="scope-columns">
+              <article class="scope-column scope-in reveal-group">
+                <p class="micro-label">כלול בשלב הראשון</p>
+                <h3>הליבה התפעולית</h3>
+                <ul>
+                  <li>אזור לקוח ופתיחת קריאת שירות</li>
+                  <li>מוקד, תעדוף, שיבוץ ותזמון</li>
+                  <li>עבודת טכנאי, תמונות, חלקים וחתימה</li>
+                  <li>לקוחות, אתרים, אנשי קשר וציוד</li>
+                  <li>דוחות, היסטוריה ועדכונים בתוך המערכת</li>
+                  <li>יישום עתידי כ־<span dir="ltr">PWA</span></li>
+                </ul>
+              </article>
+              <article class="scope-column scope-out reveal-group">
+                <p class="micro-label">לא כלול ב-MVP</p>
+                <h3>הרחבות לשלב מאוחר יותר</h3>
+                <ul>
+                  <li>מלאי מלא, רכש והזמנות חלפים</li>
+                  <li>חשבונאות, חשבוניות, ERP או איתוראן</li>
+                  <li>שליחת WhatsApp או SMS אוטומטית</li>
+                  <li>תמיכה מלאה בעבודה ללא חיבור</li>
+                  <li>תחזוקה מונעת מלאה או אפליקציה בחנויות</li>
+                  <li>וידאו כחלק ליבה מקריאת השירות</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="setup-strip reveal-group">
+              <p class="micro-label">הקמה ראשונית</p>
+              <p>
+                כדי להתחיל עם נתונים שימושיים, הלקוח מרכז מראש רשימות לקוחות
+                ואנשי קשר, אתרים, ציוד, טכנאים, קטלוג חלפים בסיסי, סוגי תקלות
+                ותבנית דוח רצויה.
+              </p>
+            </div>
+
+            <p class="scope-note reveal-group">
+              ניווט מובנה, קטגוריות תקלה, אזור מסמכים והגדרות לקוח נותרו
+              החלטות מוצר פתוחות — ולכן אינם מוצגים כאן כפונקציונליות מאושרת.
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="page-section final-section"
+          id="demo"
+          aria-labelledby="demo-title"
+          data-theme="final"
+          data-page-section
+        >
+          <div class="section-inner final-layout reveal-group">
+            <div>
+              <p class="eyebrow">הדגמה מלאה · נתונים בדיוניים</p>
+              <h2 id="demo-title">רוצים לראות קריאת שירות עוברת מקצה לקצה?</h2>
+              <p class="section-lead">
+                עברו בין הלקוח, המוקד, הטכנאי, החלפים, המנהל ודוח השירות בתוך
+                הדגמה אינטראקטיבית אחת.
+              </p>
+            </div>
+            <div class="final-actions">
+              <a class="button" href="../mock/">התחילו את ההדגמה</a>
+              <a class="text-link" href="../docs/clientSystemAnaluse_1.html">עיינו באפיון המלא</a>
+            </div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <div>
+            <a class="brand brand-compact" href="./" aria-label="LiftVoltraq — דף הבית">
+              <img
+                src="../assets/brand/liftvoltraq-badge-transparent-v2.png"
+                width="512"
+                height="512"
+                alt=""
+              />
+              <span>LiftVoltraq</span>
+            </a>
+            <p>המחשת מוצר המבוססת על אפיון ה-MVP של מערכת שירות השטח.</p>
+          </div>
+          <p>ללא חיבור למערכות חיצוניות וללא שמירת נתוני לקוחות.</p>
+        </footer>
+      </div>
     </main>
   </body>
 </html>

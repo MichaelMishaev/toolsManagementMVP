@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "feature_id": "FT-007",
+  "slug": "technician-identity-in-report",
+  "title": "Technician Identity in Service Report",
+  "current": {
+    "status": "proposed",
+    "phase": "phase-1",
+    "priority": "P0",
+    "mvp_suitability": {
+      "suitable": true,
+      "classification": "recommended",
+      "reason": "The system already assigns technicians, so including identity in the report adds accountability with minimal scope."
+    },
+    "mcp_suitability": {
+      "applicable": true,
+      "mode": "read-only",
+      "reason": "Authorized MCP reporting tools may read technician attribution but should not alter historical identity."
+    },
+    "prd_alignment": {
+      "type": "extension",
+      "references": ["FR-2.4", "FR-3.10", "CR-3"],
+      "notes": "Discovery raised technician identity as a report field, but the formal report schema omitted it."
+    }
+  },
+  "history": [
+    {
+      "version": 1,
+      "date": "2026-08-11",
+      "action": "created",
+      "actor": "Codex",
+      "source": "competitor-feature-review",
+      "summary": "Added as a recommended Phase 1 report and audit improvement."
+    }
+  ]
+}

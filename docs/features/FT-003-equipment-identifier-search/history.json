@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "feature_id": "FT-003",
+  "slug": "equipment-identifier-search",
+  "title": "Equipment Identifier Search",
+  "current": {
+    "status": "proposed",
+    "phase": "phase-1",
+    "priority": "P0",
+    "mvp_suitability": {
+      "suitable": true,
+      "classification": "recommended",
+      "reason": "Search makes existing equipment identifiers operationally usable during call intake with limited additional scope."
+    },
+    "mcp_suitability": {
+      "applicable": true,
+      "mode": "read-only",
+      "reason": "An authorized MCP lookup tool could search equipment and return non-sensitive operational context."
+    },
+    "prd_alignment": {
+      "type": "extension",
+      "references": ["FR-4.4", "FR-4.5", "FR-4.6"],
+      "notes": "The PRD stores identifiers and history but does not explicitly define staff search."
+    }
+  },
+  "history": [
+    {
+      "version": 1,
+      "date": "2026-08-11",
+      "action": "created",
+      "actor": "Codex",
+      "source": "competitor-feature-review",
+      "summary": "Added as a Phase 1 operational extension for reliable asset identification."
+    }
+  ]
+}

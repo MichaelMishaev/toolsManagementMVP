@@ -1,0 +1,4 @@
+interface:
+  display_name: "Feature Manager"
+  short_description: "Identify and maintain product feature records"
+  default_prompt: "Use $manage-product-features to identify a product feature, classify its phase, and add or update its records."

@@ -6,6 +6,9 @@ const assemblyState = document.querySelector("[data-assembly-state]");
 const middleMessage = document.querySelector(".hero-message-middle");
 const completeMessage = document.querySelector(".hero-message-complete");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const themedSections = [...document.querySelectorAll("[data-page-section][data-theme]")];
+const revealGroups = [...document.querySelectorAll(".reveal-group")];
+const themeColor = document.querySelector('meta[name="theme-color"]');
 
 let duration = 0;
 let frameRequested = false;
@@ -51,7 +54,9 @@ function render() {
   }
 
   if (completeMessage) {
-    completeMessage.setAttribute("aria-hidden", String(completeOpacity < 0.85));
+    const completeIsVisible = completeOpacity >= 0.85;
+    completeMessage.setAttribute("aria-hidden", String(!completeIsVisible));
+    completeMessage.toggleAttribute("inert", !completeIsVisible);
   }
 
   if (middleMessage) {
@@ -97,6 +102,68 @@ if (video && story && !reducedMotion.matches) {
 } else if (reducedMotion.matches) {
   showFallback();
   completeMessage?.removeAttribute("aria-hidden");
+  completeMessage?.removeAttribute("inert");
+}
+
+function updateActiveTheme() {
+  if (!themedSections.length) return;
+
+  const activationLine = window.innerHeight * 0.48;
+  let activeSection = themedSections[0];
+  let smallestDistance = Number.POSITIVE_INFINITY;
+
+  themedSections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    const distance =
+      activationLine >= rect.top && activationLine <= rect.bottom
+        ? 0
+        : Math.min(
+            Math.abs(rect.top - activationLine),
+            Math.abs(rect.bottom - activationLine),
+          );
+
+    if (distance < smallestDistance) {
+      activeSection = section;
+      smallestDistance = distance;
+    }
+  });
+
+  const theme = activeSection.dataset.theme || "workflow";
+  if (document.body.dataset.activeTheme !== theme) {
+    document.body.dataset.activeTheme = theme;
+    const background = getComputedStyle(document.querySelector(".content-shell"))
+      .getPropertyValue("--section-bg")
+      .trim();
+    if (background) themeColor?.setAttribute("content", background);
+  }
+}
+
+if (themedSections.length) {
+  const themeObserver = new IntersectionObserver(updateActiveTheme, {
+    rootMargin: "-42% 0px -42% 0px",
+    threshold: [0, 0.01, 0.5, 1],
+  });
+
+  themedSections.forEach((section) => themeObserver.observe(section));
+  window.addEventListener("resize", updateActiveTheme, { passive: true });
+  updateActiveTheme();
+}
+
+if (!reducedMotion.matches && revealGroups.length) {
+  document.body.classList.add("motion-ready");
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "0px 0px -10% 0px", threshold: 0.12 },
+  );
+
+  revealGroups.forEach((group) => revealObserver.observe(group));
 }
 
 reducedMotion.addEventListener("change", () => window.location.reload());

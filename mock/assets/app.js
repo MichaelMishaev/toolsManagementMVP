@@ -552,6 +552,7 @@ function selectedPartsMarkup() {
 function renderTechnicianClose() {
   const canClose = Boolean(state.treatment.summary && state.treatment.signature?.confirmed);
   return `
+    <a class="page-back" href="#/technician/call/2458">${icon("back")}חזרה לקריאה</a>
     ${pageHeader("סיום וסגירת הקריאה", "בדיקה אחרונה של התיעוד, החלפים ואישור הלקוח.", { status: state.callStatus || "in_treatment" })}
     <div class="completion-layout">
       <section class="completion-section">

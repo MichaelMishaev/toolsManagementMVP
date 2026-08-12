@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "feature_id": "FT-006",
+  "slug": "downloadable-service-report",
+  "title": "Downloadable Branded Service Report",
+  "current": {
+    "status": "proposed",
+    "phase": "phase-1",
+    "priority": "P0",
+    "mvp_suitability": {
+      "suitable": true,
+      "classification": "recommended",
+      "reason": "It turns the already-required service report into a durable client deliverable without adding invoicing or accounting."
+    },
+    "mcp_suitability": {
+      "applicable": true,
+      "mode": "read-only",
+      "reason": "An authorized MCP tool could retrieve report metadata or the canonical report for support workflows."
+    },
+    "prd_alignment": {
+      "type": "extension",
+      "references": ["FR-1.8", "FR-2.7", "FR-3.10"],
+      "notes": "Report generation is required, while a branded downloadable PDF is not explicit."
+    }
+  },
+  "history": [
+    {
+      "version": 1,
+      "date": "2026-08-11",
+      "action": "created",
+      "actor": "Codex",
+      "source": "competitor-feature-review",
+      "summary": "Added as a Phase 1 customer deliverable that clarifies the output of report generation."
+    }
+  ]
+}

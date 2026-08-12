@@ -1,0 +1,4 @@
+interface:
+  display_name: "Premium Landing Pages"
+  short_description: "Build polished accessible conversion landing pages"
+  default_prompt: "Use $premium-landing-pages to design and build a modern landing page with native scrolling and section-aware background transitions."

@@ -12,25 +12,55 @@
       "accent": "#9BCB42",
       "focus": "#C9F77E"
     },
-    "usage": "Shared website identity for homepage, catalogue, category, and product pages"
+    "usage": "Field-service product identity across the landing page and interactive customer demo"
   },
   "hero": {
-    "eyebrow": "כל פרט במקום. כל כלי למשימה.",
     "title": "הכוח נמצא בפרטים.",
-    "description": "ציוד מכני שנבנה מחיבורים מדויקים, מערכות חזקות ותכנון שמכוון לדבר אחד — עבודה רציפה בשטח.",
-    "resolution": "וכשהכול מתחבר — מקבלים כלי שמוכן לעבוד.",
+    "description": "מערכת שירות שטח שמחברת בין הלקוח, המוקד, הטכנאי והציוד — מהדיווח הראשון ועד לדוח שירות חתום.",
+    "resolution": "כשהכול מתחבר מתקבלת תמונה מלאה של השירות — ברורה ללקוח ושימושית לצוות.",
     "interaction": "Native scroll scrubs the loader assembly in both directions; no autoplay or scroll interception"
+  },
+  "landingPage": {
+    "primaryAction": {
+      "label": "התחילו את ההדגמה",
+      "href": "../mock/"
+    },
+    "sections": [
+      "hero",
+      "service-workflow",
+      "roles",
+      "technician-field-work",
+      "service-report-and-audit",
+      "mvp-boundaries",
+      "interactive-demo"
+    ],
+    "prdCoverage": [
+      "FR-1.1-FR-1.8",
+      "FR-2.1-FR-2.7",
+      "FR-3.1-FR-3.10",
+      "FR-4.1-FR-4.6",
+      "FR-5.1-FR-5.4",
+      "service-call-status-lifecycle",
+      "service-report",
+      "audit-trail",
+      "in-system-notifications",
+      "initial-setup-and-client-inputs",
+      "mvp-exclusions"
+    ]
   },
   "media": {
     "startFrame": "assets/assembly/loader-assembly-start-exploded-v2.png",
     "endFrame": "assets/assembly/loader-assembly-end-complete.png",
     "video": "assets/assembly/loader-assembly-scroll.mp4",
     "higgsfieldJobId": "0307d9ff-03d3-4620-acf7-bcf95d9c070a",
-    "productStatus": "visual-concept-not-catalogue-model"
+    "productStatus": "visual-metaphor-not-catalogue-model"
   },
   "openDecisions": [
-    "Primary enquiry destination",
-    "Verified company claims",
-    "Catalogue taxonomy and product records"
+    "Primary commercial contact destination",
+    "Fault taxonomy owner and approved urgency scale",
+    "Photo count and size limits",
+    "Awaiting-parts SLA behavior",
+    "Customer cancellation permission",
+    "Service-report branding variability"
   ]
 }

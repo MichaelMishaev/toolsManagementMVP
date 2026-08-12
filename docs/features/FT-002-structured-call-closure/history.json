@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "feature_id": "FT-002",
+  "slug": "structured-call-closure",
+  "title": "Structured Service Call Closure",
+  "current": {
+    "status": "proposed",
+    "phase": "phase-1",
+    "priority": "P0",
+    "mvp_suitability": {
+      "suitable": true,
+      "classification": "recommended",
+      "reason": "It makes existing signature, parts, treatment, and report requirements reliable without expanding the business scope."
+    },
+    "mcp_suitability": {
+      "applicable": true,
+      "mode": "assistive",
+      "reason": "MCP may validate or prepare closure data, but the technician must confirm the signature and final closure action."
+    },
+    "prd_alignment": {
+      "type": "clarification",
+      "references": ["FR-3.6", "FR-3.7", "FR-3.8", "FR-3.9", "FR-3.10"],
+      "notes": "The PRD requires all elements but does not define the closure validation gate."
+    }
+  },
+  "history": [
+    {
+      "version": 1,
+      "date": "2026-08-11",
+      "action": "created",
+      "actor": "Codex",
+      "source": "competitor-feature-review",
+      "summary": "Added as a Phase 1 clarification to ensure every closed call produces a complete report."
+    }
+  ]
+}
