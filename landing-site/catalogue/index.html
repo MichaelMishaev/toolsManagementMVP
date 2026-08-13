@@ -10,9 +10,9 @@
     <meta name="theme-color" content="#070a0c" />
     <title>קטלוג ציוד | Lift Pro 26 Israel</title>
     <link rel="icon" href="../../assets/brand/lift-pro-26-logo-transparent.png" type="image/png" />
-    <link rel="stylesheet" href="../styles.css?v=6" />
-    <link rel="stylesheet" href="./catalogue.css?v=4" />
-    <script type="module" src="./catalogue.js?v=1"></script>
+    <link rel="stylesheet" href="../styles.css?v=10" />
+    <link rel="stylesheet" href="./catalogue.css?v=5" />
+    <script type="module" src="./catalogue.js?v=2"></script>
   </head>
   <body class="catalogue-page" data-active-theme="catalogue-intro">
     <a class="skip-link" href="#catalogue-content">דלגו לקטלוג</a>
@@ -41,7 +41,7 @@
       >
         <div class="catalogue-wrap catalogue-hero-grid">
           <div class="reveal-group">
-            <h1 id="catalogue-title">הכלים.<br /><span>הנתונים.</span><br />בלי ניחושים.</h1>
+            <h1 id="catalogue-title">הכלים. <br /><span>הנתונים.</span> <br />בלי ניחושים.</h1>
             <p class="catalogue-lead">
               22 דגמי מחפרים ומעמיסים מתוך מסמכי היצרן המאושרים של
               <bdi>LOVOL</bdi> ו-<bdi>NICOSAIL</bdi>. התחילו בקטגוריה, בדקו נתוני מפתח,
@@ -49,14 +49,14 @@
             </p>
           </div>
         </div>
-        <div class="catalogue-wrap catalogue-disclaimer reveal-group" role="note">
-          <strong>חשוב לדעת</strong>
+        <details class="catalogue-wrap catalogue-disclaimer reveal-group">
+          <summary>חשוב לדעת לפני שבוחרים דגם</summary>
           <p>
             הנתונים והתמונות מגיעים מקטלוגי היצרנים. הם אינם אישור למחיר, מלאי, זמן אספקה,
             אחריות או תצורה מסוימת. היצרנים מציינים שמפרטים ועיצוב עשויים להשתנות ללא הודעה,
             ושיש לאמת את פרטי הכלי בפועל לפני הזמנה.
           </p>
-        </div>
+        </details>
       </section>
 
       <section class="catalogue-controls-section" id="models" aria-labelledby="models-title">
@@ -77,11 +77,67 @@
             <button type="button" data-filter="loader">מעמיסים</button>
             <button type="button" data-filter="electric">ציוד חשמלי</button>
           </div>
-          <p class="catalogue-result-count" aria-live="polite" data-result-count>22 דגמים מוצגים</p>
+          <div class="catalogue-results-toolbar reveal-group">
+            <p class="catalogue-result-count" aria-live="polite" data-result-count>22 דגמים מוצגים</p>
+            <div class="catalogue-view-switcher" role="group" aria-label="צורת תצוגה">
+              <button type="button" data-view="grid" aria-pressed="true">כרטיסים</button>
+              <button type="button" data-view="compact" aria-pressed="false">תצוגה מהירה</button>
+            </div>
+          </div>
           <p class="pdf-guidance" role="note">
             מסמכי היצרן עלולים להיות גדולים. פתחו לצפייה באותו חלון, ואם התצוגה לא נטענת בחרו
             <strong>הורדה למכשיר</strong>.
           </p>
+          <div class="catalogue-empty-state" hidden data-empty-state>
+            <p>לא מצאנו דגם תואם. נקו את החיפוש כדי לחזור לכל הדגמים.</p>
+            <button type="button" data-clear-search>ניקוי החיפוש</button>
+          </div>
+
+          <details class="selection-guide reveal-group" data-selection-guide>
+            <summary>לא בטוחים מאיפה להתחיל? עזרו לי לבחור</summary>
+            <form class="selection-guide-form" data-guide-form>
+              <label>
+                <span>סוג המשימה</span>
+                <select name="task" required>
+                  <option value="">בחרו משימה</option>
+                  <option value="excavator">חפירה ופיתוח</option>
+                  <option value="loader">העמסה ושינוע</option>
+                  <option value="electric">עבודה עם ציוד חשמלי</option>
+                </select>
+              </label>
+              <label>
+                <span>עומס או היקף עבודה</span>
+                <select name="scale" required>
+                  <option value="">בחרו היקף</option>
+                  <option>קומפקטי</option>
+                  <option>בינוני</option>
+                  <option>כבד</option>
+                </select>
+              </label>
+              <label>
+                <span>תנאי השטח</span>
+                <select name="terrain" required>
+                  <option value="">בחרו תנאי שטח</option>
+                  <option>מרחב מוגבל</option>
+                  <option>אתר בנייה או תשתית</option>
+                  <option>מחצבה או עבודה כבדה</option>
+                </select>
+              </label>
+              <label>
+                <span>קצב העבודה</span>
+                <select name="pace" required>
+                  <option value="">בחרו קצב</option>
+                  <option>עבודה מזדמנת</option>
+                  <option>עבודה יומית</option>
+                  <option>עבודה רציפה</option>
+                </select>
+              </label>
+              <button class="button" type="submit">הציגו משפחה מתאימה</button>
+            </form>
+            <p class="selection-guide-result" aria-live="polite" data-guide-result>
+              ההכוונה מצמצמת למשפחת ציוד ראשונית. את המשקל, הקיבולת והתצורה מאמתים מול מפרט היצרן.
+            </p>
+          </details>
         </div>
       </section>
 
@@ -508,6 +564,19 @@
         </div>
       </section>
 
+      <section class="comparison-section" id="comparison" aria-labelledby="comparison-title" hidden data-comparison-section>
+        <div class="catalogue-wrap">
+          <header class="comparison-heading">
+            <div>
+              <h2 id="comparison-title">השוואת דגמים.</h2>
+              <p>נתוני המפתח מוצגים זה לצד זה. מסמך היצרן נשאר המקור המלא לאימות.</p>
+            </div>
+            <button type="button" class="comparison-clear" data-comparison-clear>ניקוי ההשוואה</button>
+          </header>
+          <div class="comparison-table-wrap" data-comparison-table></div>
+        </div>
+      </section>
+
       <section
         class="source-library catalogue-theme-section"
         id="source-library"
@@ -544,6 +613,12 @@
         </div>
       </section>
     </main>
+
+    <aside class="compare-tray" aria-label="השוואת דגמים" hidden data-compare-tray>
+      <p><strong data-compare-count>0</strong> דגמים נבחרו להשוואה</p>
+      <button type="button" class="button" data-compare-open>השוו עכשיו</button>
+      <span class="visually-hidden" aria-live="polite" data-compare-status></span>
+    </aside>
 
     <footer class="site-footer catalogue-footer">
       <span><bdi>Lift Pro 26 Israel</bdi></span>

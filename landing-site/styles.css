@@ -111,7 +111,7 @@ a {
 
 .assembly-story {
   position: relative;
-  height: 250svh;
+  height: 185svh;
   background: var(--page);
 }
 
@@ -1014,7 +1014,7 @@ body[data-active-theme="final"] .content-shell {
 
 @media (min-width: 48rem) {
   .assembly-story {
-    height: 235svh;
+    height: 175svh;
   }
 
   .capability-rail {
