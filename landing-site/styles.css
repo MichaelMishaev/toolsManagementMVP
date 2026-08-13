@@ -595,6 +595,37 @@ body[data-active-theme="final"] .content-shell {
   text-align: left;
 }
 
+.equipment-catalogue-cta {
+  display: grid;
+  align-items: end;
+  margin-block-start: clamp(2.5rem, 6vw, 4.5rem);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--section-border);
+  border-radius: 1rem;
+  background: var(--section-raised);
+  gap: 1.5rem;
+}
+
+.equipment-catalogue-cta h3 {
+  max-width: 22ch;
+  margin: 0;
+  color: var(--section-text);
+  text-wrap: balance;
+  font-size: clamp(1.65rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+.equipment-catalogue-cta div > p:last-child {
+  max-width: 46rem;
+  margin: 0.8rem 0 0;
+  color: var(--section-muted);
+  line-height: 1.65;
+}
+
+.equipment-catalogue-cta .button {
+  justify-self: start;
+}
+
 .advantage-layout {
   display: grid;
   gap: clamp(4rem, 8vw, 7rem);
@@ -939,6 +970,10 @@ body[data-active-theme="final"] .content-shell {
 
   .equipment-use {
     display: block;
+  }
+
+  .equipment-catalogue-cta {
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 
   .principle-list {

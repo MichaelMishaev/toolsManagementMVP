@@ -86,9 +86,16 @@
     ]
   },
   "catalogue": {
-    "sourceDirectory": "../catalogue/",
+    "sourceDirectory": "./catalogue/",
     "customerExperience": "designed semantic HTML with optional source-PDF downloads",
-    "status": "model-level catalogue pages not yet implemented"
+    "status": "implemented",
+    "page": "./catalogue/index.html",
+    "publicModelCount": 22,
+    "publicManufacturers": ["LOVOL", "NICOSAIL"],
+    "excludedSource": {
+      "model": "FR1000F-E",
+      "reason": "The source document is marked 'For internal use only' and is not exposed in the public catalogue."
+    }
   },
   "openDecisions": [
     "Approved commercial phone number",
