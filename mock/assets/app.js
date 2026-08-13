@@ -146,13 +146,13 @@ function navigationForRole(role) {
 
 function brandLockup() {
   return `
-    <a class="brand-lockup" href="#/technician/home" aria-label="LiftVoltraq, מערכת שירות שטח">
+    <a class="brand-lockup" href="#/technician/home" aria-label="ליפט פרו 26, מערכת שירות שטח">
       <span class="brand-lockup__plate">
-        <img src="../assets/brand/liftvoltraq-badge-transparent-v2.png" alt="LiftVoltraq" width="512" height="512">
+        <span class="brand-artwork" aria-hidden="true"><img src="../assets/brand/lift-pro-26-logo-transparent.png" alt="" width="1635" height="962"></span>
       </span>
       <span class="brand-lockup__tenant">
-        <strong>LiftVoltraq</strong>
-        <span>עבור ליפט פרו 26</span>
+        <strong>ליפט פרו 26</strong>
+        <span>מערכת שירות שטח</span>
       </span>
     </a>`;
 }
@@ -661,7 +661,7 @@ function renderReport() {
     <div class="report-toolbar"><button class="primary-action" type="button" data-action="print-report">${icon("print")}הדפס דוח</button></div>
     <article class="report-paper" aria-label="דוח טיפול לקריאה 2458">
       <header class="report-header">
-        <img src="../assets/brand/liftvoltraq-badge-transparent-v2.png" alt="LiftVoltraq" width="512" height="512">
+        <span class="brand-artwork brand-artwork--report" role="img" aria-label="ליפט פרו 26 ישראל בע״מ"><img src="../assets/brand/lift-pro-26-logo-transparent.png" alt="" width="1635" height="962"></span>
         <div><p>דוח טיפול</p><strong class="report-number">${bdi("#2458")}</strong><span>הופק: ${bdi(state.report.generatedAt)}</span></div>
       </header>
       ${reportSection("פרטי הקריאה", `<dl class="report-grid"><div><dt>מספר קריאה</dt><dd>${bdi("#2458")}</dd></div><div><dt>תאריך פתיחה</dt><dd>${bdi("11.08.2026, 08:42")}</dd></div><div><dt>תאריך טיפול</dt><dd>${bdi(state.assignment.date)}</dd></div><div><dt>סטטוס סופי</dt><dd>${escapeHtml(STATUS_LABELS[state.callStatus])}</dd></div></dl>`)}
@@ -776,7 +776,7 @@ function render({ focusHeading = false } = {}) {
   state.currentRole = info.role === "public" ? state.currentRole : info.role;
   persistState();
   app.innerHTML = roleShell(screenForRoute(route), info.role);
-  document.title = `${info.title} | LiftVoltraq`;
+  document.title = `${info.title} | ליפט פרו 26`;
   updateAmbient(route);
   setupSignaturePad();
 

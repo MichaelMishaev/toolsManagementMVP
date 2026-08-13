@@ -1,4 +1,4 @@
-# LiftVoltraq customer-demo implementation plan
+# Lift Pro 26 customer-demo implementation plan
 
 **Status:** Complete multi-role mock implemented, verified locally, and approved for GitHub Pages publication.  
 **Runtime:** Static HTML, CSS, and JavaScript only.  
@@ -7,7 +7,7 @@
 
 ## 1. Purpose and approval boundary
 
-The customer demo explains the confirmed LiftVoltraq field-service MVP through a believable, front-end-only experience configured for Lift Pro 26 Israel Ltd. It must feel like a native operational product while remaining honest about its limitations: it has no authentication, backend, database, real uploads, analytics, cookies, or permanent customer data.
+The customer demo explains the confirmed Lift Pro 26 field-service MVP through a believable, front-end-only experience using the Lift Pro 26 Israel Ltd. company identity. It must feel like a native operational product while remaining honest about its limitations: it has no authentication, backend, database, real uploads, analytics, cookies, or permanent customer data.
 
 Phase A established the responsive technician-home direction and proved the visual system, Hebrew RTL behavior, mobile navigation, desktop adaptation, imagery, and ambient motion.
 
@@ -19,6 +19,7 @@ Michael's explicit request to implement the whole mock opened Phase B. It extend
 2. `docs/PRDs/PRD.md` for structured requirements and IDs.
 3. `docs/clientSystemAnaluse_1.html` for client-facing Hebrew language and tone.
 4. `design/design.md` for the approved visual and interaction system.
+5. `assets/brand/README.md` for logo provenance and the canonical-versus-transparent asset policy.
 
 The demo may visualize confirmed requirements but must not silently promote candidate requirements or future phases into the MVP.
 
@@ -33,7 +34,7 @@ The demo may visualize confirmed requirements but must not silently promote cand
 Mobile:
 
 1. Skip link.
-2. Exact LiftVoltraq product badge and name, with Lift Pro 26 shown only as the customer/tenant.
+2. Approved transparent Lift Pro 26 logo and company-branded application name. The mock uses the canonical `lift-pro-26-logo-transparent.png` without a crop or backdrop.
 3. Greeting and in-system notification control.
 4. Next-call heading.
 5. Dominant next-call card.
@@ -182,7 +183,7 @@ Demo state is stored for the current tab only:
 }
 ```
 
-Storage key: `liftvoltraq.demo.v1`. A reset action restores deterministic sample data. Presenter controls are available only with `?demo=1`; role switching changes routes while scenario-step switching loads the matching deterministic snapshot.
+Storage key: `liftpro26.demo.v1`. A reset action restores deterministic sample data. Presenter controls are available only with `?demo=1`; role switching changes routes while scenario-step switching loads the matching deterministic snapshot.
 
 ## 11. Verification and approval
 

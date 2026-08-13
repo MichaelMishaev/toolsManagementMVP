@@ -18,6 +18,14 @@ An `AGENTS.md` in the repo root carries the equivalent guidance for Codex/other 
 
 If the PRD and HTML conflict with the original `.pages` source, report the discrepancy rather than silently resolving it. Items under "Candidate requirements" or "Open Questions" in the PRD are unresolved — not committed MVP scope — and should not be promoted into the spec without an explicit product decision.
 
+## Brand assets
+
+`assets/brand/README.md` governs logo provenance and use. The current identity is Lift Pro 26 / `ליפט פרו 26 ישראל בע״מ`.
+
+- `assets/brand/lift-pro-26-logo-transparent.png` is the approved canonical artwork for product, legal, report, and customer-facing surfaces.
+- Preserve the logo's transparent canvas and aspect ratio; do not crop it into a dark rectangle or add a backdrop.
+- The former client screenshot and superseded `liftvoltraq-*` artwork were removed from the working tree. Do not reintroduce them.
+
 ## Technician design references
 
 `design/design.md` documents three unapproved technician-mobile design directions. It is a design handoff and implementation guide, not a product source of truth; the original Pages specification, `docs/PRDs/PRD.md`, and `docs/clientSystemAnaluse_1.html` remain authoritative in that order.

@@ -157,25 +157,16 @@ a {
 }
 
 .brand-artwork {
-  position: relative;
   display: block;
-  overflow: hidden;
   width: 5.5rem;
-  aspect-ratio: 436 / 210;
+  aspect-ratio: 1635 / 962;
   flex: none;
-  border-radius: 0.28rem;
-  background: #0c0f12;
 }
 
 .brand-artwork img {
-  position: absolute;
-  top: 0;
-  left: 0;
   display: block;
-  width: 119%;
-  max-width: none;
+  width: 100%;
   height: auto;
-  transform: translateY(-18%);
 }
 
 .brand > span {

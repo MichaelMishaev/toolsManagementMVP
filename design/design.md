@@ -1,15 +1,15 @@
-# LiftVoltraq customer-demo design system
+# Lift Pro 26 customer-demo design system
 
 **Status:** Phase B multi-role customer demo implemented locally  
-**Product:** LiftVoltraq  
-**Customer/tenant shown in demo:** Lift Pro 26 Israel Ltd.  
+**Product:** Lift Pro 26
+**Company identity:** Lift Pro 26 Israel Ltd. (`ליפט פרו 26 ישראל בע״מ`)
 **Surface:** Hebrew-first RTL field-service PWA  
 **Selected direction:** 01, Next Job Command  
-**Last updated:** 11 August 2026
+**Last updated:** 12 August 2026
 
 ## 1. Design intent
 
-LiftVoltraq is the operational field-service product for customers, service desks, technicians, managers, and parts staff. Lift Pro 26 Israel Ltd. is the fictionalized demo tenant/customer context. The product should feel dependable in a warehouse, service vehicle, or office. Visual design must help users act quickly; it must not compete with the work.
+Lift Pro 26 is the company-branded operational field-service product for customers, service desks, technicians, managers, and parts staff. The product should feel dependable in a warehouse, service vehicle, or office. Visual design must help users act quickly; it must not compete with the work.
 
 The system originates in the technician home and one question: **what should I do next?** The next scheduled call dominates and the rest of the day remains visible but secondary. The same hierarchy extends into a seven-step, multi-role customer demonstration without adding dashboard decoration or unapproved MVP scope.
 
@@ -21,11 +21,12 @@ Design dials:
 
 ## 2. Brand hierarchy
 
-- LiftVoltraq is the application name and primary product identity, as defined by `docs/PRDs/PRD.md` and `docs/clientSystemAnaluse_1.html`.
-- Lift Pro 26 Israel Ltd. is the customer/tenant and must remain visually subordinate to the product.
-- Use the approved transparent LiftVoltraq badge from `assets/brand/liftvoltraq-badge-transparent-v2.png` directly. `assets/brand/` is the only logo directory; do not create runtime copies elsewhere.
-- Do not redraw, recolor, regenerate, or replace the product logo with the tenant logo.
-- The visible lockup pairs `LiftVoltraq` with the subordinate tenant label `עבור ליפט פרו 26`.
+- Lift Pro 26 is the application name and primary product identity, as defined by `docs/PRDs/PRD.md` and `docs/clientSystemAnaluse_1.html`.
+- Follow `assets/brand/README.md` for provenance and approved usage.
+- Use `assets/brand/lift-pro-26-logo-transparent.png` as the canonical artwork.
+- Preserve its transparent canvas and aspect ratio; do not crop it into a dark rectangle or add a backdrop.
+- Do not redraw, recolor, regenerate, or replace the logo. Do not reintroduce the removed client screenshot or superseded `liftvoltraq-*` assets.
+- The visible lockup pairs `ליפט פרו 26` with the functional label `מערכת שירות שטח`.
 - Generated media may not contain logos, text, trademarks, or watermarks.
 
 ## 3. Machine-readable tokens
@@ -35,7 +36,7 @@ The JSON block below is the canonical token source. Run `node scripts/sync-desig
 ```design-tokens
 {
   "meta": {
-    "name": "LiftVoltraq",
+    "name": "Lift Pro 26",
     "version": "2.1.0",
     "direction": "rtl",
     "theme": "dark-industrial"

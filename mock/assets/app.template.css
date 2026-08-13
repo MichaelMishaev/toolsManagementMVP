@@ -158,15 +158,22 @@ video {
 .brand-lockup__plate {
   display: grid;
   place-items: center;
-  inline-size: 4rem;
+  inline-size: 7rem;
   block-size: 4rem;
   overflow: hidden;
   border-radius: var(--radius-sm);
   background: var(--color-transparent);
 }
 
-.brand-lockup__plate img {
-  inline-size: 3.875rem;
+.brand-artwork {
+  display: block;
+  inline-size: 100%;
+  aspect-ratio: 1635 / 962;
+}
+
+.brand-artwork img {
+  display: block;
+  inline-size: 100%;
   block-size: auto;
 }
 
@@ -724,12 +731,12 @@ video {
   }
 
   .desktop-sidebar .brand-lockup__plate {
-    inline-size: 7.5rem;
+    inline-size: 10.5rem;
     block-size: 7.5rem;
   }
 
-  .desktop-sidebar .brand-lockup__plate img {
-    inline-size: 7.25rem;
+  .desktop-sidebar .brand-artwork {
+    inline-size: 10rem;
   }
 
   .desktop-sidebar .brand-lockup__tenant {
@@ -856,13 +863,17 @@ body[data-ambient="hidden"] .ambient {
 }
 
 .brand-lockup__plate {
-  inline-size: 5rem;
+  inline-size: 7rem;
   block-size: 4rem;
 }
 
-.brand-lockup__plate img {
-  inline-size: 4.875rem;
+.brand-lockup__plate .brand-artwork {
+  inline-size: 6.875rem;
   border-radius: var(--radius-sm);
+}
+
+.brand-artwork--report {
+  inline-size: 8.5rem;
 }
 
 .role-label {
@@ -1829,10 +1840,10 @@ dd {
   border-block-end: 2px solid #D9E0DC;
 }
 
-.report-header img {
+.report-header > .brand-artwork {
   inline-size: 8rem;
-  block-size: auto;
   border-radius: var(--radius-sm);
+  flex: none;
 }
 
 .report-header div {
@@ -2127,12 +2138,12 @@ dd {
 
 @media (min-width: {{breakpoint.desktop}}) {
   .desktop-sidebar .brand-lockup__plate {
-    inline-size: 10.5rem;
+    inline-size: 12rem;
     block-size: 8rem;
   }
 
-  .desktop-sidebar .brand-lockup__plate img {
-    inline-size: 10rem;
+  .desktop-sidebar .brand-artwork {
+    inline-size: 11.5rem;
   }
 
   .form-layout {
@@ -2244,7 +2255,7 @@ dd {
     align-items: flex-start;
   }
 
-  .report-header img {
+  .report-header > .brand-artwork {
     inline-size: 5.75rem;
   }
 }

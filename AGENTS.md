@@ -22,6 +22,14 @@ If the derived PRD and HTML conflict with the original source, report the discre
 
 `CLAUDE.md` contains companion repository guidance for Claude Code. Keep shared repository facts consistent between that file and this one when those facts materially change.
 
+## Brand assets
+
+`assets/brand/README.md` is the brand-asset source of truth. The current identity is Lift Pro 26 / `ליפט פרו 26 ישראל בע״מ`.
+
+- `assets/brand/lift-pro-26-logo-transparent.png` is the approved canonical artwork for product, legal, report, and customer-facing surfaces.
+- Preserve the logo's transparent canvas and aspect ratio; do not crop it into a dark rectangle or add a backdrop.
+- The former client screenshot and historical `liftvoltraq-*` assets were superseded and removed from the working tree. Do not reintroduce them into new work.
+
 ## Technician design references
 
 `design/design.md` documents three unapproved technician-mobile design directions. It is a design handoff and implementation guide, not a product source of truth; the original Pages specification, `docs/PRDs/PRD.md`, and `docs/clientSystemAnaluse_1.html` remain authoritative in that order.

@@ -1,9 +1,17 @@
 {
+  "sourceOfTruth": {
+    "documentTitle": "אודות Lift Pro 26 Israel",
+    "fileName": "אודות_Lift_Pro_26_Israel_260812_001348.pdf",
+    "sourceFileStamp": "260812_001348",
+    "policy": "All landing-page company claims must be traceable to this document. Model-level technical claims may only come from an approved catalogue."
+  },
   "brand": {
     "name": "Lift Pro 26 Israel",
+    "legalNameHe": "ליפט פרו 26 ישראל בע״מ",
     "language": "he",
     "direction": "rtl",
-    "logo": "../assets/brand/lift-pro-26-logo-client.png",
+    "logo": "../assets/brand/lift-pro-26-logo-transparent.png",
+    "logoPolicy": "The approved transparent PNG is the canonical Lift Pro 26 logo.",
     "tagline": "ציוד גדול. חשיבה חדשה. מחיר שעובד בשביל העסק שלך.",
     "palette": {
       "background": "#070A0C",
@@ -16,6 +24,7 @@
   },
   "business": {
     "purpose": "Import and market forklifts, construction machinery, heavy equipment and spare parts for Israeli businesses at competitive prices with local warranty and service.",
+    "origin": "The company grew out of an automotive-sector business with years of experience importing and marketing accessories, spare parts and related products. A search for one forklift exposed the gap between direct sourcing costs and customary Israeli market prices.",
     "audiences": [
       "warehouse owners",
       "small and medium contractors",
@@ -32,8 +41,28 @@
       "quarry and port equipment",
       "logistics and infrastructure equipment"
     ],
-    "manufacturerRelationships": ["LOVOL", "NICOSAIL"],
-    "israeliFieldRelationship": "Olnik Group",
+    "manufacturerRelationships": [
+      {
+        "name": "LOVOL",
+        "context": "A Chinese manufacturer of industrial and heavy equipment with which the company works directly."
+      },
+      {
+        "name": "NICOSAIL",
+        "context": "A commercial equipment relationship described in the company document."
+      }
+    ],
+    "israeliFieldRelationship": {
+      "name": "Olnik Group",
+      "context": "A developing Israeli working relationship intended to learn field needs and provide solutions suited to local work."
+    },
+    "operatingModel": [
+      "fewer intermediary layers",
+      "direct work with manufacturing sources",
+      "a lean operating structure",
+      "reasonable margins for long-term activity",
+      "more investment in inventory, spare parts, service and technology"
+    ],
+    "vision": "Build one of Israel's young, innovative and competitive equipment companies, bringing new technologies, electric equipment, smart systems and quality machines at prices that help businesses work, grow and profit.",
     "qualifiedPartsClaim": "In many cases, spare parts may cost approximately 35%-40% less than customary official-importer pricing, depending on the part, model and supply source."
   },
   "hero": {
@@ -53,7 +82,7 @@
       "manufacturers-and-field-relationships",
       "service-and-spare-parts",
       "company-story",
-    "equipment-selection-brief"
+      "equipment-selection-brief"
     ]
   },
   "catalogue": {

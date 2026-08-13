@@ -1,7 +1,7 @@
-# LiftVoltraq — Israel Compliance & Publication Baseline
+# Lift Pro 26 — Israel Compliance & Publication Baseline
 
 **Status:** Internal draft — not legal advice and not ready for public publication
-**Applies to:** the future LiftVoltraq PWA, its public pages, customer area, technician area, and operational data handling
+**Applies to:** the future Lift Pro 26 PWA, its public pages, customer area, technician area, and operational data handling
 **Owner before launch:** `[[legal entity / product owner to be confirmed]]`
 
 ## Purpose and scope

@@ -1,8 +1,10 @@
-# Product Requirements Document — LiftVoltraq Field Service Management MVP
+# Product Requirements Document — Lift Pro 26 Field Service Management MVP
 
 **Original title:** אפיון MVP למערכת ניהול קריאות שירות, ציוד, מוקד וטכנאי שטח
-**Product name:** LiftVoltraq
-**Brand note:** LiftVoltraq is the product name for the field-service management system. It is distinct from the client's company name, Lift Pro 26 Israel Ltd.
+**Product name:** Lift Pro 26
+**Brand note:** The field-service application uses the client’s Lift Pro 26 identity. The legal company name is Lift Pro 26 Israel Ltd. (`ליפט פרו 26 ישראל בע״מ`).
+**Brand decision:** Updated 12 August 2026 from client-supplied name and logo artwork; this supersedes the former LiftVoltraq identity in derived product artifacts.
+**Brand assets:** `assets/brand/lift-pro-26-logo-transparent.png` is the approved canonical artwork. The former client screenshot and historical LiftVoltraq assets were removed after migration; see `assets/brand/README.md`.
 **Source document:** `docs/אפיון_MVP_מערכת_שירות_שטח_ללקוח.pages`
 **Intended for:** the client (equipment service company)
 **Version:** Initial MVP specification

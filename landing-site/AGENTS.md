@@ -63,7 +63,8 @@ Keep this commercial flow unless later source material changes it:
 ## Language, identity, and motion
 
 - Keep `lang="he"` and `dir="rtl"` at document level and use natural professional Hebrew.
-- Use the canonical badge/logo directly from `../assets/brand/`; do not create or copy alternative logos.
+- Follow `../assets/brand/README.md`. Use `lift-pro-26-logo-transparent.png` as the canonical landing-page logo.
+- Preserve the logo's transparent canvas and aspect ratio; do not crop it into a dark rectangle or add a backdrop.
 - Preserve the approved black industrial visual language: near-black and charcoal fields, off-white text, and lime as the primary interaction accent.
 - The assembly hero is an approved exception: native scrolling may scrub one sticky video in both directions. Never intercept input, autoplay continuously, or keep changing frames after scrolling stops.
 - Serve responsive video assets, preserve the mobile loading unlock, and keep the complete static frame for reduced motion and media failure.

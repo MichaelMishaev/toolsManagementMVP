@@ -1,5 +1,5 @@
 (() => {
-const STORAGE_KEY = "liftvoltraq.demo.v1";
+const STORAGE_KEY = "liftpro26.demo.v1";
 
 const SCENARIO_ROUTES = {
   1: "#/customer/new-call",

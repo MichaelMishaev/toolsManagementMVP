@@ -36,7 +36,9 @@ request, or form submission has been sent.
 
 ## Content constraints
 
-- Only the canonical brand asset under `../assets/brand/` may be used as a logo.
+- Follow `../assets/brand/README.md` for logo provenance.
+- The landing uses the approved transparent `lift-pro-26-logo-transparent.png` as its canonical logo.
+- CSS preserves the complete artwork and native aspect ratio without a crop or dark backdrop.
 - Commercial facts must come from approved Lift Pro 26 company material.
 - Do not invent prices, finance, stock, delivery, warranty, certification, or
   contact details.
