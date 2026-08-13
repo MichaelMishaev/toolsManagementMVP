@@ -111,7 +111,7 @@ a {
 
 .assembly-story {
   position: relative;
-  height: 300svh;
+  height: 250svh;
   background: var(--page);
 }
 
@@ -226,6 +226,9 @@ a {
   overflow: visible;
   background: transparent;
   isolation: isolate;
+  transform: scale(calc(0.97 + var(--progress, 0) * 0.03));
+  transform-origin: center;
+  will-change: transform;
 }
 
 .assembly-video,
@@ -273,7 +276,7 @@ a {
 .hero-copy {
   position: relative;
   grid-area: copy;
-  min-height: 17.5rem;
+  min-height: 21.5rem;
 }
 
 .hero-message {
@@ -326,9 +329,43 @@ a {
   color: var(--text);
 }
 
-.hero-action,
+.hero-actions,
 .hero-link {
   margin-block-start: 1.2rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem 1.25rem;
+}
+
+.hero-actions .hero-action {
+  margin: 0;
+}
+
+.hero-catalogue-link {
+  font-size: 0.9rem;
+}
+
+.ux-ready .hero-message-opening h1 {
+  animation: hero-enter 420ms var(--ease-out) both;
+}
+
+.ux-ready .hero-message-opening > p {
+  animation: hero-enter 400ms 60ms var(--ease-out) both;
+}
+
+.ux-ready .hero-actions {
+  animation: hero-enter 400ms 120ms var(--ease-out) both;
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
 }
 
 .scroll-progress {
@@ -430,6 +467,53 @@ body[data-active-theme="final"] .content-shell {
   border-block-end: 1px solid var(--section-border);
   background: rgba(7, 10, 12, 0.92);
   backdrop-filter: blur(14px);
+}
+
+.capability-rail {
+  display: grid;
+  width: min(calc(100% - 2 * var(--page-gutter)), var(--content-max));
+  margin-inline: auto;
+  border-block-end: 1px solid var(--section-border);
+}
+
+.capability-rail a {
+  position: relative;
+  display: grid;
+  min-height: 6.75rem;
+  align-content: center;
+  padding-block: 1.25rem;
+  border-block-start: 1px solid var(--section-border);
+  color: var(--section-text);
+  text-decoration: none;
+  transition: transform 180ms var(--ease-out), background-color 180ms ease;
+}
+
+.capability-rail a::after {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: -1px;
+  height: 2px;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right center;
+  background: var(--accent-strong);
+  transition: transform 180ms var(--ease-out);
+}
+
+.capability-rail a:active {
+  transform: scale(0.985);
+}
+
+.capability-rail strong {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.capability-rail span {
+  margin-block-start: 0.4rem;
+  color: var(--section-muted);
+  font-size: 0.82rem;
 }
 
 .section-links {
@@ -919,8 +1003,8 @@ body[data-active-theme="final"] .content-shell {
 
 .motion-ready .reveal-group {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 520ms var(--ease-out), transform 520ms var(--ease-out);
+  transform: translateY(12px);
+  transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out);
 }
 
 .motion-ready .reveal-group.is-visible {
@@ -930,7 +1014,20 @@ body[data-active-theme="final"] .content-shell {
 
 @media (min-width: 48rem) {
   .assembly-story {
-    height: 280svh;
+    height: 235svh;
+  }
+
+  .capability-rail {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .capability-rail a {
+    padding-inline: clamp(1.25rem, 3vw, 2.5rem);
+    border-block-start: 0;
+  }
+
+  .capability-rail a + a {
+    border-inline-start: 1px solid var(--section-border);
   }
 
   .hero-layout {
@@ -1085,6 +1182,16 @@ body[data-active-theme="final"] .content-shell {
     background: rgba(155, 203, 66, 0.045);
     transform: translateX(-0.25rem);
   }
+
+  .capability-rail a:hover {
+    background: rgba(155, 203, 66, 0.04);
+    transform: translateY(-2px);
+  }
+
+  .capability-rail a:hover::after,
+  .capability-rail a:focus-visible::after {
+    transform: scaleX(1);
+  }
 }
 
 @media (max-width: 30rem) {
@@ -1147,6 +1254,10 @@ body[data-active-theme="final"] .content-shell {
 
   .assembly-video {
     display: none;
+  }
+
+  .assembly-media {
+    transform: none;
   }
 
   .assembly-fallback {
