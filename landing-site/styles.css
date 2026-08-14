@@ -222,27 +222,47 @@ a {
 
 .assembly-media {
   position: relative;
+  z-index: 0;
+  width: min(100%, 59rem);
+  aspect-ratio: 16 / 9;
   min-height: 0;
-  overflow: visible;
-  background: transparent;
+  justify-self: center;
+  overflow: hidden;
+  border-radius: clamp(1rem, 2.4vw, 1.75rem);
+  background:
+    linear-gradient(180deg, rgba(250, 245, 236, 0.98) 0 68%, rgba(95, 98, 91, 0.96) 68.2%, rgba(35, 42, 39, 0.98) 100%);
+  box-shadow: 0 2.2rem 4.5rem rgba(0, 0, 0, 0.32);
   isolation: isolate;
-  transform: scale(calc(0.97 + var(--progress, 0) * 0.03));
+  transform: scale(calc(0.99 + var(--progress, 0) * 0.025));
   transform-origin: center;
   will-change: transform;
 }
 
+.assembly-media::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  background:
+    radial-gradient(ellipse at 50% 38%, rgba(255, 255, 255, 0.5) 0, transparent 58%),
+    linear-gradient(90deg, rgba(8, 12, 11, 0.16), transparent 14% 86%, rgba(8, 12, 11, 0.16));
+  pointer-events: none;
+}
+
 .assembly-video,
 .assembly-fallback {
+  position: relative;
+  z-index: 1;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
-  -webkit-mask-image: radial-gradient(ellipse 74% 66% at 50% 52%, #000 58%, transparent 100%);
-  mask-image: radial-gradient(ellipse 74% 66% at 50% 52%, #000 58%, transparent 100%);
+  filter: drop-shadow(0 1.4rem 1.8rem rgba(0, 0, 0, 0.28));
 }
 
 .assembly-video {
-  background: #e9e1d7;
+  background: transparent;
 }
 
 .assembly-fallback {
