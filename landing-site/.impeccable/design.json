@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-15T06:03:28Z",
+  "title": "Design System: Lift Pro 26 Israel Commercial Site",
+  "extensions": {
+    "colorMeta": {
+      "page": {
+        "role": "neutral",
+        "displayName": "Spatial White",
+        "canonical": "#f5f5f7",
+        "tonalRamp": ["#1d1d1f", "#3a3a3d", "#5d5d62", "#86868b", "#b7b7bc", "#d9d9de", "#ececf0", "#f5f5f7"]
+      },
+      "surface-glass": {
+        "role": "neutral",
+        "displayName": "Optical Glass",
+        "canonical": "rgba(255, 255, 255, 0.82)",
+        "tonalRamp": ["rgba(255, 255, 255, 0.08)", "rgba(255, 255, 255, 0.16)", "rgba(255, 255, 255, 0.28)", "rgba(255, 255, 255, 0.40)", "rgba(255, 255, 255, 0.55)", "rgba(255, 255, 255, 0.68)", "rgba(255, 255, 255, 0.82)", "rgba(255, 255, 255, 0.95)"]
+      },
+      "surface-soft": {
+        "role": "neutral",
+        "displayName": "Quiet Layer",
+        "canonical": "#ececf0",
+        "tonalRamp": ["#1d1d20", "#39393d", "#5c5c62", "#85858c", "#aeafb6", "#d0d0d6", "#ececf0", "#fafafd"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Primary Ink",
+        "canonical": "#1d1d1f",
+        "tonalRamp": ["#101012", "#1d1d1f", "#343438", "#515156", "#74747a", "#a0a0a6", "#d0d0d4", "#f2f2f4"]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Reading Gray",
+        "canonical": "#5d5d62",
+        "tonalRamp": ["#171719", "#2b2b2e", "#454549", "#5d5d62", "#7e7e84", "#a6a6ac", "#d0d0d4", "#f2f2f4"]
+      },
+      "ink-subtle": {
+        "role": "neutral",
+        "displayName": "Evidence Gray",
+        "canonical": "#86868b",
+        "tonalRamp": ["#1d1d1f", "#353538", "#525256", "#707075", "#86868b", "#aaaab0", "#d1d1d5", "#f3f3f5"]
+      },
+      "action-blue": {
+        "role": "primary",
+        "displayName": "Decision Blue",
+        "canonical": "#0071e3",
+        "tonalRamp": ["#00172d", "#002e54", "#00457d", "#005ca8", "#0071e3", "#2997ff", "#8cc7ff", "#e6f2ff"]
+      },
+      "action-blue-hover": {
+        "role": "primary",
+        "displayName": "Decision Blue Hover",
+        "canonical": "#0077ed",
+        "tonalRamp": ["#00182f", "#00305a", "#004985", "#0063b3", "#0077ed", "#38a0ff", "#94ccff", "#e8f4ff"]
+      },
+      "action-blue-bright": {
+        "role": "primary",
+        "displayName": "Source Blue Bright",
+        "canonical": "#2997ff",
+        "tonalRamp": ["#00172d", "#002f57", "#004983", "#0064b2", "#007ee1", "#2997ff", "#93ccff", "#e8f4ff"]
+      },
+      "action-blue-deep": {
+        "role": "primary",
+        "displayName": "Source Blue Deep",
+        "canonical": "#0066cc",
+        "tonalRamp": ["#00152a", "#002a50", "#003f77", "#00549f", "#0066cc", "#268ce8", "#8ac3fa", "#e6f2ff"]
+      },
+      "lift-lime": {
+        "role": "secondary",
+        "displayName": "Lift Signal",
+        "canonical": "#a4c944",
+        "tonalRamp": ["#1b2505", "#31450b", "#4b6812", "#688c1e", "#86ad2f", "#a4c944", "#c9e879", "#f2f9df"]
+      },
+      "lift-lime-light": {
+        "role": "secondary",
+        "displayName": "Lift Signal Light",
+        "canonical": "#c9e879",
+        "tonalRamp": ["#202b08", "#3a4d10", "#56701d", "#75952e", "#98bc48", "#b9d968", "#c9e879", "#f4fae4"]
+      },
+      "lift-lime-ink": {
+        "role": "secondary",
+        "displayName": "Lift Signal Ink",
+        "canonical": "#172208",
+        "tonalRamp": ["#101704", "#172208", "#2b3d0e", "#455c19", "#647d2a", "#89a44a", "#b7ca82", "#edf3dd"]
+      },
+      "dark-field": {
+        "role": "neutral",
+        "displayName": "Service Night",
+        "canonical": "#101012",
+        "tonalRamp": ["#101012", "#242426", "#3d3d40", "#5b5b60", "#7f7f85", "#aaaab0", "#d3d3d7", "#f5f5f7"]
+      },
+      "border-soft": {
+        "role": "neutral",
+        "displayName": "Soft Boundary",
+        "canonical": "rgba(29, 29, 31, 0.09)",
+        "tonalRamp": ["rgba(29, 29, 31, 0.04)", "rgba(29, 29, 31, 0.07)", "rgba(29, 29, 31, 0.09)", "rgba(29, 29, 31, 0.14)", "rgba(29, 29, 31, 0.22)", "rgba(29, 29, 31, 0.34)", "rgba(29, 29, 31, 0.52)", "rgba(29, 29, 31, 0.74)"]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Pure White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#202022", "#414145", "#68686e", "#96969c", "#c0c0c5", "#dedee2", "#f3f3f5", "#ffffff"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The centered hero promise only." },
+      "headline": { "displayName": "Headline", "purpose": "Major section and inner-page titles." },
+      "title": { "displayName": "Title", "purpose": "Equipment families and mid-scale content titles." },
+      "body": { "displayName": "Body", "purpose": "Product evidence, ownership guidance, and company copy." },
+      "lead": { "displayName": "Lead", "purpose": "Hero support copy and prominent explanatory passages." },
+      "label": { "displayName": "Label", "purpose": "Eyebrows, compact verified details, and metadata." }
+    },
+    "shadows": [
+      {
+        "name": "floating-navigation",
+        "value": "0 0.8rem 2.4rem rgba(37, 43, 52, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.92)",
+        "purpose": "Establishes the glass navigation as a calm layer above the page."
+      },
+      {
+        "name": "quiet-glass",
+        "value": "0 0.8rem 2.4rem rgba(45, 49, 58, 0.07), inset 0 1px 0 #fff",
+        "purpose": "Supports compact proof and focused detail material."
+      },
+      {
+        "name": "interactive-lift",
+        "value": "0 1.2rem 2.8rem rgba(37, 43, 52, 0.11)",
+        "purpose": "Appears only when a selectable equipment card rises on hover."
+      },
+      {
+        "name": "product-grounding",
+        "value": "drop-shadow(0 2.2rem 2.2rem rgba(25, 34, 44, 0.2))",
+        "purpose": "Grounds the complete machine without placing it in a frame."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Content reveals, menu opening, and card lift."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Slow page-theme color transitions."
+      },
+      {
+        "name": "reveal-once",
+        "value": "520ms opacity and translateY(16px)",
+        "purpose": "Introduces a content group once without changing native scroll."
+      },
+      {
+        "name": "pressed-control",
+        "value": "80ms scale(0.97)",
+        "purpose": "Immediate physical acknowledgement on buttons, cards, and menu controls."
+      }
+    ],
+    "breakpoints": [
+      { "name": "narrow", "value": "24rem" },
+      { "name": "mobile", "value": "47.99rem" },
+      { "name": "intermediate", "value": "64rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The decisive route to the catalogue or another primary destination.",
+      "html": "<a class=\"ds-button-primary\" href=\"#\">לצפייה בקטלוג</a>",
+      "css": ".ds-button-primary { display:inline-flex; min-height:3.05rem; align-items:center; justify-content:center; padding:0.72rem 1.25rem; border:0; border-radius:999px; background:var(--navy, #0071e3); color:#fff; font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",Arial,sans-serif; font-size:0.9rem; font-weight:620; line-height:1; text-decoration:none; transition:transform 100ms ease-out,background-color 180ms ease,box-shadow 180ms ease; } .ds-button-primary:hover { background:#0077ed; box-shadow:0 0.5rem 1.4rem rgba(0,113,227,0.2); } .ds-button-primary:focus-visible { outline:3px solid #0071e3; outline-offset:3px; } .ds-button-primary:active { transform:scale(0.97); transition-duration:80ms; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A quieter route to selection guidance or manufacturer documents.",
+      "html": "<a class=\"ds-button-secondary\" href=\"#\">איזה ציוד מתאים לי?</a>",
+      "css": ".ds-button-secondary { display:inline-flex; min-height:3.05rem; align-items:center; justify-content:center; padding:0.72rem 1.25rem; border:1px solid rgba(0,113,227,0.35); border-radius:999px; background:rgba(255,255,255,0.48); color:var(--navy, #0071e3); backdrop-filter:blur(14px) saturate(160%); font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",Arial,sans-serif; font-size:0.9rem; font-weight:620; line-height:1; text-decoration:none; transition:transform 100ms ease-out,background-color 180ms ease; } .ds-button-secondary:hover { background:rgba(255,255,255,0.82); } .ds-button-secondary:focus-visible { outline:3px solid #0071e3; outline-offset:3px; } .ds-button-secondary:active { transform:scale(0.97); transition-duration:80ms; } @media (prefers-reduced-transparency:reduce) { .ds-button-secondary { background:#fff; backdrop-filter:none; } }"
+    },
+    {
+      "name": "Floating RTL Navigation",
+      "kind": "nav",
+      "refersTo": "navigation-shell",
+      "description": "The pill-shaped reading-origin anchor for equipment, evidence, service, and company routes.",
+      "html": "<nav class=\"ds-navigation\" dir=\"rtl\" aria-label=\"ניווט ראשי\"><strong>ליפט פרו 26</strong><a href=\"#\">ציוד</a><a href=\"#\">מסמכי יצרן</a><a class=\"ds-navigation-action\" href=\"#\">לכל הדגמים</a></nav>",
+      "css": ".ds-navigation { display:flex; min-height:3.85rem; align-items:center; gap:1.25rem; padding:0.35rem 0.5rem 0.35rem 0.85rem; border:1px solid rgba(255,255,255,0.7); border-radius:999px; background:rgba(255,255,255,0.68); color:var(--ink, #1d1d1f); box-shadow:0 0.8rem 2.4rem rgba(37,43,52,0.1),inset 0 1px 0 rgba(255,255,255,0.92); backdrop-filter:blur(24px) saturate(180%); font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",Arial,sans-serif; } .ds-navigation strong { margin-inline-end:auto; font-size:0.9rem; font-weight:720; } .ds-navigation a { color:#4c4c50; font-size:0.82rem; font-weight:540; text-decoration:none; } .ds-navigation a:hover { color:#000; } .ds-navigation a:focus-visible { outline:3px solid #0071e3; outline-offset:3px; } .ds-navigation .ds-navigation-action { padding:0.75rem 1.05rem; border-radius:999px; background:var(--navy, #0071e3); color:#fff; font-weight:650; } @media (prefers-reduced-transparency:reduce) { .ds-navigation { background:#fff; backdrop-filter:none; } }"
+    },
+    {
+      "name": "Equipment Family Card",
+      "kind": "card",
+      "refersTo": "equipment-card",
+      "description": "A job-oriented selector that moves from equipment family to the relevant catalogue set.",
+      "html": "<a class=\"ds-equipment-card\" href=\"#\" dir=\"rtl\"><span><strong>מעמיסים</strong><small>העמסה ושינוע באתרי עבודה, מחצבות ותשתיות.</small></span><b aria-hidden=\"true\">←</b></a>",
+      "css": ".ds-equipment-card { display:grid; min-height:14rem; padding:clamp(1.5rem,3vw,2.5rem); grid-template-columns:1fr auto; gap:1.2rem; align-items:start; border:0; border-radius:1rem; background:linear-gradient(145deg,#f3f5ee,#e9efdd); color:var(--ink, #1d1d1f); box-shadow:inset 0 1px 0 rgba(255,255,255,0.9); font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",Arial,sans-serif; text-decoration:none; transition:transform 240ms cubic-bezier(0.16,1,0.3,1),box-shadow 240ms ease; } .ds-equipment-card span { display:grid; gap:0.55rem; } .ds-equipment-card strong { font-size:clamp(1.35rem,2.5vw,2rem); font-weight:690; letter-spacing:-0.035em; } .ds-equipment-card small { max-width:29rem; color:var(--ink-muted, #5d5d62); font-size:1rem; line-height:1.55; } .ds-equipment-card b { display:grid; width:2.4rem; height:2.4rem; border-radius:50%; place-items:center; background:rgba(255,255,255,0.7); font-size:1.25rem; font-weight:400; } .ds-equipment-card:hover { transform:translateY(-4px) scale(1.005); box-shadow:0 1.2rem 2.8rem rgba(37,43,52,0.11); } .ds-equipment-card:focus-visible { outline:3px solid #0071e3; outline-offset:3px; } .ds-equipment-card:active { transform:scale(0.97); transition-duration:80ms; }"
+    },
+    {
+      "name": "Verified Detail Pill",
+      "kind": "chip",
+      "refersTo": "verified-detail",
+      "description": "A compact evidence line for direct import, need-fit, and local service below the complete machine.",
+      "html": "<div class=\"ds-verified-detail\" dir=\"rtl\"><span>יבוא ישיר</span><span>התאמה לצורך</span><span>שירות מקומי</span></div>",
+      "css": ".ds-verified-detail { display:flex; justify-content:space-between; gap:0.7rem; padding:0.6rem 1.1rem; border:1px solid rgba(255,255,255,0.75); border-radius:999px; background:rgba(255,255,255,0.55); color:#47474c; box-shadow:inset 0 1px 0 rgba(255,255,255,0.9); backdrop-filter:blur(20px) saturate(180%); font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",Arial,sans-serif; font-size:0.75rem; font-weight:570; } .ds-verified-detail span::before { display:inline-block; width:0.38rem; height:0.38rem; margin-inline-end:0.45rem; border-radius:50%; background:var(--lime, #a4c944); content:\"\"; } .ds-verified-detail:focus-within { outline:3px solid #0071e3; outline-offset:3px; } @media (prefers-reduced-transparency:reduce) { .ds-verified-detail { background:#fff; backdrop-filter:none; } }"
+    },
+    {
+      "name": "Service Proof Panel",
+      "kind": "custom",
+      "description": "The contained dark proof surface for a qualified ownership-support claim.",
+      "html": "<article class=\"ds-service-proof\" dir=\"rtl\"><strong dir=\"ltr\">35%–40%</strong><p>החיסכון משתנה לפי החלק, הדגם ומקור האספקה.</p></article>",
+      "css": ".ds-service-proof { padding:clamp(1.5rem,3vw,2.5rem); border:1px solid rgba(255,255,255,0.2); border-radius:1rem; background:rgba(255,255,255,0.09); color:#fff; box-shadow:inset 0 1px 0 rgba(255,255,255,0.15); backdrop-filter:blur(26px) saturate(160%); font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",Arial,sans-serif; } .ds-service-proof strong { display:block; color:#f5f5f7; font-size:clamp(3.5rem,7vw,6.5rem); font-weight:700; letter-spacing:-0.04em; line-height:0.95; } .ds-service-proof p { margin:1.25rem 0 0; color:#d5dfe1; line-height:1.7; } .ds-service-proof:focus-within { outline:3px solid #2997ff; outline-offset:3px; } @media (prefers-reduced-transparency:reduce) { .ds-service-proof { background:#242426; backdrop-filter:none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Clear Equipment Field",
+    "overview": "Verified equipment should feel understandable before it feels heavy. The world uses bright spatial fields, precise system typography, one complete machine as the hero object, and calm physical depth to help Israeli operators move from the offer to the right equipment family without entering a dark industrial wall or a scroll-trapped spectacle.\n\nThis is a Hebrew-first, RTL commercial product experience with a user-pinned 2026 Apple-style discipline, not an imitation of Apple branding or exact layouts. The interface is quiet enough for manufacturer-backed facts to carry authority. Blue marks navigation and action, while Lift Pro lime remains a rare ownership-and-brand signal. Translucent material is reserved for navigation and compact evidence details; primary reading surfaces remain solid and legible.\n\nThe story proceeds in a fixed commercial order: understand the offer, choose an equipment family, see ownership support, learn why the company exists, then open a model or manufacturer source. Until an approved contact destination exists, the site routes visitors to catalogue, selection, company, and document surfaces and never implies that a message, quote request, or form submission has been sent.",
+    "keyCharacteristics": [
+      "Bright, calm spatial fields instead of a continuous industrial backdrop.",
+      "One complete, unframed machine as the dominant first-viewport object.",
+      "Hebrew-first RTL composition with the navigation anchored at the top-right reading origin.",
+      "System-native typography, restrained iridescent color, and soft ambient depth.",
+      "Translucency only where it clarifies navigation or a focused detail.",
+      "Native scrolling, immediate control response, and manufacturer evidence kept close to technical claims."
+    ],
+    "rules": [
+      { "name": "The One Blue Voice Rule", "body": "Blue communicates action, selection, or verified product emphasis; it does not fill large reading fields.", "section": "colors" },
+      { "name": "The Rare Lime Rule", "body": "Lime is a Lift Pro signal, not a dominant interface theme. Keep it small enough that every appearance still means something.", "section": "colors" },
+      { "name": "The Contained Night Rule", "body": "Dark material belongs only to the service-and-ownership proof section. Never turn the page back into a continuous dark industrial wall.", "section": "colors" },
+      { "name": "The One Family Rule", "body": "Create hierarchy through optical size, weight, line height, and measure; do not introduce a display face for spectacle.", "section": "typography" },
+      { "name": "The Tight Promise Rule", "body": "Large promises use negative tracking and compact line height, while body copy opens to a comfortable reading rhythm.", "section": "typography" },
+      { "name": "The Complete Machine Rule", "body": "The hero product is shown whole, centered, and unframed. Never crop it into a card, silhouette it behind copy, or use it as a texture.", "section": "layout" },
+      { "name": "The Native Scroll Rule", "body": "Story progression may reveal content once, but it may not trap, scrub, hijack, or artificially lengthen page scrolling.", "section": "layout" },
+      { "name": "The Glass With a Job Rule", "body": "Use blur and saturation only for navigation, focused evidence, and compact foreground detail. Ordinary reading cards stay solid or nearly solid.", "section": "elevation" },
+      { "name": "The Flat Until Needed Rule", "body": "Resting content is separated by space and tone. Elevation appears when an object floats, receives focus, or responds to interaction.", "section": "elevation" },
+      { "name": "The Scale-Matched Curve Rule", "body": "The larger the spatial field, the broader its curve; compact evidence and selectable cards stay tighter and more precise.", "section": "shapes" },
+      { "name": "The No Product Frame Rule", "body": "Shape belongs to the field around the product, never to the machine image itself.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do begin with the visitor's work and equipment family, then reveal model detail and manufacturer evidence.",
+      "Do present one complete, large machine as the first-viewport product object.",
+      "Do preserve Hebrew-first RTL order, visible focus, responsive logical layout, and native scrolling.",
+      "Do keep the approved lift-pro-26-logo-transparent.png uncropped on its transparent canvas and at its native aspect ratio.",
+      "Do keep manufacturer source documents one step away from every technical claim.",
+      "Do qualify the spare-parts percentage by part, model, and source every time it appears.",
+      "Do provide solid and reduced-motion fallbacks for translucent and spatial treatments."
+    ],
+    "donts": [
+      "Don't recreate a dark industrial wall, a scroll-trapped hero, or a software-dashboard aesthetic.",
+      "Don't copy Apple branding, language, or exact page layouts; carry only the approved 2026 product-design principles.",
+      "Don't crop, frame, backdrop, or partially conceal the canonical logo or hero machine.",
+      "Don't spread glass across ordinary reading surfaces or use lime as the dominant interface color.",
+      "Don't invent prices, finance terms, stock, delivery times, warranty terms, certifications, testimonials, or contact details.",
+      "Don't imply that a message, quote request, or form submission was sent while no approved commercial contact destination exists.",
+      "Don't use raw PDF embeds as the customer-facing catalogue; semantic HTML is the primary equipment experience and PDFs remain optional source downloads."
+    ]
+  }
+}

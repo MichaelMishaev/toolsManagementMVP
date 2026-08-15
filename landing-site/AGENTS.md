@@ -65,8 +65,8 @@ Keep this commercial flow unless later source material changes it:
 - Keep `lang="he"` and `dir="rtl"` at document level and use natural professional Hebrew.
 - Follow `../assets/brand/README.md`. Use `lift-pro-26-logo-transparent.png` as the canonical landing-page logo.
 - Preserve the logo's transparent canvas and aspect ratio; do not crop it into a dark rectangle or add a backdrop.
-- Preserve the approved black industrial visual language: near-black and charcoal fields, off-white text, and lime as the primary interaction accent.
-- The assembly hero is an approved exception: native scrolling may scrub one sticky video in both directions. Never intercept input, autoplay continuously, or keep changing frames after scrolling stops.
+- Preserve the approved 2026 product-page direction: system typography, bright neutral fields, restrained iridescent color, floating translucent chrome, large product imagery, and lime used only as a small Lift Pro brand signal.
+- The hero uses one stable loader image and native scrolling. Do not restore a sticky scroll-scrub track, frame-by-frame image swapping, autoplay, or input interception.
 - Serve responsive video assets, preserve the mobile loading unlock, and keep the complete static frame for reduced motion and media failure.
 - Major content sections may transition among accessible dark industrial background tones over 500-800ms.
 - Entrance reveals must run once, remain subtle, and be disabled under `prefers-reduced-motion`.

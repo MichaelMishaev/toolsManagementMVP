@@ -7,373 +7,227 @@
       name="description"
       content="Lift Pro 26 Israel — יבוא ושיווק מלגזות, צמ״ה וציוד כבד במחיר תחרותי, עם אחריות, שירות וחלפים."
     />
-    <meta name="theme-color" content="#070a0c" />
+    <meta name="theme-color" content="#f4f0e8" />
     <title>Lift Pro 26 Israel | ציוד גדול. חשיבה חדשה.</title>
     <link rel="icon" href="../assets/brand/lift-pro-26-logo-transparent.png" type="image/png" />
-    <link rel="stylesheet" href="./styles.css?v=12" />
-    <script type="module" src="./hero.js?v=5"></script>
+    <link rel="stylesheet" href="./styles.css?v=14" />
+    <script type="module" src="./hero.js?v=6"></script>
   </head>
-  <body data-active-theme="equipment">
+  <body data-active-theme="hero">
     <!--
-      THESIS: ציוד חדש צריך לעבוד בשביל העסק, לא להפוך לנטל. הדף מסרב להציג את החברה כאפליקציה.
-      OWN-WORLD: שחור תעשייתי, פלדה כהה, לבן-אבק וליים ממוקד; משטחים רחבים, קווי מפרט וטיפוגרפיה כבדה.
-      STORY: המבקר רואה כלי שמתחבר, מבין את יתרון היבוא הישיר, בוחן ציוד, שירות וחלפים, ומסיים עם מפרט צורך קצר לקראת בחירת כלי.
-      FIRST VIEWPORT: מכונה בקנה מידה גדול לצד הבטחת מחיר ובעלות; הפעולה הראשית מובילה ישירות למגוון הכלים.
-      FORM: אתר מסחרי תעשייתי קיים שעבר שינוי תפיסה, תוך שימור עולם המותג והאינטראקציה שאושרו.
+      THESIS: verified equipment should feel understandable before it feels heavy; this refuses the category's dark industrial wall and scroll-trapped hero.
+      OWN-WORLD: bright spatial fields, one complete machine, precise system type, calm depth, and translucent material only for navigation and focused detail.
+      STORY: understand the offer, choose an equipment family, see ownership support, learn the company, then open a model or its manufacturer source.
+      FIRST VIEWPORT: centered offer and actions above one large complete loader, with the floating RTL navigation anchored at the top-right reading origin.
+      FORM: user-pinned Apple-style 2026 product page; seed key user-pinned-no-roll.
       FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
     -->
     <a class="skip-link" href="#main-content">דלגו לתוכן הראשי</a>
-    <div class="page-progress" aria-hidden="true"><span data-page-progress></span></div>
+
+    <header class="site-header" data-site-header>
+      <div class="header-inner">
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-menu"
+          aria-label="פתיחת תפריט"
+          data-menu-toggle
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <a class="brand" href="./index.html" aria-label="ליפט פרו 26 ישראל בע״מ — דף הבית">
+          <img
+            src="../assets/brand/lift-pro-26-logo-transparent.png"
+            width="1635"
+            height="962"
+            alt=""
+          />
+          <span>ליפט פרו 26<small>ישראל בע״מ</small></span>
+        </a>
+        <nav class="site-menu" id="site-menu" aria-label="ניווט ראשי" data-site-menu>
+          <a href="#equipment">ציוד</a>
+          <a href="./catalogue/index.html">קטלוג</a>
+          <a href="./documents/index.html">מסמכי יצרן</a>
+          <a href="#service">שירות וחלפים</a>
+          <a href="./about/index.html">אודות</a>
+        </nav>
+        <a class="header-action" href="./catalogue/index.html">לכל הדגמים</a>
+      </div>
+    </header>
 
     <main id="main-content">
-      <section class="assembly-story" aria-labelledby="hero-title" data-assembly-story>
-        <div class="assembly-sticky">
-          <header class="site-header" aria-label="Lift Pro 26 Israel">
-            <a class="brand" href="./" aria-label="ליפט פרו 26 ישראל בע״מ — דף הבית">
-              <span class="brand-artwork" aria-hidden="true">
-                <img
-                  src="../assets/brand/lift-pro-26-logo-transparent.png"
-                  width="1635"
-                  height="962"
-                  alt=""
-                />
-              </span>
-              <span>ליפט פרו 26<small>ישראל בע״מ</small></span>
+      <section class="hero page-theme" aria-labelledby="hero-title" data-theme="hero" data-page-section>
+        <div class="hero-inner">
+          <div class="hero-copy reveal-group">
+            <h1 id="hero-title">ציוד גדול.<br /><span>החלטה חכמה.</span></h1>
+            <p class="hero-lead">
+              מלגזות, מחפרים ומעמיסים ביבוא ישיר, עם כתובת מקומית לשירות ולחלפים —
+              כדי שתבחרו כלי שמתאים לעבודה ולעסק, לא רק למפרט.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="./catalogue/index.html">לצפייה בקטלוג</a>
+              <a class="button button-secondary" href="#equipment">איזה ציוד מתאים לי?</a>
+            </div>
+            <p class="hero-source-note">22 דגמים מ־LOVOL ומ־NICOSAIL, עם נתוני מפתח ומסמכי מקור.</p>
+          </div>
+
+          <figure class="hero-visual reveal-group">
+            <div class="hero-machine">
+              <img
+                src="./assets/assembly/loader-assembly-end-transparent-v2.png"
+                width="960"
+                height="540"
+                alt="מעמיס אופני צהוב מורכב ומוכן לעבודה"
+              />
+            </div>
+            <figcaption>
+              <span>יבוא ישיר</span>
+              <span>התאמה לצורך</span>
+              <span>שירות מקומי</span>
+            </figcaption>
+          </figure>
+        </div>
+        <a class="scroll-cue" href="#equipment" aria-label="המשך לקטגוריות הציוד">
+          <span>המשיכו לגלול</span><i aria-hidden="true">↓</i>
+        </a>
+      </section>
+
+      <section
+        class="page-section equipment-section page-theme"
+        id="equipment"
+        aria-labelledby="equipment-title"
+        data-theme="equipment"
+        data-page-section
+      >
+        <div class="section-inner">
+          <div class="section-heading reveal-group">
+            <h2 id="equipment-title">איזה כלי צריך לעבוד בשבילכם?</h2>
+            <p>בחרו את סוג העבודה וקפצו ישר למשפחה הרלוונטית בקטלוג.</p>
+          </div>
+
+          <div class="equipment-grid">
+            <a class="equipment-card reveal-group" href="./catalogue/index.html?filter=mini#models">
+              <div><h3>מיני מחפרים</h3><p>חפירה ופיתוח במרחבים צפופים ובאתרים עירוניים.</p></div>
+              <span class="card-arrow" aria-hidden="true">←</span>
             </a>
-            <p class="header-status">יבוא ושיווק ציוד כבד</p>
-          </header>
+            <a class="equipment-card reveal-group" href="./catalogue/index.html?filter=excavator#models">
+              <div><h3>מחפרים</h3><p>עבודות עפר, תשתית וחפירה בהיקפים שונים.</p></div>
+              <span class="card-arrow" aria-hidden="true">←</span>
+            </a>
+            <a class="equipment-card reveal-group" href="./catalogue/index.html?filter=loader#models">
+              <div><h3>מעמיסים</h3><p>העמסה ושינוע באתרי עבודה, מחצבות ותשתיות.</p></div>
+              <span class="card-arrow" aria-hidden="true">←</span>
+            </a>
+            <a class="equipment-card reveal-group" href="./catalogue/index.html?filter=electric#models">
+              <div><h3>ציוד חשמלי</h3><p>מחפרים ומעמיסים חשמליים מתוך מסמכי היצרן.</p></div>
+              <span class="card-arrow" aria-hidden="true">←</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
-          <div class="hero-layout">
-            <figure class="assembly-stage">
-              <div class="assembly-media" data-media-frame>
-                <video
-                  class="assembly-video"
-                  muted
-                  playsinline
-                  preload="auto"
-                  poster="./assets/assembly/loader-assembly-start-transparent-v2.png"
-                  tabindex="-1"
-                  aria-hidden="true"
-                  data-assembly-video
-                >
-                  <source
-                    src="./assets/assembly/loader-assembly-transparent-mobile-v2.webm"
-                    media="(max-width: 47.99rem)"
-                    type="video/webm"
-                  />
-                  <source
-                    src="./assets/assembly/loader-assembly-dark-fallback-mobile-v2.mp4"
-                    media="(max-width: 47.99rem)"
-                    type="video/mp4"
-                  />
-                  <source
-                    src="./assets/assembly/loader-assembly-transparent-v2.webm"
-                    type="video/webm"
-                  />
-                  <source
-                    src="./assets/assembly/loader-assembly-dark-fallback-v2.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <img
-                  class="assembly-fallback"
-                  src="./assets/assembly/loader-assembly-end-transparent-v2.png"
-                  width="960"
-                  height="540"
-                  alt="מעמיס אופני צהוב מורכב ומוכן לעבודה"
-                  data-assembly-fallback
-                />
-              </div>
-              <figcaption>
-                <span>מהמפעל ועד לשטח בישראל</span>
-                <span class="assembly-state" data-assembly-state>בדרך לעבודה</span>
-              </figcaption>
-            </figure>
-
-            <div class="hero-copy">
-              <div class="hero-message hero-message-opening">
-                <h1 id="hero-title">ציוד גדול.<br /><span>מחיר שעובד.</span></h1>
-                <p>
-                  מלגזות, צמ״ה וציוד כבד ביבוא ישיר — כדי שגם עסק קטן או קבלן
-                  צומח יוכלו לרכוש כלי חדש, איכותי ומגובה בשירות.
-                </p>
-                <div class="hero-actions">
-                  <a class="button hero-action" href="#equipment">מצאו את הכלי שלכם</a>
-                  <a class="text-link hero-catalogue-link" href="./catalogue/index.html">ל-22 הדגמים בקטלוג</a>
-                </div>
-              </div>
-
-              <div class="hero-message hero-message-middle" aria-hidden="true">
-                <p class="resolution-title">פחות שכבות.<br /><span>יותר כלי.</span></p>
-                <p>עבודה ישירה מול מקורות הייצור ומבנה פעילות יעיל מאפשרים הצעה תחרותית יותר.</p>
-              </div>
-
-              <div class="hero-message hero-message-complete" aria-hidden="true" inert>
-                <p class="resolution-title">מוכן לעבוד.</p>
-                <p>כלי חדש הוא רק ההתחלה: אחריות, שירות וחלפים שומרים אותו בתנועה לאורך זמן.</p>
-                <a class="text-link hero-link" href="#advantage">כך בנוי היתרון</a>
-              </div>
-
-              <div class="scroll-progress" aria-hidden="true">
-                <span>גללו להרכבה</span>
-                <span class="progress-track"><span class="progress-fill"></span></span>
-                <output data-progress-output>0%</output>
-              </div>
+      <section
+        class="page-section value-section page-theme"
+        id="value"
+        aria-labelledby="value-title"
+        data-theme="value"
+        data-page-section
+      >
+        <div class="section-inner value-layout">
+          <div class="section-heading reveal-group">
+            <h2 id="value-title">פחות שכבות בדרך. יותר ערך בכלי.</h2>
+          </div>
+          <div class="value-copy reveal-group">
+            <p class="lead-quote">
+              אנחנו עובדים מול מקורות הייצור במבנה פעילות יעיל, כדי להציע ציוד איכותי
+              במחיר שמאפשר לעסק להמשיך להשקיע ולצמוח.
+            </p>
+            <div class="value-points">
+              <article><h3>מקור ברור</h3><p>נתוני הדגמים מוצגים מתוך מסמכי היצרן המאושרים.</p></article>
+              <article><h3>בחירה עניינית</h3><p>מתחילים מסוג המשימה, תנאי השטח וקצב העבודה.</p></article>
+              <article><h3>מחשבה לטווח ארוך</h3><p>שירות, תחזוקה וחלפים הם חלק מהחלטת הרכישה.</p></article>
             </div>
           </div>
         </div>
       </section>
 
-      <div class="content-shell">
-        <nav class="section-nav" aria-label="ניווט בדף">
-          <a class="brand brand-compact" href="./" aria-label="ליפט פרו 26 ישראל בע״מ — דף הבית">
-            <span class="brand-artwork" aria-hidden="true">
-              <img
-                src="../assets/brand/lift-pro-26-logo-transparent.png"
-                width="1635"
-                height="962"
-                alt=""
-              />
-            </span>
-            <span>ליפט פרו 26</span>
-          </a>
-          <div class="section-links">
-            <a href="#equipment">ציוד</a>
-            <a href="./catalogue/index.html">קטלוג</a>
-            <a href="#advantage">היתרון</a>
-            <a href="#support">שירות וחלפים</a>
-            <a href="#about">אודות</a>
-          </div>
-        </nav>
-
-        <nav class="capability-rail reveal-group" aria-label="גישה מהירה">
-          <a href="./catalogue/index.html">
-            <strong><bdi>22</bdi> דגמים</strong>
-            <span>נתוני מפתח ומסמכי יצרן</span>
-          </a>
-          <a href="#equipment">
-            <strong><bdi>5</bdi> משפחות ציוד</strong>
-            <span>מהמחסן ועד לעבודות עפר</span>
-          </a>
-          <a href="#support">
-            <strong>שירות וחלפים</strong>
-            <span>כתובת מקומית גם אחרי המסירה</span>
-          </a>
-        </nav>
-
-        <section
-          class="page-section equipment-section"
-          id="equipment"
-          aria-labelledby="equipment-title"
-          data-theme="equipment"
-          data-page-section
-        >
-          <div class="section-inner">
-            <div class="section-heading reveal-group">
-              <h2 id="equipment-title">מהמלגזה הראשונה ועד לצי שעובד מסביב לשעון.</h2>
-              <p class="section-lead">
-                ציוד לעסק קטן, לקבלן, למחצבה, לנמל ולפרויקט תשתית. אנחנו מחברים
-                את הצורך בשטח ליצרן ולכלי הנכון — בלי להעמיס על העסק עלויות שלא מקדמות אותו.
-              </p>
-            </div>
-
-            <div class="equipment-index" aria-label="קטגוריות ציוד">
-              <article class="equipment-row reveal-group">
-                <span class="equipment-code" dir="ltr">FL</span>
-                <div><h3>מלגזות</h3><p>מלגזות חשמליות ודיזל לבעלי מחסנים, קבלנים ומערכים לוגיסטיים.</p></div>
-                <span class="equipment-use">מחסן · קבלנות · לוגיסטיקה</span>
-              </article>
-              <article class="equipment-row reveal-group">
-                <span class="equipment-code" dir="ltr">WL</span>
-                <div><h3>שופלים ומעמיסים</h3><p>כלים לעבודות עפר, העמסה ותנועה באתרי בנייה, תשתיות ומחצבות.</p></div>
-                <span class="equipment-use">תשתיות · עפר · מחצבות</span>
-              </article>
-              <article class="equipment-row reveal-group">
-                <span class="equipment-code" dir="ltr">EX</span>
-                <div><h3>מחפרים ובאגרים</h3><p>כלים לעבודות חפירה, פיתוח ובנייה בפרויקטים ובהיקפי עבודה שונים.</p></div>
-                <span class="equipment-use">פיתוח · חפירה · בנייה</span>
-              </article>
-              <article class="equipment-row reveal-group">
-                <span class="equipment-code" dir="ltr">TH</span>
-                <div><h3>מעמיסים טלסקופיים</h3><p>כלים לעבודות הרמה ושינוע כחלק ממגוון הציוד לענפי הבנייה והתשתיות.</p></div>
-                <span class="equipment-use">הרמה · שינוע · תשתיות</span>
-              </article>
-              <article class="equipment-row reveal-group">
-                <span class="equipment-code" dir="ltr">HD</span>
-                <div><h3>ציוד כבד וייעודי</h3><p>פתרונות לציוד בנמלים, מחצבות ומערכים לוגיסטיים ולפרויקטי תשתית.</p></div>
-                <span class="equipment-use">נמלים · פרויקטים · צי כבד</span>
-              </article>
-            </div>
-            <div class="equipment-catalogue-cta reveal-group">
-              <div>
-                <h3>22 דגמים. נתוני מפתח. מסמכי יצרן מלאים.</h3>
-                <p>מחפרים, מיני מחפרים ומעמיסים של LOVOL ו-NICOSAIL, מסודרים לחיפוש והשוואה.</p>
-              </div>
-              <a class="button" href="./catalogue/index.html">פתחו את הקטלוג</a>
-            </div>
-          </div>
-        </section>
-
-        <section
-          class="page-section advantage-section"
-          id="advantage"
-          aria-labelledby="advantage-title"
-          data-theme="advantage"
-          data-page-section
-        >
-          <div class="section-inner advantage-layout">
-            <div class="section-heading reveal-group">
-              <h2 id="advantage-title">המחיר של הכלי צריך להשאיר לעסק מקום לצמוח.</h2>
-              <p class="section-lead">
-                Lift Pro 26 נולדה כשחיפשנו מלגזה לעסק שלנו וגילינו את הפער בין
-                עלות העבודה הישירה מול היצרן לבין המחיר שבעל עסק נדרש לשלם בישראל.
-              </p>
-            </div>
-
-            <div class="advantage-statement reveal-group">
-              <p class="statement-large">בעלות במקום שכירות מתמשכת.</p>
-              <p>
-                כאשר התנאים מתאימים לעסק, רכישת כלי חדש במחיר הגיוני יכולה להחליף
-                הוצאה חודשית מתמשכת בנכס שנמצא בבעלותכם ועובד עבורכם.
-              </p>
-            </div>
-
-            <ol class="principle-list" aria-label="עקרונות הפעילות">
-              <li class="reveal-group"><strong>קשר ישיר</strong><span>עבודה מול מקורות הייצור ושותפים בינלאומיים.</span></li>
-              <li class="reveal-group"><strong>מבנה יעיל</strong><span>פחות הוצאות ראווה, יותר מלאי, שירות, חלפים וטכנולוגיה.</span></li>
-              <li class="reveal-group"><strong>מרווח סביר</strong><span>פעילות ארוכת טווח שמעבירה חלק גדול יותר מהיתרון ללקוח.</span></li>
-              <li class="reveal-group"><strong>התאמה לשטח</strong><span>למידה מהעבודה הישראלית והתאמת הציוד לצורך האמיתי.</span></li>
-            </ol>
-          </div>
-        </section>
-
-        <section
-          class="page-section partners-section"
-          id="partners"
-          aria-labelledby="partners-title"
-          data-theme="partners"
-          data-page-section
-        >
-          <div class="section-inner partners-layout">
-            <div class="section-heading reveal-group">
-              <h2 id="partners-title">יצרנים בינלאומיים. כתובת ישראלית.</h2>
-              <p class="section-lead">
-                קשרי יצרן ישירים מחברים יכולות ייצור וטכנולוגיה בינלאומיות לצרכים
-                האמיתיים של עסקים וקבלנים בישראל.
-              </p>
-            </div>
-
-            <div class="partner-names reveal-group" aria-label="שותפי ייצור">
-              <p><bdi>LOVOL</bdi><span>יצרנית ציוד תעשייתי וכבד בסין</span></p>
-              <p><bdi>NICOSAIL</bdi><span>שיתוף פעולה מסחרי בתחום הציוד</span></p>
-            </div>
-
-            <p class="partner-note reveal-group">
-              במקביל, החברה בונה קשרי עבודה בישראל עם חברות מובילות בענף התשתיות,
-              ובהן קבוצת אולניק, כדי ללמוד את הצרכים מהשטח ולספק פתרונות שמתאימים לעבודה בפועל.
+      <section
+        class="page-section service-section page-theme"
+        id="service"
+        aria-labelledby="service-title"
+        data-theme="service"
+        data-page-section
+      >
+        <div class="section-inner service-layout">
+          <div class="section-heading reveal-group">
+            <h2 id="service-title">ציוד טוב צריך להמשיך לעבוד.</h2>
+            <p>
+              השבתה עולה כסף. לכן אנחנו בונים מעטפת מקומית של שירות, תחזוקה וחלקי חילוף —
+              כדי לשמור על זמינות הכלי לאורך זמן.
             </p>
           </div>
-        </section>
-
-        <section
-          class="page-section support-section"
-          id="support"
-          aria-labelledby="support-title"
-          data-theme="support"
-          data-page-section
-        >
-          <div class="section-inner support-layout">
-            <div class="section-heading reveal-group">
-              <h2 id="support-title">לא רק להביא את הכלי. לשמור אותו עובד.</h2>
-              <p class="section-lead">
-                השבתה עולה כסף. לכן האחריות שלנו לא מסתיימת במסירה: אנחנו מפתחים
-                מעטפת של שירות, תחזוקה וחלקי חילוף שמטרתה לצמצם זמן עמידה ועלויות לאורך שנים.
-              </p>
-            </div>
-
-            <div class="support-proof reveal-group">
-              <p class="proof-number" dir="ltr">35%-40%</p>
-              <p>
-                במקרים רבים ניתן להציע חלקי חילוף מקוריים ואיכותיים בעלות נמוכה
-                יותר מהמחירים המקובלים אצל היבואן הרשמי. החיסכון משתנה לפי החלק,
-                הדגם ומקור האספקה.
-              </p>
-            </div>
-
-            <div class="support-lines">
-              <article class="reveal-group"><h3>אחריות ושירות</h3><p>כתובת מקומית שמלווה את הכלי גם אחרי המסירה.</p></article>
-              <article class="reveal-group"><h3>חלפים ממקורות ישירים</h3><p>רכש בינלאומי גם עבור מותגים מובילים שכבר עובדים בישראל.</p></article>
-              <article class="reveal-group"><h3>מידע ברור ומהיר</h3><p>מפרט, מידע טכני והשוואה עניינית בתהליך שקוף יותר.</p></article>
-            </div>
+          <div class="service-proof reveal-group">
+            <p class="proof-number" dir="ltr">35%–40%</p>
+            <p>
+              במקרים רבים ניתן להציע חלקי חילוף בעלות נמוכה יותר מהמחירים המקובלים אצל
+              היבואן הרשמי. החיסכון משתנה לפי החלק, הדגם ומקור האספקה.
+            </p>
           </div>
-        </section>
-
-        <section
-          class="page-section about-section"
-          id="about"
-          aria-labelledby="about-title"
-          data-theme="about"
-          data-page-section
-        >
-          <div class="section-inner about-layout">
-            <div class="section-heading reveal-group">
-              <h2 id="about-title">הכול התחיל ממלגזה אחת שהיינו צריכים לעסק שלנו.</h2>
-            </div>
-            <div class="about-story reveal-group">
-              <p>
-                אנחנו מגיעים מעולם הרכב, עם ניסיון של שנים בייבוא ושיווק אביזרים,
-                חלפים ומוצרים לענף. החיפוש אחר מלגזה אחת הפך לבדיקה עמוקה של יצרנים,
-                עלויות יבוא, תחזוקה ושירות — ולדרך חדשה להביא ציוד לישראל.
-              </p>
-              <p>
-                היום החזון רחב יותר: לבנות חברת ציוד צעירה, חדשנית ותחרותית,
-                שמאפשרת לעסקים לעבוד עם כלים איכותיים בלי שהציוד יהפוך להוצאה שמכבידה על הצמיחה.
-              </p>
-            </div>
-            <blockquote class="reveal-group">
-              <p>״מאחורי כל שופל, באגר, מלגזה או מעמיס עומד עסק ישראלי שצריך להרוויח ולהמשיך לעבוד.״</p>
-            </blockquote>
+          <div class="service-list reveal-group">
+            <p><strong>אחריות ושירות מקומי</strong></p>
+            <p><strong>איתור חלפים ממקורות ישירים</strong></p>
+            <p><strong>מידע טכני מתוך מסמכי יצרן</strong></p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section
-          class="page-section final-section"
-          id="next-machine"
-          aria-labelledby="final-title"
-          data-theme="final"
-          data-page-section
-        >
-          <div class="section-inner final-layout reveal-group">
-            <div>
-              <h2 id="final-title">הכלי הבא שלכם מתחיל בצורך אמיתי.</h2>
-              <p>
-                לפני שבוחרים דגם, הכינו ארבע תשובות קצרות. כך תגיעו לשיחה על
-                הכלי הבא עם מפרט ברור — ולא עם ניחוש.
-              </p>
-            </div>
-            <ol class="equipment-brief" aria-label="הפרטים הדרושים לבחירת ציוד">
-              <li><span>01</span><strong>סוג המשימה</strong><small>הרמה, העמסה, חפירה או שינוע</small></li>
-              <li><span>02</span><strong>עומס וגובה</strong><small>משקל עבודה וגובה נדרש</small></li>
-              <li><span>03</span><strong>תנאי השטח</strong><small>מחסן, חצר, אתר, מחצבה או נמל</small></li>
-              <li><span>04</span><strong>קצב העבודה</strong><small>שעות ביום ואופי השימוש</small></li>
-            </ol>
-            <div class="final-actions">
-              <a class="button" href="#equipment">התאימו קטגוריה למפרט</a>
-              <a class="text-link" href="#about">למה הקמנו את Lift Pro 26</a>
-            </div>
+      <section
+        class="page-section about-preview page-theme"
+        id="about"
+        aria-labelledby="about-title"
+        data-theme="about"
+        data-page-section
+      >
+        <div class="section-inner about-preview-layout">
+          <div class="section-heading reveal-group">
+            <h2 id="about-title">חיפשנו מלגזה לעסק. מצאנו דרך טובה יותר להביא ציוד לישראל.</h2>
           </div>
-        </section>
+          <div class="about-preview-copy reveal-group">
+            <p>
+              Lift Pro 26 צמחה מתוך שנים בעולם הרכב, היבוא והחלפים. החיפוש אחר כלי אחד
+              חשף את הפער בין עלויות המקור לבין המחיר שבעל עסק נדרש לשלם כאן — והפך
+              לפעילות שמחברת יצרנים בינלאומיים לצרכים של השטח הישראלי.
+            </p>
+            <a class="text-link" href="./about/index.html">הכירו את הדרך והחזון שלנו <span aria-hidden="true">←</span></a>
+          </div>
+        </div>
+      </section>
 
-        <footer class="site-footer">
-          <span><bdi>Lift Pro 26 Israel</bdi></span>
-          <p>ציוד גדול. חשיבה חדשה. מחיר שעובד בשביל העסק שלך.</p>
-        </footer>
-      </div>
+      <section class="final-cta page-theme" aria-labelledby="final-title" data-theme="final" data-page-section>
+        <div class="section-inner final-cta-inner reveal-group">
+          <div>
+            <h2 id="final-title">מצאו את הכלי שמתאים לעבודה.</h2>
+            <p>22 דגמים, נתוני מפתח ותצוגה מקדימה ברורה — בלי לדפדף בקבצי PDF.</p>
+          </div>
+          <div class="final-actions">
+            <a class="button" href="./catalogue/index.html">פתחו את הקטלוג</a>
+            <a class="button button-secondary" href="./documents/index.html">מסמכי יצרן</a>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <aside class="mobile-action" aria-label="פעולה מהירה" data-mobile-action>
-      <span><small>מחפשים כלי?</small><strong data-current-section>ציוד</strong></span>
-      <a class="button button-small" href="./catalogue/index.html">לקטלוג</a>
-    </aside>
+    <footer class="site-footer">
+      <div>
+        <strong><bdi>Lift Pro 26 Israel</bdi></strong>
+        <p>ציוד גדול. חשיבה חדשה. מחיר שעובד בשביל העסק שלך.</p>
+      </div>
+      <nav aria-label="ניווט תחתון">
+        <a href="./catalogue/index.html">קטלוג</a>
+        <a href="./documents/index.html">מסמכי יצרן</a>
+        <a href="./about/index.html">אודות</a>
+      </nav>
+    </footer>
   </body>
 </html>
