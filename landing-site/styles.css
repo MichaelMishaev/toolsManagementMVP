@@ -723,9 +723,17 @@ img {
   border: 1px solid var(--border);
   border-radius: 1rem;
   background: var(--surface);
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto 1fr auto;
   text-decoration: none;
   transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.document-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 8 / 3;
+  border-radius: 0.7rem;
+  object-fit: cover;
 }
 
 .document-card:hover {
@@ -2438,7 +2446,7 @@ body:not(.inner-page) .equipment-card {
   padding: 0.85rem;
   border-inline-start: 1px solid rgba(29, 29, 31, 0.08) !important;
   border-radius: 0;
-  grid-template-rows: 9rem auto;
+  grid-template-rows: auto auto;
 }
 
 body:not(.inner-page) .equipment-card:last-child {
@@ -2446,14 +2454,16 @@ body:not(.inner-page) .equipment-card:last-child {
 }
 
 body:not(.inner-page) .equipment-card-media {
-  overflow: visible;
-  border-radius: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 0.75rem;
   background: transparent;
 }
 
 body:not(.inner-page) .equipment-card-media img {
   object-fit: cover;
-  filter: drop-shadow(0 1rem 1.4rem rgba(35, 40, 49, 0.13));
+  object-position: center;
+  filter: none;
 }
 
 body:not(.inner-page) .equipment-card:hover {
@@ -2701,7 +2711,7 @@ body:not(.inner-page) .final-cta .button-secondary {
   body:not(.inner-page) .equipment-card {
     min-height: 13rem;
     padding: 0.5rem;
-    grid-template-rows: 7.5rem auto;
+    grid-template-rows: auto auto;
   }
 
   body:not(.inner-page) .equipment-card-copy {
