@@ -74,6 +74,9 @@ img {
   inset-block-start: 0.75rem;
   inset-inline-start: 0.75rem;
   z-index: 999;
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
   padding: 0.75rem 1rem;
   transform: translateY(-160%);
   border-radius: 0.7rem;
@@ -1031,6 +1034,10 @@ body {
 
 .site-menu a,
 .site-footer a {
+  display: inline-flex;
+  min-width: 2.875rem;
+  min-height: 2.875rem;
+  align-items: center;
   color: #4c4c50;
   font-size: 0.82rem;
   font-weight: 540;
@@ -1043,7 +1050,7 @@ body {
 }
 
 .header-action {
-  min-height: 2.55rem;
+  min-height: 2.75rem;
   padding-inline: 1.05rem;
   border: 0;
   background: var(--navy);
@@ -1348,21 +1355,32 @@ body {
 
 .equipment-card-media img {
   display: block;
-  width: 118%;
+  width: 100%;
   height: 100%;
-  object-fit: contain;
+  max-width: none;
+  object-fit: cover;
   filter: drop-shadow(0 1.5rem 1.6rem rgba(35, 40, 49, 0.16));
-  transform: translateX(-4%);
+  transform: scale(1.01);
   transition: transform 420ms var(--ease-out);
 }
 
 .equipment-card:nth-child(1) .equipment-card-media img {
-  width: 82%;
-  height: 115%;
+  width: 100%;
+  height: 100%;
+  object-position: 50% 72%;
+}
+
+.equipment-card:nth-child(2) .equipment-card-media img {
+  object-position: 18% 72%;
+}
+
+.equipment-card:nth-child(3) .equipment-card-media img,
+.equipment-card:nth-child(4) .equipment-card-media img {
+  object-position: 100% 55%;
 }
 
 .equipment-card:hover .equipment-card-media img {
-  transform: translateX(-4%) scale(1.04);
+  transform: scale(1.045);
 }
 
 .card-link-label {
@@ -1453,28 +1471,26 @@ body {
 
 .featured-products {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
 }
 
 .featured-product {
   position: relative;
   display: grid;
-  min-height: 36rem;
+  height: 31rem;
+  min-height: 0;
   overflow: hidden;
   border-radius: 2rem;
   background:
     radial-gradient(circle at 50% 46%, rgba(255, 255, 255, 0.95), transparent 31%),
     linear-gradient(150deg, #e9f3ff, #e9edf4);
-  grid-template-rows: auto 1fr;
+  grid-template-columns: minmax(17rem, 0.62fr) minmax(0, 1.38fr);
+  grid-template-rows: 1fr;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .featured-product-wide {
-  grid-column: 1 / -1;
-  min-height: 33rem;
-  grid-template-columns: minmax(17rem, 0.65fr) minmax(0, 1.35fr);
-  grid-template-rows: 1fr;
   background:
     radial-gradient(circle at 70% 42%, rgba(255, 255, 255, 0.9), transparent 32%),
     linear-gradient(140deg, #f0efff, #e8edf6);
@@ -1569,20 +1585,30 @@ body {
 
 .featured-media img {
   display: block;
-  width: 108%;
-  height: 108%;
-  object-fit: contain;
-  filter: drop-shadow(0 2rem 2.2rem rgba(33, 39, 48, 0.18));
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  filter: saturate(0.98) contrast(1.01);
   transition: transform 520ms var(--ease-out);
 }
 
 .featured-product-portrait .featured-media img {
-  width: 66%;
-  height: 112%;
+  width: 100%;
+  height: 100%;
+  object-position: 50% 72%;
+}
+
+.featured-product:nth-child(2) .featured-media img {
+  object-position: 18% 72%;
+}
+
+.featured-product-electric .featured-media img {
+  object-position: 100% 55%;
 }
 
 .featured-product:hover .featured-media img {
-  transform: scale(1.025);
+  transform: scale(1.035);
 }
 
 .featured-all {
@@ -1853,19 +1879,21 @@ body.dialog-open > .site-footer {
 
   .featured-product,
   .featured-product-wide {
+    height: auto;
     grid-column: auto;
-    min-height: 34rem;
+    min-height: 0;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 15rem;
   }
 
   .featured-copy {
-    min-height: 16rem;
+    min-height: 14rem;
     padding: 1.5rem;
   }
 
   .featured-product-portrait .featured-media img {
-    width: 58%;
+    width: 100%;
+    height: 100%;
   }
 
   .value-points article {
