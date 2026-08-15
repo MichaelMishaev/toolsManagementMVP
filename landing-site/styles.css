@@ -2092,6 +2092,114 @@ body.dialog-open > .site-footer {
   }
 }
 
+/* Static industrial sculptures: Ploy-inspired page punctuation translated
+   into Lift Pro quarry, hydraulic, navy, blue, and lime materials. */
+body:not(.inner-page) .featured-section,
+body:not(.inner-page) .about-preview,
+body:not(.inner-page) .final-cta {
+  position: relative;
+  isolation: isolate;
+}
+
+body:not(.inner-page) .featured-section::before,
+body:not(.inner-page) .about-preview::after,
+body:not(.inner-page) .final-cta::before {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  background-image: url("./assets/decor/industrial-mineral-clusters-v1.webp");
+  background-repeat: no-repeat;
+  content: "";
+  pointer-events: none;
+}
+
+body:not(.inner-page) .featured-section::before {
+  inset-block-start: 1rem;
+  inset-inline-start: -4rem;
+  width: min(76rem, 90vw);
+  height: 26rem;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.16;
+  filter: saturate(0.82);
+  transform: rotate(-3deg);
+}
+
+body:not(.inner-page) .featured-section .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+body:not(.inner-page) .about-preview::after {
+  inset-block-end: -3rem;
+  inset-inline-start: -7rem;
+  width: 42rem;
+  height: 17rem;
+  background-position: left center;
+  background-size: auto 100%;
+  opacity: 0.17;
+  filter: saturate(0.72);
+  transform: rotate(7deg);
+}
+
+body:not(.inner-page) .about-preview .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+body:not(.inner-page) .final-cta::before {
+  inset-block-start: 50%;
+  inset-inline-start: -5rem;
+  width: 40rem;
+  height: 16rem;
+  background-position: left center;
+  background-size: auto 100%;
+  opacity: 0.2;
+  filter: saturate(0.7) brightness(1.18);
+  transform: translateY(-50%) rotate(-5deg);
+}
+
+body:not(.inner-page) .final-cta .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 47.99rem) {
+  body:not(.inner-page) .featured-section::before {
+    inset-block-start: 6rem;
+    inset-inline-start: -12rem;
+    width: 42rem;
+    height: 15rem;
+    opacity: 0.12;
+  }
+
+  body:not(.inner-page) .about-preview::after {
+    inset-block-end: -1.5rem;
+    inset-inline-start: -8rem;
+    width: 25rem;
+    height: 10rem;
+    opacity: 0.12;
+  }
+
+  body:not(.inner-page) .final-cta::before {
+    inset-block-start: auto;
+    inset-block-end: -2rem;
+    inset-inline-start: -8rem;
+    width: 25rem;
+    height: 10rem;
+    opacity: 0.16;
+    transform: rotate(-5deg);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  body:not(.inner-page) .featured-section::before,
+  body:not(.inner-page) .about-preview::after,
+  body:not(.inner-page) .final-cta::before {
+    opacity: 0.1;
+  }
+}
+
 @media (prefers-contrast: more) {
   .header-inner,
   .equipment-card,
@@ -2105,5 +2213,533 @@ body.dialog-open > .site-footer {
   .hero-lead,
   .section-heading > p:last-child {
     color: #27272a;
+  }
+}
+
+/* Industrial editorial pass: VCE-inspired hierarchy with Lift Pro's own brand,
+   verified imagery, and native-scroll interaction model. */
+
+body:not(.inner-page) {
+  background: #e9e9e7;
+}
+
+body:not(.inner-page) .site-header {
+  inset-block-start: 0;
+  padding: 0.75rem var(--gutter);
+}
+
+body:not(.inner-page) .header-inner {
+  width: min(100%, 92rem);
+  min-height: 4rem;
+  padding: 0.35rem 0.5rem 0.35rem 1rem;
+  border: 1px solid rgba(29, 29, 31, 0.08);
+  border-radius: 0.45rem;
+  background: #fff;
+  box-shadow: 0 0.75rem 2.5rem rgba(19, 25, 31, 0.13);
+  backdrop-filter: none;
+}
+
+body:not(.inner-page) .hero {
+  padding: 0 var(--gutter) 0;
+}
+
+body:not(.inner-page) .hero-inner {
+  position: relative;
+  display: grid;
+  width: min(100%, 92rem);
+  min-height: min(50rem, calc(100svh - 5.5rem));
+  overflow: hidden;
+  border-radius: 0.65rem;
+  grid-template-columns: 1fr;
+  isolation: isolate;
+}
+
+body:not(.inner-page) .hero-copy,
+body:not(.inner-page) .hero-visual {
+  grid-area: 1 / 1;
+}
+
+body:not(.inner-page) .hero-copy {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  padding: clamp(3rem, 7vw, 7rem);
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.35fr);
+  align-items: center;
+  gap: clamp(2rem, 8vw, 8rem);
+  pointer-events: none;
+}
+
+body:not(.inner-page) .hero-copy a {
+  pointer-events: auto;
+}
+
+body:not(.inner-page) .hero-message {
+  max-width: 46rem;
+}
+
+.hero-kicker,
+.section-kicker {
+  margin: 0 0 0.8rem;
+  color: #6d841f;
+  font-size: 0.74rem;
+  font-weight: 760;
+  letter-spacing: 0.04em;
+}
+
+body:not(.inner-page) .hero-kicker {
+  color: var(--lime-strong);
+}
+
+body:not(.inner-page) .hero h1,
+body:not(.inner-page) .hero h1 span {
+  max-width: 10ch;
+  color: #fff;
+  font-size: clamp(4.5rem, 8.5vw, 8rem);
+  font-weight: 760;
+  letter-spacing: -0.055em;
+  line-height: 0.88;
+  text-shadow: 0 0.2rem 1.5rem rgba(0, 0, 0, 0.22);
+}
+
+body:not(.inner-page) .hero-lead {
+  max-width: 35rem;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+body:not(.inner-page) .hero-source-note {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+body:not(.inner-page) .hero-actions .button {
+  background: var(--lime);
+  color: var(--lime-ink);
+}
+
+body:not(.inner-page) .hero-actions .button:hover {
+  background: var(--lime-strong);
+  box-shadow: 0 0.8rem 2rem rgba(164, 201, 68, 0.22);
+}
+
+body:not(.inner-page) .hero-actions .button-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(11, 19, 25, 0.28);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+body:not(.inner-page) .hero-help {
+  align-self: end;
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0.4rem;
+  background: rgba(9, 17, 23, 0.5);
+  color: #fff;
+  backdrop-filter: blur(12px);
+}
+
+body:not(.inner-page) .hero-help a + a {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body:not(.inner-page) .hero-help-mark {
+  border-color: rgba(255, 255, 255, 0.38);
+  color: #fff;
+}
+
+body:not(.inner-page) .hero-help small {
+  color: var(--lime-strong);
+}
+
+body:not(.inner-page) .hero-visual {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+body:not(.inner-page) .hero-scene {
+  width: 100%;
+  height: 100%;
+  min-height: min(50rem, calc(100svh - 5.5rem));
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body:not(.inner-page) .hero-scene::after {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(10, 18, 24, 0.18) 12%, rgba(10, 18, 24, 0.38) 46%, rgba(10, 18, 24, 0.88) 100%),
+    linear-gradient(180deg, rgba(7, 13, 18, 0.12), rgba(7, 13, 18, 0.36));
+}
+
+body:not(.inner-page) .hero-scene-photo {
+  object-position: center 56%;
+  transform: scale(1.02);
+}
+
+body:not(.inner-page) .hero-scene-label {
+  inset-block-start: auto;
+  inset-block-end: 1.5rem;
+  border-color: rgba(255, 255, 255, 0.25);
+  border-radius: 0.35rem;
+  background: rgba(9, 17, 23, 0.5);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+body:not(.inner-page) .hero-visual figcaption {
+  position: absolute;
+  inset-block-end: 1.5rem;
+  inset-inline-end: 1.5rem;
+  width: auto;
+  margin: 0;
+  border-color: rgba(255, 255, 255, 0.24);
+  border-radius: 0.35rem;
+  background: rgba(9, 17, 23, 0.52);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+body:not(.inner-page) .page-section,
+body:not(.inner-page) .final-cta {
+  border-radius: 0.75rem;
+}
+
+body:not(.inner-page) .equipment-section {
+  position: relative;
+  z-index: 5;
+  width: min(calc(100% - 4rem), 80rem);
+  margin-block-start: -4.5rem;
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  background: #fff;
+  box-shadow: 0 1.6rem 4rem rgba(27, 32, 38, 0.16);
+}
+
+body:not(.inner-page) .equipment-section .section-heading {
+  margin-inline: auto;
+  text-align: center;
+}
+
+body:not(.inner-page) .equipment-section .section-heading h2,
+body:not(.inner-page) .featured-heading h2 {
+  color: var(--ink);
+}
+
+body:not(.inner-page) .equipment-grid {
+  grid-auto-flow: initial;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  overflow: visible;
+}
+
+body:not(.inner-page) .equipment-card {
+  min-height: 15rem;
+  padding: 0.85rem;
+  border-inline-start: 1px solid rgba(29, 29, 31, 0.08) !important;
+  border-radius: 0;
+  grid-template-rows: 9rem auto;
+}
+
+body:not(.inner-page) .equipment-card:last-child {
+  border-inline-start: 0 !important;
+}
+
+body:not(.inner-page) .equipment-card-media {
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+}
+
+body:not(.inner-page) .equipment-card-media img {
+  object-fit: cover;
+  filter: drop-shadow(0 1rem 1.4rem rgba(35, 40, 49, 0.13));
+}
+
+body:not(.inner-page) .equipment-card:hover {
+  transform: translateY(-0.25rem);
+}
+
+body:not(.inner-page) .featured-section {
+  background: #efefed;
+}
+
+body:not(.inner-page) .featured-product {
+  border: 1px solid rgba(29, 29, 31, 0.08);
+  border-radius: 0.5rem;
+  box-shadow: 0 1.2rem 3rem rgba(27, 32, 38, 0.08);
+}
+
+body:not(.inner-page) .value-section {
+  background:
+    linear-gradient(90deg, rgba(239, 236, 227, 0.96), rgba(247, 245, 239, 0.82)),
+    url("./assets/hero/quarry-morning-v1.webp") center / cover;
+}
+
+body:not(.inner-page) .value-layout {
+  position: relative;
+}
+
+body:not(.inner-page) .value-layout::before {
+  position: absolute;
+  inset-block-start: -2rem;
+  inset-inline-start: 0;
+  width: 4.5rem;
+  height: 0.25rem;
+  background: var(--lime);
+  content: "";
+}
+
+body:not(.inner-page) .value-points article {
+  border-color: rgba(29, 29, 31, 0.1);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+body:not(.inner-page) .service-section {
+  min-height: 46rem;
+  padding-block: clamp(7rem, 13vw, 13rem);
+  background:
+    linear-gradient(180deg, rgba(13, 23, 29, 0.12), rgba(13, 23, 29, 0.72)),
+    url("./assets/hero/quarry-morning-v1.webp") center 60% / cover;
+}
+
+body:not(.inner-page) .service-layout {
+  padding: clamp(2rem, 5vw, 4.5rem);
+  border-radius: 0.5rem;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 1.8rem 4.5rem rgba(8, 15, 19, 0.28);
+}
+
+body:not(.inner-page) .service-section .section-heading h2,
+body:not(.inner-page) .service-section .section-heading > p:last-child {
+  color: var(--ink);
+}
+
+body:not(.inner-page) .service-section .section-kicker {
+  color: #6d841f;
+}
+
+body:not(.inner-page) .service-proof {
+  border-color: rgba(29, 29, 31, 0.1);
+  border-radius: 0.35rem;
+  background: #f2f3f3;
+  color: var(--ink);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+body:not(.inner-page) .proof-number {
+  color: var(--navy);
+}
+
+body:not(.inner-page) .service-proof > p:last-child {
+  color: var(--ink-muted);
+}
+
+body:not(.inner-page) .service-list {
+  border-color: rgba(29, 29, 31, 0.1);
+}
+
+body:not(.inner-page) .service-list p,
+body:not(.inner-page) .service-list p + p {
+  border-color: rgba(29, 29, 31, 0.1);
+  border-radius: 0;
+  background: transparent;
+}
+
+body:not(.inner-page) .about-preview {
+  background: #fff;
+}
+
+body:not(.inner-page) .about-preview-layout {
+  align-items: center;
+}
+
+body:not(.inner-page) .final-cta {
+  background:
+    radial-gradient(circle at 12% 90%, rgba(164, 201, 68, 0.18), transparent 24rem),
+    #102b36;
+  color: #fff;
+}
+
+body:not(.inner-page) .final-cta h2,
+body:not(.inner-page) .final-cta p {
+  color: #fff;
+}
+
+body:not(.inner-page) .final-cta .button-secondary {
+  border-color: rgba(255, 255, 255, 0.42);
+  background: transparent;
+  color: #fff;
+  backdrop-filter: none;
+}
+
+@media (max-width: 64rem) {
+  body:not(.inner-page) .hero-copy {
+    grid-template-columns: minmax(0, 1fr) minmax(13rem, 0.45fr);
+    gap: 2rem;
+  }
+
+  body:not(.inner-page) .hero h1,
+  body:not(.inner-page) .hero h1 span {
+    font-size: clamp(4rem, 9vw, 6rem);
+  }
+
+  body:not(.inner-page) .equipment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body:not(.inner-page) .equipment-card:nth-child(3) {
+    border-block-start: 1px solid rgba(29, 29, 31, 0.08) !important;
+  }
+
+  body:not(.inner-page) .equipment-card:nth-child(4) {
+    border-block-start: 1px solid rgba(29, 29, 31, 0.08) !important;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  body:not(.inner-page) .site-header {
+    padding: 0.45rem 0.55rem;
+  }
+
+  body:not(.inner-page) .header-inner {
+    border-radius: 0.35rem;
+  }
+
+  body:not(.inner-page) .hero {
+    padding: 0 0.45rem;
+  }
+
+  body:not(.inner-page) .hero-inner,
+  body:not(.inner-page) .hero-scene {
+    min-height: 44rem;
+  }
+
+  body:not(.inner-page) .hero-copy {
+    padding: 3.25rem 1.35rem 5.5rem;
+    grid-template-columns: 1fr;
+    align-content: space-between;
+    gap: 1.5rem;
+    text-align: start;
+  }
+
+  body:not(.inner-page) .hero-message {
+    align-self: center;
+    justify-items: start;
+    text-align: start;
+  }
+
+  body:not(.inner-page) .hero h1,
+  body:not(.inner-page) .hero h1 span {
+    max-width: 9ch;
+    font-size: clamp(3.5rem, 17vw, 5rem);
+  }
+
+  body:not(.inner-page) .hero-copy .hero-actions {
+    justify-content: flex-start;
+  }
+
+  body:not(.inner-page) .hero-help {
+    display: grid;
+    width: 100%;
+    padding: 0.8rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    text-align: start;
+  }
+
+  body:not(.inner-page) .hero-help a {
+    min-width: 0;
+    padding: 0.55rem;
+    border: 0;
+    grid-template-columns: 2rem 1fr;
+    background: transparent;
+  }
+
+  body:not(.inner-page) .hero-help a + a {
+    padding-block-start: 0.55rem;
+    border-block-start: 0;
+    border-inline-start: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  body:not(.inner-page) .hero-help strong {
+    font-size: 0.75rem;
+  }
+
+  body:not(.inner-page) .hero-help small {
+    font-size: 0.68rem;
+  }
+
+  body:not(.inner-page) .hero-scene::after {
+    background:
+      linear-gradient(180deg, rgba(8, 15, 20, 0.68) 0%, rgba(8, 15, 20, 0.2) 48%, rgba(8, 15, 20, 0.8) 100%),
+      linear-gradient(90deg, rgba(8, 15, 20, 0.08), rgba(8, 15, 20, 0.42));
+  }
+
+  body:not(.inner-page) .hero-scene-photo {
+    object-position: 45% 56%;
+  }
+
+  body:not(.inner-page) .hero-scene-label,
+  body:not(.inner-page) .hero-visual figcaption {
+    display: none;
+  }
+
+  body:not(.inner-page) .equipment-section {
+    width: calc(100% - 1.5rem);
+    margin-block-start: -2.75rem;
+  }
+
+  body:not(.inner-page) .equipment-grid {
+    grid-template-columns: 1fr 1fr;
+    overflow: visible;
+  }
+
+  body:not(.inner-page) .equipment-card {
+    min-height: 13rem;
+    padding: 0.5rem;
+    grid-template-rows: 7.5rem auto;
+  }
+
+  body:not(.inner-page) .equipment-card-copy {
+    padding-inline: 0;
+  }
+
+  body:not(.inner-page) .equipment-card h3 {
+    font-size: 1rem;
+  }
+
+  body:not(.inner-page) .card-link-label {
+    font-size: 0.68rem;
+  }
+
+  body:not(.inner-page) .service-section {
+    min-height: auto;
+    padding-block: 7rem;
+  }
+
+  body:not(.inner-page) .service-layout {
+    padding: 1.5rem 1rem;
+  }
+
+  body:not(.inner-page) .service-list {
+    grid-template-columns: 1fr;
+  }
+
+  body:not(.inner-page) .service-list p + p {
+    border-inline-start: 0;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  body:not(.inner-page) .hero-help,
+  body:not(.inner-page) .hero-scene-label,
+  body:not(.inner-page) .hero-visual figcaption,
+  body:not(.inner-page) .hero-actions .button-secondary {
+    background: #15242d;
+    backdrop-filter: none;
   }
 }

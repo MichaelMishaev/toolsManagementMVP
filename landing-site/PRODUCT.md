@@ -42,6 +42,7 @@ Visitors evaluate excavators, mini excavators, wheel loaders, electric equipment
 - Brand policy and approved artwork: `../assets/brand/README.md` and `../assets/brand/lift-pro-26-logo-transparent.png`.
 - Model specifications and imagery: approved PDFs under `catalogue/` and derived product images under `assets/catalogue/`.
 - Hero photography: the LOVOL FL918 field image under `assets/hero/` is derived directly from the approved manufacturer loader catalogue and keeps the machine, lighting, and work environment in one verified photograph.
+- Decorative sculpture: `assets/decor/industrial-mineral-clusters-v1.webp` is generated editorial artwork inspired by quarry stone and machine geometry. It is background decoration only and must not be treated as a product, component, specification, or manufacturer claim.
 
 ## Product Principles
 

@@ -5,6 +5,14 @@
     #f5f5f7;
 }
 
+/* Keep the sticky chrome on its own stable paint layer while large product
+   imagery moves underneath it. Live backdrop blur can flash during scroll in
+   WebKit-based browsers. */
+.product-page .header-inner {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: none;
+}
+
 .product-breadcrumbs {
   display: flex;
   width: min(calc(100% - 2rem), 76rem);
@@ -314,8 +322,8 @@
 }
 
 @keyframes product-materialize {
-  from { opacity: 0; filter: blur(8px); transform: scale(0.96); }
-  to { opacity: 1; filter: blur(0); transform: scale(1); }
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @media (max-width: 55rem) {
