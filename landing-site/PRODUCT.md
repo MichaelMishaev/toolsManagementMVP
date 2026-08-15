@@ -25,7 +25,7 @@ Visitors evaluate excavators, mini excavators, wheel loaders, electric equipment
 ## Capabilities and Constraints
 
 - Static Hebrew-first RTL commercial website.
-- Semantic HTML catalogue with 22 public models and optional source-PDF downloads.
+- Semantic HTML catalogue with 22 public models, one standalone URL per model, quick previews, related-model navigation, and optional source-PDF downloads.
 - No invented prices, stock, delivery times, finance terms, warranty terms, certifications, testimonials, or contact details.
 - No form or message is sent because an approved commercial contact destination is not yet recorded.
 
@@ -44,7 +44,7 @@ Visitors evaluate excavators, mini excavators, wheel loaders, electric equipment
 
 ## Product Principles
 
-- Start with the visitor's job and equipment family, then reveal model detail.
+- Start with the visitor's job and equipment family, then reveal image-led model stories and full model detail pages.
 - Keep manufacturer source evidence one step away from every technical claim.
 - Make service and ownership value clear without overpromising.
 - Preserve native scrolling, predictable navigation, and direct user control.

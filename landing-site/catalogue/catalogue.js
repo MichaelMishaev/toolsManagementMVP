@@ -50,6 +50,11 @@ const defaultFamilyCopy = new Map(
 
 const allowedFilters = new Set(Object.keys(filterNames));
 const normalize = (value) => value.normalize("NFKC").toLocaleLowerCase("he").trim();
+const slugifyModel = (value) => value
+  .normalize("NFKC")
+  .toLocaleLowerCase("en")
+  .replace(/[^a-z0-9]+/g, "-")
+  .replace(/^-+|-+$/g, "");
 const initialFilter = new URLSearchParams(window.location.search).get("filter");
 let activeFilter = allowedFilters.has(initialFilter) ? initialFilter : "all";
 let searchTerm = "";
@@ -270,6 +275,13 @@ function openPreview(card, trigger) {
   cloneChildren(specs, dialogSpecs);
   cloneChildren(note, dialogNote);
   cloneChildren(sourceActions, dialogActions);
+  if (dialogActions) {
+    const detailLink = document.createElement("a");
+    detailLink.className = "dialog-detail-link";
+    detailLink.href = `./product/index.html?model=${encodeURIComponent(slugifyModel(title?.textContent || ""))}`;
+    detailLink.textContent = "לעמוד הדגם המלא";
+    dialogActions.prepend(detailLink);
+  }
   lastPreviewTrigger = trigger;
   modelDialog.classList.remove("is-closing");
   modelDialog.getAnimations().forEach((animation) => {
@@ -319,17 +331,36 @@ function closePreview() {
 
 cards.forEach((card) => {
   const title = card.querySelector("h3")?.textContent.trim() || "הדגם";
+  const detailHref = `./product/index.html?model=${encodeURIComponent(slugifyModel(title))}`;
+  const heading = card.querySelector("h3");
+  if (heading) {
+    const headingLink = document.createElement("a");
+    headingLink.className = "model-title-link";
+    headingLink.href = detailHref;
+    headingLink.append(...heading.childNodes);
+    heading.replaceChildren(headingLink);
+  }
+
+  const primaryActions = document.createElement("div");
+  primaryActions.className = "model-primary-actions";
+  const detailLink = document.createElement("a");
+  detailLink.className = "model-detail-link";
+  detailLink.href = detailHref;
+  detailLink.textContent = "עמוד הדגם";
+  detailLink.setAttribute("aria-label", `פתיחת עמוד הדגם ${title}`);
+
   const previewButton = document.createElement("button");
   previewButton.type = "button";
   previewButton.className = "model-preview";
-  previewButton.textContent = "תצוגה מקדימה";
+  previewButton.textContent = "הצצה מהירה";
   previewButton.setAttribute("aria-label", `פתיחת תצוגה מקדימה עבור ${title}`);
-  card.querySelector(".source-actions")?.before(previewButton);
+  primaryActions.append(detailLink, previewButton);
+  card.querySelector(".source-actions")?.before(primaryActions);
 
   previewButton.addEventListener("click", () => openPreview(card, previewButton));
   card.addEventListener("click", (event) => {
     if (event.target.closest("a, button, input, label")) return;
-    openPreview(card, previewButton);
+    window.location.href = detailHref;
   });
 });
 

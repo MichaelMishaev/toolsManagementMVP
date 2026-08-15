@@ -122,7 +122,7 @@ Verified equipment should feel understandable before it feels heavy. The world u
 
 This is a Hebrew-first, RTL commercial product experience with a user-pinned 2026 Apple-style discipline, not an imitation of Apple branding or exact layouts. The interface is quiet enough for manufacturer-backed facts to carry authority. Blue marks navigation and action, while Lift Pro lime remains a rare ownership-and-brand signal. Translucent material is reserved for navigation and compact evidence details; primary reading surfaces remain solid and legible.
 
-The story proceeds in a fixed commercial order: understand the offer, choose an equipment family, see ownership support, learn why the company exists, then open a model or manufacturer source. Until an approved contact destination exists, the site routes visitors to catalogue, selection, company, and document surfaces and never implies that a message, quote request, or form submission has been sent.
+The story proceeds in a fixed commercial order: understand the offer, choose an image-led equipment family, inspect selected models at editorial scale, see ownership support, learn why the company exists, then open a full model page or manufacturer source. Until an approved contact destination exists, the site routes visitors to catalogue, model, selection, company, and document surfaces and never implies that a message, quote request, or form submission has been sent.
 
 **Key Characteristics:**
 
@@ -191,7 +191,7 @@ The palette is a cool near-white field with black-gray typography, a precise blu
 
 The page uses logical RTL flow and a centered spatial model. The first viewport places the offer and actions above one complete large loader; the floating navigation begins at the top-right reading origin. The hero is constrained to 76rem, the floating navigation to 73rem, normal content to 80rem, and rounded section fields to 92rem. Horizontal gutters remain fluid through the `gutter` token.
 
-Each major story beat occupies its own rounded field with generous vertical space. The sequence is offer, equipment families, direct-sourcing value, service and spare-parts support, company origin, then catalogue and manufacturer-document actions. The page uses native document flow and native scrolling; no section pins the viewport or captures the scroll gesture.
+Each major story beat occupies its own rounded field with generous vertical space. The sequence is offer, image-led equipment families, selected product stages, direct-sourcing value, service and spare-parts support, company origin, then catalogue and manufacturer-document actions. The page uses native document flow and native scrolling; no section pins the viewport or captures the scroll gesture.
 
 At the intermediate breakpoint (64rem), the header action hides and complex grids compress. Below 47.99rem, the navigation becomes a floating menu, two-column structures become one column, equipment cards shorten, and final actions expand to full width. Below 24rem, hero actions stack. The same semantic and visual reading order is preserved from the 20rem minimum viewport upward, with no horizontal overflow.
 
@@ -242,7 +242,9 @@ The navigation is a floating, translucent pill anchored at the RTL reading origi
 
 ### Equipment Cards
 
-Equipment-family cards are spacious selectors rather than catalogue-detail cards. Each uses a gentle family-specific tint, a circular directional arrow, strong title, concise job-oriented description, and no resting border. Hover lifts the card by four pixels with a slight scale increase and the `Interactive lift` shadow; press scales it down immediately.
+Equipment-family cards are spacious image-led selectors rather than catalogue-detail cards. Each uses a gentle family-specific tint, a verified manufacturer-derived machine image, strong title, concise job-oriented description, a visible destination label, and no resting border. Hover lifts the card by four pixels while the image scales subtly and the directional label advances; press scales the card down immediately.
+
+Selected models appear in large editorial stages between family selection and ownership value. Their real catalogue imagery remains the dominant object, exact key specifications stay close to the model name, and every stage links to a standalone model URL. The model page repeats the large verified image, key specifications, manufacturer-source action, selection guidance, and three related models without inventing commercial claims.
 
 ### Verified Detail
 

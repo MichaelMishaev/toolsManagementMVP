@@ -77,7 +77,8 @@
     },
     "sections": [
       "static-product-hero",
-      "equipment-categories",
+      "image-led-equipment-categories",
+      "featured-model-stories",
       "direct-import-advantage",
       "manufacturers-and-field-relationships",
       "service-and-spare-parts",
@@ -87,7 +88,7 @@
   },
   "catalogue": {
     "sourceDirectory": "./catalogue/",
-    "customerExperience": "designed semantic HTML with optional source-PDF downloads",
+    "customerExperience": "designed semantic HTML with filters, quick previews, standalone model URLs, related-model navigation and optional source-PDF downloads",
     "status": "implemented",
     "page": "./catalogue/index.html",
     "publicModelCount": 22,
