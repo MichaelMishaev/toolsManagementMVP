@@ -197,7 +197,7 @@ Each major story beat occupies its own rounded field with generous vertical spac
 
 At the intermediate breakpoint (64rem), the header action hides and complex grids compress. Below 47.99rem, the navigation becomes a floating menu, two-column structures become one column, equipment cards shorten, and final actions expand to full width. Below 24rem, hero actions stack. The same semantic and visual reading order is preserved from the 20rem minimum viewport upward, with no horizontal overflow.
 
-**The Complete Machine Rule.** The hero product is shown whole, centered, and unframed. Never crop it into a card, silhouette it behind copy, or use it as a texture.
+**The Complete Machine Rule.** The hero product remains fully identifiable inside one manufacturer-supplied field photograph. Never detach it from its source scene, silhouette it behind copy, or use it as a texture.
 
 **The Native Scroll Rule.** Story progression may reveal content once, but it may not trap, scrub, hijack, or artificially lengthen page scrolling.
 
@@ -218,13 +218,13 @@ The system uses a hybrid of tonal separation, restrained gradients, and ambient 
 
 ## Shapes
 
-Large page fields use continuous soft curves through `spatial`; cards and dark proof surfaces use the tighter `card` and `detail` radii; floating glass details use `glass`; primary actions and the navigation shell are fully pill-shaped. Circular arrow and menu controls are true circles. The hero machine has no border, corner, crop, or card silhouette.
+Large page fields use continuous soft curves through `spatial`; cards and dark proof surfaces use the tighter `card` and `detail` radii; floating glass details use `glass`; primary actions and the navigation shell are fully pill-shaped. Circular arrow and menu controls are true circles. The hero photograph may use the large spatial-field curve, but the machine must remain readable and naturally grounded inside the scene.
 
 Borders are optical rather than structural: light surfaces use low-alpha white or ink boundaries, and the dark support field uses restrained white-alpha edges. In higher-contrast mode, key navigational and content containers gain a two-pixel current-color boundary.
 
 **The Scale-Matched Curve Rule.** The larger the spatial field, the broader its curve; compact evidence and selectable cards stay tighter and more precise.
 
-**The No Product Frame Rule.** Shape belongs to the field around the product, never to the machine image itself.
+**The No Artificial Composite Rule.** The hero must use one coherent field photograph; do not paste a transparent machine over an unrelated background.
 
 ## Components
 
@@ -248,7 +248,7 @@ Equipment-family cards are spacious image-led selectors rather than catalogue-de
 
 Selected models appear in large editorial stages between family selection and ownership value. Their real catalogue imagery remains the dominant object, exact key specifications stay close to the model name, and every stage links to a standalone model URL. The model page repeats the large verified image, key specifications, manufacturer-source action, selection guidance, and three related models without inventing commercial claims.
 
-The hero places the verified complete loader over a generated, product-free quarry environment. The environmental asset supplies context only: it contains no machinery, people, logos, signage, or technical evidence, and it must never replace the separate verified loader layer.
+The hero uses a single verified LOVOL FL918 field photograph extracted from the approved manufacturer catalogue. The machine and its environment stay together so perspective, light, scale, and ground contact remain credible; it is product evidence rather than a generated scene.
 
 ### Catalogue Discovery
 

@@ -334,24 +334,6 @@ img {
   margin: 0;
 }
 
-.hero-machine {
-  display: grid;
-  aspect-ratio: 1.25;
-  place-items: center;
-  overflow: hidden;
-  border: 1px solid rgba(21, 35, 38, 0.09);
-  border-radius: clamp(1.5rem, 4vw, 3rem);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.74) 0 68%, rgba(202, 198, 187, 0.56) 68.3% 69%, rgba(233, 229, 220, 0.72) 69%);
-}
-
-.hero-machine img {
-  display: block;
-  width: 112%;
-  max-width: none;
-  filter: drop-shadow(0 1.5rem 1.6rem rgba(25, 36, 39, 0.2));
-}
-
 .hero-visual figcaption {
   display: flex;
   justify-content: space-between;
@@ -861,10 +843,6 @@ img {
     grid-row: 1;
   }
 
-  .hero-machine {
-    aspect-ratio: 1.45;
-  }
-
   .hero-visual figcaption,
   .scroll-cue {
     display: none;
@@ -1213,7 +1191,7 @@ body {
   content: "";
 }
 
-.hero-scene-backdrop {
+.hero-scene-photo {
   position: absolute;
   inset: 0;
   z-index: -2;
@@ -1221,7 +1199,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 58%;
+  object-position: center 54%;
 }
 
 .hero-scene-label {
@@ -1249,31 +1227,6 @@ body {
 .hero-scene-label strong {
   font-size: 0.66rem;
   font-weight: 520;
-}
-
-.hero-machine {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: grid;
-  width: 100%;
-  height: 100%;
-  aspect-ratio: auto;
-  overflow: hidden;
-  border: 0;
-  border-radius: 0;
-  place-items: end center;
-  background: radial-gradient(ellipse at center 84%, rgba(20, 25, 29, 0.18), transparent 38%);
-}
-
-.hero-machine img {
-  width: min(65%, 43rem);
-  height: auto;
-  max-width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
-  filter: drop-shadow(0 1.9rem 1.7rem rgba(21, 26, 31, 0.34));
-  transform: translateY(3%);
 }
 
 .hero-visual figcaption {
@@ -1858,26 +1811,12 @@ body.dialog-open > .site-footer {
     border-radius: 1.65rem;
   }
 
-  .hero-scene-backdrop {
-    object-position: 48% center;
+  .hero-scene-photo {
+    object-position: 52% 58%;
   }
 
   .hero-scene-label {
     padding: 0.55rem 0.7rem;
-  }
-
-  .hero-machine {
-    height: 100%;
-    aspect-ratio: auto;
-    overflow: hidden;
-  }
-
-  .hero-machine img {
-    width: 96%;
-    height: auto;
-    max-width: 100%;
-    object-fit: contain;
-    transform: translateY(2%);
   }
 
   .hero-visual figcaption {
