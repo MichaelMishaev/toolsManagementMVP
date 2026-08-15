@@ -1,6 +1,7 @@
 const cards = [...document.querySelectorAll("[data-model]")];
 const families = [...document.querySelectorAll("[data-family]")];
 const filterButtons = [...document.querySelectorAll("[data-filter]")];
+const makerButtons = [...document.querySelectorAll("[data-maker]")];
 const searchInput = document.querySelector("[data-search]");
 const resultCount = document.querySelector("[data-result-count]");
 const emptyState = document.querySelector("[data-empty-state]");
@@ -27,6 +28,12 @@ const filterNames = {
   electric: "ציוד חשמלי",
 };
 
+const makerNames = {
+  all: "כל היצרנים",
+  lovol: "LOVOL",
+  nicosail: "NICOSAIL",
+};
+
 const electricFamilyCopy = {
   excavators: {
     title: "מחפרים חשמליים",
@@ -49,6 +56,7 @@ const defaultFamilyCopy = new Map(
 );
 
 const allowedFilters = new Set(Object.keys(filterNames));
+const allowedMakers = new Set(Object.keys(makerNames));
 const normalize = (value) => value.normalize("NFKC").toLocaleLowerCase("he").trim();
 const slugifyModel = (value) => value
   .normalize("NFKC")
@@ -56,7 +64,9 @@ const slugifyModel = (value) => value
   .replace(/[^a-z0-9]+/g, "-")
   .replace(/^-+|-+$/g, "");
 const initialFilter = new URLSearchParams(window.location.search).get("filter");
+const initialMaker = new URLSearchParams(window.location.search).get("maker");
 let activeFilter = allowedFilters.has(initialFilter) ? initialFilter : "all";
+let activeMaker = allowedMakers.has(initialMaker) ? initialMaker : "all";
 let searchTerm = "";
 let lastPreviewTrigger = null;
 
@@ -67,17 +77,29 @@ function cloneChildren(source, destination) {
   destination.replaceChildren(...[...(source?.childNodes || [])].map((node) => node.cloneNode(true)));
 }
 
+function updateUrlState() {
+  const url = new URL(window.location.href);
+  if (activeFilter === "all") url.searchParams.delete("filter");
+  else url.searchParams.set("filter", activeFilter);
+  if (activeMaker === "all") url.searchParams.delete("maker");
+  else url.searchParams.set("maker", activeMaker);
+  window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+}
+
 function setActiveFilter(filter, { updateUrl = true } = {}) {
   activeFilter = allowedFilters.has(filter) ? filter : "all";
   filterButtons.forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.filter === activeFilter));
   });
+  if (updateUrl) updateUrlState();
+}
 
-  if (!updateUrl) return;
-  const url = new URL(window.location.href);
-  if (activeFilter === "all") url.searchParams.delete("filter");
-  else url.searchParams.set("filter", activeFilter);
-  window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+function setActiveMaker(maker, { updateUrl = true } = {}) {
+  activeMaker = allowedMakers.has(maker) ? maker : "all";
+  makerButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.maker === activeMaker));
+  });
+  if (updateUrl) updateUrlState();
 }
 
 function updateFamilyCopy(family) {
@@ -222,9 +244,11 @@ function updateCatalogue({ animate = true, cause = "filter" } = {}) {
 
   cards.forEach((card) => {
     const categories = card.dataset.category?.split(/\s+/) || [];
+    const manufacturer = normalize(card.querySelector(".model-meta bdi")?.textContent || "");
     const matchesFilter = activeFilter === "all" || categories.includes(activeFilter);
+    const matchesMaker = activeMaker === "all" || manufacturer === activeMaker;
     const matchesSearch = !searchTerm || normalize(card.dataset.searchable || "").includes(searchTerm);
-    const visible = matchesFilter && matchesSearch;
+    const visible = matchesFilter && matchesMaker && matchesSearch;
     card.hidden = !visible;
     if (visible) {
       visibleCount += 1;
@@ -372,6 +396,14 @@ filterButtons.forEach((button) => {
   });
 });
 
+makerButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    setActiveMaker(button.dataset.maker || "all");
+    updateCatalogue({ cause: "filter" });
+    acknowledgeSelection(button);
+  });
+});
+
 searchInput?.addEventListener("input", () => {
   searchTerm = normalize(searchInput.value);
   updateCatalogue({ cause: "search" });
@@ -384,6 +416,7 @@ clearSearch?.addEventListener("click", () => {
     searchInput.focus();
   }
   setActiveFilter("all");
+  setActiveMaker("all");
   updateCatalogue({ cause: "reset" });
 });
 
@@ -391,6 +424,7 @@ guideForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   const filter = String(new FormData(guideForm).get("task") || "all");
   setActiveFilter(filter);
+  setActiveMaker("all");
   searchTerm = "";
   if (searchInput) searchInput.value = "";
   updateCatalogue({ cause: "filter" });
@@ -422,4 +456,5 @@ modelDialog?.addEventListener("close", () => {
 });
 
 setActiveFilter(activeFilter, { updateUrl: false });
+setActiveMaker(activeMaker, { updateUrl: false });
 updateCatalogue({ animate: false });

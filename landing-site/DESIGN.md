@@ -122,6 +122,8 @@ Verified equipment should feel understandable before it feels heavy. The world u
 
 This is a Hebrew-first, RTL commercial product experience with a user-pinned 2026 Apple-style discipline, not an imitation of Apple branding or exact layouts. The interface is quiet enough for manufacturer-backed facts to carry authority. Blue marks navigation and action, while Lift Pro lime remains a rare ownership-and-brand signal. Translucent material is reserved for navigation and compact evidence details; primary reading surfaces remain solid and legible.
 
+Mobbin references are translated by behavior rather than copied: Daylight and Samara support the single environmental product stage; Square supports image-first family wayfinding; Klarna and Urban Outfitters support compact, visible catalogue filters and active-state clarity. The resulting composition remains Hebrew RTL, uses Lift Pro's verified machinery, and keeps the catalogue's source constraints intact.
+
 The story proceeds in a fixed commercial order: understand the offer, choose an image-led equipment family, inspect selected models at editorial scale, see ownership support, learn why the company exists, then open a full model page or manufacturer source. Until an approved contact destination exists, the site routes visitors to catalogue, model, selection, company, and document surfaces and never implies that a message, quote request, or form submission has been sent.
 
 **Key Characteristics:**
@@ -245,6 +247,12 @@ The navigation is a floating, translucent pill anchored at the RTL reading origi
 Equipment-family cards are spacious image-led selectors rather than catalogue-detail cards. Each uses a gentle family-specific tint, a verified manufacturer-derived machine image, strong title, concise job-oriented description, a visible destination label, and no resting border. Hover lifts the card by four pixels while the image scales subtly and the directional label advances; press scales the card down immediately.
 
 Selected models appear in large editorial stages between family selection and ownership value. Their real catalogue imagery remains the dominant object, exact key specifications stay close to the model name, and every stage links to a standalone model URL. The model page repeats the large verified image, key specifications, manufacturer-source action, selection guidance, and three related models without inventing commercial claims.
+
+The hero places the verified complete loader over a generated, product-free quarry environment. The environmental asset supplies context only: it contains no machinery, people, logos, signage, or technical evidence, and it must never replace the separate verified loader layer.
+
+### Catalogue Discovery
+
+The catalogue opens with four image-first family destinations, then exposes two compact filter axes: equipment family and manufacturer. Both axes retain visible pressed states, combine predictably with search, update the result count immediately, serialize to the URL, and reset together. Desktop keeps the controls in a floating material toolbar; mobile shows every option without horizontal scrolling or a hidden filter drawer.
 
 ### Verified Detail
 

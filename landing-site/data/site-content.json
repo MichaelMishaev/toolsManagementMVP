@@ -68,7 +68,9 @@
   "hero": {
     "title": "ציוד גדול. מחיר שעובד.",
     "description": "מלגזות, צמ״ה וציוד כבד ביבוא ישיר, עם אחריות, שירות וחלפים.",
-    "interaction": "One stable complete loader image with native scrolling, no sticky scrub track and no frame swapping."
+    "interaction": "One stable complete loader image over a product-free quarry environment with native scrolling, no sticky scrub track and no frame swapping.",
+    "environmentAsset": "./assets/hero/quarry-morning-v1.webp",
+    "environmentPolicy": "Generated atmosphere only: no machinery, people, logos, specifications or commercial claims."
   },
   "landingPage": {
     "primaryAction": {
@@ -88,7 +90,7 @@
   },
   "catalogue": {
     "sourceDirectory": "./catalogue/",
-    "customerExperience": "designed semantic HTML with filters, quick previews, standalone model URLs, related-model navigation and optional source-PDF downloads",
+    "customerExperience": "designed semantic HTML with visual family navigation, combined family and manufacturer filters, quick previews, standalone model URLs, related-model navigation and optional source-PDF downloads",
     "status": "implemented",
     "page": "./catalogue/index.html",
     "publicModelCount": 22,

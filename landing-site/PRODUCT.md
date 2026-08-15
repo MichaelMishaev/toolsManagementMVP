@@ -41,6 +41,7 @@ Visitors evaluate excavators, mini excavators, wheel loaders, electric equipment
 - Company/about facts: `data/site-content.json`.
 - Brand policy and approved artwork: `../assets/brand/README.md` and `../assets/brand/lift-pro-26-logo-transparent.png`.
 - Model specifications and imagery: approved PDFs under `catalogue/` and derived product images under `assets/catalogue/`.
+- Environmental hero backdrop: generated editorial quarry scenery under `assets/hero/`; it contains no product, person, logo, or commercial claim and is always layered behind the verified loader artwork.
 
 ## Product Principles
 

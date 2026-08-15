@@ -790,7 +790,7 @@
 }
 
 .catalogue-hero {
-  padding-block: clamp(5.5rem, 7vw, 7rem) clamp(1.5rem, 2.5vw, 2.25rem);
+  padding-block: clamp(5rem, 6vw, 6rem) clamp(1rem, 2vw, 1.5rem);
   border: 0;
   background: transparent;
   text-align: center;
@@ -803,7 +803,7 @@
 
 .catalogue-hero h1 {
   max-width: 13ch;
-  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-size: clamp(3rem, 4.5vw, 4.15rem);
   font-weight: 720;
   letter-spacing: -0.04em;
   line-height: 0.93;
@@ -818,6 +818,81 @@
   margin-block-start: 1rem;
   font-size: clamp(1rem, 1.4vw, 1.18rem);
   line-height: 1.55;
+}
+
+.catalogue-family-showcase {
+  display: grid;
+  width: min(100%, 70rem);
+  margin-block-start: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.catalogue-family-showcase > a {
+  display: grid;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 1.35rem;
+  background: rgba(255, 255, 255, 0.62);
+  color: #1d1d1f;
+  grid-template-rows: 7rem auto;
+  text-decoration: none;
+  box-shadow: 0 0.8rem 2rem rgba(37, 42, 50, 0.07), inset 0 1px 0 #fff;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 260ms ease;
+}
+
+.catalogue-family-showcase > a:hover {
+  transform: translateY(-4px) scale(1.006);
+  box-shadow: 0 1.25rem 2.8rem rgba(37, 42, 50, 0.12), inset 0 1px 0 #fff;
+}
+
+.catalogue-family-showcase > a:active {
+  transform: scale(0.985);
+  transition-duration: 80ms;
+}
+
+.showcase-visual {
+  display: grid;
+  min-width: 0;
+  overflow: hidden;
+  place-items: center;
+  background: linear-gradient(145deg, #eef3f8, #e9edf2);
+}
+
+.showcase-visual img {
+  display: block;
+  width: 106%;
+  height: 106%;
+  object-fit: contain;
+  filter: drop-shadow(0 0.9rem 1rem rgba(33, 39, 46, 0.14));
+  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.catalogue-family-showcase > a:first-child .showcase-visual img {
+  width: 72%;
+}
+
+.catalogue-family-showcase > a:hover img {
+  transform: scale(1.035);
+}
+
+.catalogue-family-showcase > a > span:last-child {
+  display: grid;
+  padding: 0.8rem 0.9rem 0.95rem;
+  gap: 0.18rem;
+  text-align: start;
+}
+
+.catalogue-family-showcase small {
+  color: #747479;
+  font-size: 0.66rem;
+  font-weight: 560;
+}
+
+.catalogue-family-showcase strong {
+  font-size: 0.92rem;
+  font-weight: 650;
 }
 
 .catalogue-disclaimer {
@@ -890,6 +965,55 @@
   transition: transform 100ms ease-out, background-color 180ms ease, color 180ms ease;
 }
 
+.catalogue-maker-row {
+  display: flex;
+  min-width: 0;
+  padding-block-start: 0.45rem;
+  border-block-start: 1px solid rgba(29, 29, 31, 0.07);
+  grid-column: 1;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.catalogue-maker-row > span {
+  color: #747479;
+  font-size: 0.68rem;
+  font-weight: 620;
+}
+
+.catalogue-makers {
+  display: flex;
+  min-width: 0;
+  gap: 0.35rem;
+}
+
+.catalogue-makers button {
+  min-height: 2.25rem;
+  padding: 0.42rem 0.72rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: #606065;
+  font-size: 0.72rem;
+  font-weight: 580;
+  cursor: pointer;
+  transition: transform 100ms ease-out, background-color 180ms ease, color 180ms ease;
+}
+
+.catalogue-makers button:hover {
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.catalogue-makers button[aria-pressed="true"] {
+  background: rgba(0, 113, 227, 0.1);
+  color: #005ebd;
+  box-shadow: inset 0 0 0 1px rgba(0, 113, 227, 0.18);
+}
+
+.catalogue-makers button:active {
+  transform: scale(0.97);
+}
+
 .catalogue-filters button:active,
 .model-preview:active,
 .dialog-close:active,
@@ -912,13 +1036,14 @@
 .catalogue-results-toolbar {
   min-height: 1.25rem;
   margin-block-start: 0;
-  grid-column: 1 / -1;
+  grid-column: 2;
+  align-self: center;
 }
 
 .model-family {
   width: min(calc(100% - 2rem), 82rem);
   margin-inline: auto;
-  padding-block: clamp(2rem, 4vw, 3.75rem);
+  padding-block: clamp(1rem, 3vw, 2.75rem);
   border: 0;
   scroll-margin-top: 14rem;
 }
@@ -928,9 +1053,9 @@
 }
 
 .family-heading {
-  align-items: start;
-  flex-direction: column;
-  gap: 0.8rem;
+  align-items: end;
+  flex-direction: row;
+  gap: 2rem;
 }
 
 .family-heading h2 {
@@ -1181,6 +1306,31 @@
     margin-block-start: 0.8rem;
   }
 
+  .catalogue-family-showcase {
+    margin-block-start: 1.25rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.3rem;
+  }
+
+  .catalogue-family-showcase > a {
+    border-radius: 0.95rem;
+    grid-template-rows: 4.8rem auto;
+  }
+
+  .catalogue-family-showcase > a > span:last-child {
+    padding: 0.55rem 0.35rem 0.65rem;
+    text-align: center;
+  }
+
+  .catalogue-family-showcase small {
+    display: none;
+  }
+
+  .catalogue-family-showcase strong {
+    font-size: 0.68rem;
+    line-height: 1.25;
+  }
+
   .catalogue-controls-section {
     position: relative;
     inset-block-start: auto;
@@ -1219,7 +1369,7 @@
   .catalogue-filters {
     display: grid;
     margin-block-start: 0.65rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 0.35rem;
     overflow: visible;
   }
@@ -1228,17 +1378,41 @@
     width: 100%;
     min-height: 2.75rem;
     padding-inline: 0.45rem;
+    font-size: 0.68rem;
+    line-height: 1.15;
     white-space: normal;
   }
 
   .catalogue-results-toolbar {
     margin-block-start: 0.4rem;
+    grid-column: 1;
+  }
+
+  .catalogue-maker-row {
+    overflow: hidden;
+    grid-column: 1;
+  }
+
+  .catalogue-makers {
+    flex: 1;
+  }
+
+  .catalogue-makers button {
+    min-height: 2.75rem;
+    flex: 1;
+    padding-inline: 0.35rem;
   }
 
   .model-family {
     width: calc(100% - 0.75rem);
-    padding-block: 1.25rem 2.5rem;
+    padding-block: 0.5rem 2.25rem;
     scroll-margin-top: 5rem;
+  }
+
+  .family-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.65rem;
   }
 
   .family-heading h2 {
@@ -1250,8 +1424,14 @@
     line-height: 1.45;
   }
 
+  .model-title-link {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+  }
+
   .model-grid {
-    margin-block-start: 0.65rem;
+    margin-block-start: 0.4rem;
   }
 
   .model-card {
@@ -1284,6 +1464,7 @@
 
 @media (prefers-reduced-transparency: reduce) {
   .catalogue-disclaimer,
+  .catalogue-family-showcase > a,
   .catalogue-controls-section,
   .model-card,
   .model-dialog,
