@@ -14,12 +14,12 @@
     "logoPolicy": "The approved transparent PNG is the canonical Lift Pro 26 logo.",
     "tagline": "ציוד גדול. חשיבה חדשה. מחיר שעובד בשביל העסק שלך.",
     "palette": {
-      "background": "#070A0C",
-      "surface": "#141A1D",
-      "ink": "#F4F7F4",
-      "muted": "#B5BEC0",
-      "accent": "#9BCB42",
-      "focus": "#C9F77E"
+      "background": "#F5F5F7",
+      "surface": "rgba(255,255,255,0.82)",
+      "ink": "#1D1D1F",
+      "muted": "#5D5D62",
+      "accent": "#0071E3",
+      "brandSignal": "#A4C944"
     }
   },
   "business": {
@@ -68,7 +68,7 @@
   "hero": {
     "title": "ציוד גדול. מחיר שעובד.",
     "description": "מלגזות, צמ״ה וציוד כבד ביבוא ישיר, עם אחריות, שירות וחלפים.",
-    "interaction": "Native scroll scrubs the loader assembly in both directions; responsive video is unlocked on mobile interaction and never autoplays continuously."
+    "interaction": "One stable complete loader image with native scrolling, no sticky scrub track and no frame swapping."
   },
   "landingPage": {
     "primaryAction": {
@@ -76,7 +76,7 @@
       "href": "#equipment"
     },
     "sections": [
-      "assembly-hero",
+      "static-product-hero",
       "equipment-categories",
       "direct-import-advantage",
       "manufacturers-and-field-relationships",

@@ -7,45 +7,45 @@
       name="description"
       content="קטלוג הציוד של Lift Pro 26 Israel: מחפרים, מיני מחפרים ומעמיסים של LOVOL ו-NICOSAIL, עם נתוני מפתח וקישורים למפרטי היצרן."
     />
-    <meta name="theme-color" content="#070a0c" />
+    <meta name="theme-color" content="#f7f4ed" />
     <title>קטלוג ציוד | Lift Pro 26 Israel</title>
     <link rel="icon" href="../../assets/brand/lift-pro-26-logo-transparent.png" type="image/png" />
-    <link rel="stylesheet" href="../styles.css?v=10" />
-    <link rel="stylesheet" href="./catalogue.css?v=5" />
-    <script type="module" src="./catalogue.js?v=2"></script>
+    <link rel="stylesheet" href="../styles.css?v=14" />
+    <link rel="stylesheet" href="./catalogue.css?v=8" />
+    <script type="module" src="../hero.js?v=6"></script>
+    <script type="module" src="./catalogue.js?v=5"></script>
   </head>
-  <body class="catalogue-page" data-active-theme="catalogue-intro">
+  <body class="catalogue-page inner-page">
     <a class="skip-link" href="#catalogue-content">דלגו לקטלוג</a>
-    <div class="page-progress" aria-hidden="true"><span data-page-progress></span></div>
 
-    <header class="catalogue-header">
-      <a class="brand brand-compact" href="../index.html" aria-label="ליפט פרו 26 ישראל בע״מ - דף הבית">
-        <span class="brand-artwork" aria-hidden="true">
+    <header class="site-header" data-site-header>
+      <div class="header-inner">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="פתיחת תפריט" data-menu-toggle>
+          <span></span><span></span><span></span>
+        </button>
+        <a class="brand" href="../index.html" aria-label="ליפט פרו 26 ישראל בע״מ — דף הבית">
           <img src="../../assets/brand/lift-pro-26-logo-transparent.png" width="1635" height="962" alt="" />
-        </span>
-        <span>ליפט פרו 26</span>
-      </a>
-      <nav aria-label="ניווט ראשי">
-        <a href="../index.html">דף הבית</a>
-        <a href="#models" aria-current="page">קטלוג</a>
-        <a href="#source-library">מסמכי יצרן</a>
-      </nav>
-      <a class="button button-small" href="../index.html#next-machine">איך בוחרים כלי</a>
+          <span>ליפט פרו 26<small>ישראל בע״מ</small></span>
+        </a>
+        <nav class="site-menu" id="site-menu" aria-label="ניווט ראשי" data-site-menu>
+          <a href="../index.html">דף הבית</a>
+          <a href="./index.html" aria-current="page">קטלוג</a>
+          <a href="../documents/index.html">מסמכי יצרן</a>
+          <a href="../index.html#service">שירות וחלפים</a>
+          <a href="../about/index.html">אודות</a>
+        </nav>
+        <a class="header-action" href="../documents/index.html">מסמכי יצרן</a>
+      </div>
     </header>
 
     <main id="catalogue-content">
-      <section
-        class="catalogue-hero catalogue-theme-section"
-        aria-labelledby="catalogue-title"
-        data-theme="catalogue-intro"
-      >
+      <section class="catalogue-hero" aria-labelledby="catalogue-title">
         <div class="catalogue-wrap catalogue-hero-grid">
           <div class="reveal-group">
-            <h1 id="catalogue-title">הכלים. <br /><span>הנתונים.</span> <br />בלי ניחושים.</h1>
+            <h1 id="catalogue-title">הדגם הנכון.<br /><span>בלי ללכת לאיבוד.</span></h1>
             <p class="catalogue-lead">
-              22 דגמי מחפרים ומעמיסים מתוך מסמכי היצרן המאושרים של
-              <bdi>LOVOL</bdi> ו-<bdi>NICOSAIL</bdi>. התחילו בקטגוריה, בדקו נתוני מפתח,
-              ופתחו את מסמך המקור המלא כשצריך לרדת לפרטים.
+              חפשו, סננו ולחצו על דגם לתצוגה מקדימה נוחה. כל הנתונים מגיעים
+              ממסמכי היצרן המאושרים של <bdi>LOVOL</bdi> ו-<bdi>NICOSAIL</bdi>.
             </p>
           </div>
         </div>
@@ -79,10 +79,7 @@
           </div>
           <div class="catalogue-results-toolbar reveal-group">
             <p class="catalogue-result-count" aria-live="polite" data-result-count>22 דגמים מוצגים</p>
-            <div class="catalogue-view-switcher" role="group" aria-label="צורת תצוגה">
-              <button type="button" data-view="grid" aria-pressed="true">כרטיסים</button>
-              <button type="button" data-view="compact" aria-pressed="false">תצוגה מהירה</button>
-            </div>
+            <a href="../documents/index.html">לכל מסמכי היצרן ←</a>
           </div>
           <p class="pdf-guidance" role="note">
             מסמכי היצרן עלולים להיות גדולים. פתחו לצפייה באותו חלון, ואם התצוגה לא נטענת בחרו
@@ -142,10 +139,9 @@
       </section>
 
       <section
-        class="model-family catalogue-theme-section"
+        class="model-family"
         id="mini-excavators"
         aria-labelledby="mini-title"
-        data-theme="catalogue-mini"
         data-family
       >
         <div class="catalogue-wrap">
@@ -294,10 +290,9 @@
       </section>
 
       <section
-        class="model-family catalogue-theme-section"
+        class="model-family"
         id="excavators"
         aria-labelledby="excavators-title"
-        data-theme="catalogue-excavator"
         data-family
       >
         <div class="catalogue-wrap">
@@ -430,10 +425,9 @@
       </section>
 
       <section
-        class="model-family catalogue-theme-section"
+        class="model-family"
         id="loaders"
         aria-labelledby="loaders-title"
-        data-theme="catalogue-loader"
         data-family
       >
         <div class="catalogue-wrap">
@@ -564,66 +558,34 @@
         </div>
       </section>
 
-      <section class="comparison-section" id="comparison" aria-labelledby="comparison-title" hidden data-comparison-section>
-        <div class="catalogue-wrap">
-          <header class="comparison-heading">
-            <div>
-              <h2 id="comparison-title">השוואת דגמים.</h2>
-              <p>נתוני המפתח מוצגים זה לצד זה. מסמך היצרן נשאר המקור המלא לאימות.</p>
-            </div>
-            <button type="button" class="comparison-clear" data-comparison-clear>ניקוי ההשוואה</button>
-          </header>
-          <div class="comparison-table-wrap" data-comparison-table></div>
-        </div>
-      </section>
-
-      <section
-        class="source-library catalogue-theme-section"
-        id="source-library"
-        aria-labelledby="sources-title"
-        data-theme="catalogue-sources"
-      >
-        <div class="catalogue-wrap source-layout">
-          <div class="family-heading reveal-group">
-            <h2 id="sources-title">חלפים ורכיבי חשמל</h2>
-            <p>
-              שני מסמכי יצרן נוספים כוללים קטלוג רכיבי חשמל, מתגים וחלקים למותגים ודגמים שונים.
-              יש לזהות חלק לפי מספר יצרן ודגם מדויק לפני כל בדיקת התאמה או זמינות.
-            </p>
+      <section class="catalogue-help">
+        <div class="catalogue-wrap catalogue-help-inner reveal-group">
+          <div>
+            <h2>כל מסמכי היצרן נמצאים בעמוד נפרד ומסודר.</h2>
           </div>
-          <div class="source-documents reveal-group">
-            <div class="source-document">
-              <a class="source-document-view" href="./2024羁诚电子1(1).pdf">
-                <span>קטלוג רכיבי חשמל</span><strong>כרך 01</strong><small>50 עמודים · PDF · 48.1 MB · צפייה באותו חלון</small>
-              </a>
-              <a class="source-document-download" href="./2024羁诚电子1(1).pdf" download="electrical-parts-catalogue-volume-01.pdf">הורדה למכשיר</a>
-            </div>
-            <div class="source-document">
-              <a class="source-document-view" href="./2024羁诚电子2(1).pdf">
-                <span>קטלוג מתגים ורכיבים</span><strong>כרך 02</strong><small>50 עמודים · PDF · 37.3 MB · צפייה באותו חלון</small>
-              </a>
-              <a class="source-document-download" href="./2024羁诚电子2(1).pdf" download="electrical-parts-catalogue-volume-02.pdf">הורדה למכשיר</a>
-            </div>
-          </div>
-          <div class="catalogue-final reveal-group">
-            <p>לא בטוחים מאיזו משפחה להתחיל?</p>
-            <h2>מגדירים משימה לפני שבוחרים דגם.</h2>
-            <a class="button" href="../index.html#next-machine">ארבעת הנתונים לבחירת כלי</a>
-          </div>
+          <a class="button" href="../documents/index.html">לעמוד מסמכי היצרן</a>
         </div>
       </section>
     </main>
 
-    <aside class="compare-tray" aria-label="השוואת דגמים" hidden data-compare-tray>
-      <p><strong data-compare-count>0</strong> דגמים נבחרו להשוואה</p>
-      <button type="button" class="button" data-compare-open>השוו עכשיו</button>
-      <span class="visually-hidden" aria-live="polite" data-compare-status></span>
-    </aside>
+    <dialog class="model-dialog" aria-labelledby="model-dialog-title" data-model-dialog>
+      <button class="dialog-close" type="button" aria-label="סגירת תצוגת המוצר" data-dialog-close>×</button>
+      <div class="dialog-layout">
+        <div class="dialog-media" data-dialog-media></div>
+        <div class="dialog-content">
+          <p class="model-meta" data-dialog-meta></p>
+          <h2 id="model-dialog-title" data-dialog-title></h2>
+          <p class="dialog-intro">נתוני מפתח מתוך מסמך היצרן. יש לאמת את התצורה המדויקת לפני הזמנה.</p>
+          <dl class="key-specs" data-dialog-specs></dl>
+          <div class="dialog-note" data-dialog-note></div>
+          <div class="dialog-actions" data-dialog-actions></div>
+        </div>
+      </div>
+    </dialog>
 
-    <footer class="site-footer catalogue-footer">
-      <span><bdi>Lift Pro 26 Israel</bdi></span>
-      <p>קטלוג טכני המבוסס על מסמכי היצרנים שסופקו לחברה.</p>
-      <a href="../index.html">חזרה לדף הבית</a>
+    <footer class="site-footer">
+      <div><strong><bdi>Lift Pro 26 Israel</bdi></strong><p>קטלוג טכני המבוסס על מסמכי היצרנים שסופקו לחברה.</p></div>
+      <nav aria-label="ניווט תחתון"><a href="../index.html">דף הבית</a><a href="../documents/index.html">מסמכי יצרן</a><a href="../about/index.html">אודות</a></nav>
     </footer>
   </body>
 </html>

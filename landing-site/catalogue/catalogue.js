@@ -1,32 +1,23 @@
 const cards = [...document.querySelectorAll("[data-model]")];
 const families = [...document.querySelectorAll("[data-family]")];
 const filterButtons = [...document.querySelectorAll("[data-filter]")];
-const viewButtons = [...document.querySelectorAll("[data-view]")];
 const searchInput = document.querySelector("[data-search]");
 const resultCount = document.querySelector("[data-result-count]");
 const emptyState = document.querySelector("[data-empty-state]");
 const clearSearch = document.querySelector("[data-clear-search]");
 const guideForm = document.querySelector("[data-guide-form]");
 const guideResult = document.querySelector("[data-guide-result]");
-const themeSections = [...document.querySelectorAll("[data-theme]")];
-const pageProgress = document.querySelector("[data-page-progress]");
-const themeColor = document.querySelector('meta[name="theme-color"]');
+const modelDialog = document.querySelector("[data-model-dialog]");
+const dialogClose = document.querySelector("[data-dialog-close]");
+const dialogMedia = document.querySelector("[data-dialog-media]");
+const dialogMeta = document.querySelector("[data-dialog-meta]");
+const dialogTitle = document.querySelector("[data-dialog-title]");
+const dialogSpecs = document.querySelector("[data-dialog-specs]");
+const dialogNote = document.querySelector("[data-dialog-note]");
+const dialogActions = document.querySelector("[data-dialog-actions]");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const compareTray = document.querySelector("[data-compare-tray]");
-const compareCount = document.querySelector("[data-compare-count]");
-const compareStatus = document.querySelector("[data-compare-status]");
-const compareOpen = document.querySelector("[data-compare-open]");
-const comparisonSection = document.querySelector("[data-comparison-section]");
-const comparisonTable = document.querySelector("[data-comparison-table]");
-const comparisonClear = document.querySelector("[data-comparison-clear]");
-
-const themeColors = {
-  "catalogue-intro": "#070a0c",
-  "catalogue-mini": "#101611",
-  "catalogue-excavator": "#111416",
-  "catalogue-loader": "#16170d",
-  "catalogue-sources": "#07110d",
-};
+const motionAnimations = new WeakMap();
+const motionEaseOut = "cubic-bezier(0.16, 1, 0.3, 1)";
 
 const filterNames = {
   all: "כל הדגמים",
@@ -36,37 +27,193 @@ const filterNames = {
   electric: "ציוד חשמלי",
 };
 
-let activeFilter = "all";
-let searchTerm = "";
-let frameRequested = false;
-const selectedCards = new Set();
+const electricFamilyCopy = {
+  excavators: {
+    title: "מחפרים חשמליים",
+    description: "מחפרים חשמליים כבדים לעבודות תשתית, אבן ועפר, בהנעה חשמלית ובתצורות המפורטות במסמכי היצרן.",
+  },
+  loaders: {
+    title: "מעמיסים חשמליים",
+    description: "מעמיסים אופניים חשמליים להעמסה, מחצבות, תשתיות, אתרי עבודה ומערכים תפעוליים.",
+  },
+};
 
+const defaultFamilyCopy = new Map(
+  families.map((family) => [
+    family,
+    {
+      title: family.querySelector(".family-heading h2")?.textContent.trim() || "",
+      description: family.querySelector(".family-heading p")?.textContent.trim() || "",
+    },
+  ]),
+);
+
+const allowedFilters = new Set(Object.keys(filterNames));
 const normalize = (value) => value.normalize("NFKC").toLocaleLowerCase("he").trim();
+const initialFilter = new URLSearchParams(window.location.search).get("filter");
+let activeFilter = allowedFilters.has(initialFilter) ? initialFilter : "all";
+let searchTerm = "";
+let lastPreviewTrigger = null;
 
-function setActiveFilter(filter) {
-  activeFilter = filter;
+const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+function cloneChildren(source, destination) {
+  if (!destination) return;
+  destination.replaceChildren(...[...(source?.childNodes || [])].map((node) => node.cloneNode(true)));
+}
+
+function setActiveFilter(filter, { updateUrl = true } = {}) {
+  activeFilter = allowedFilters.has(filter) ? filter : "all";
   filterButtons.forEach((button) => {
-    button.setAttribute("aria-pressed", String(button.dataset.filter === filter));
+    button.setAttribute("aria-pressed", String(button.dataset.filter === activeFilter));
   });
+
+  if (!updateUrl) return;
+  const url = new URL(window.location.href);
+  if (activeFilter === "all") url.searchParams.delete("filter");
+  else url.searchParams.set("filter", activeFilter);
+  window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
 }
 
-function animateVisibleCards(visibleCards) {
+function updateFamilyCopy(family) {
+  const heading = family.querySelector(".family-heading h2");
+  const description = family.querySelector(".family-heading p");
+  const copy = activeFilter === "electric"
+    ? electricFamilyCopy[family.id] || defaultFamilyCopy.get(family)
+    : defaultFamilyCopy.get(family);
+
+  if (heading && copy?.title) heading.textContent = copy.title;
+  if (description && copy?.description) description.textContent = copy.description;
+}
+
+function runMotion(element, keyframes, options, id) {
+  if (reducedMotion.matches || !element || typeof element.animate !== "function") return null;
+  motionAnimations.get(element)?.cancel();
+  const animation = element.animate(keyframes, options);
+  animation.id = id;
+  motionAnimations.set(element, animation);
+
+  const release = () => {
+    if (motionAnimations.get(element) === animation) motionAnimations.delete(element);
+  };
+  animation.addEventListener("finish", release, { once: true });
+  animation.addEventListener("cancel", release, { once: true });
+  return animation;
+}
+
+function captureVisibleCardLayout() {
+  const layout = new Map();
+  if (reducedMotion.matches) return layout;
+
+  cards.forEach((card) => {
+    const rect = card.getBoundingClientRect();
+    if (!card.hidden && rect.bottom > -180 && rect.top < window.innerHeight + 180) {
+      layout.set(card, rect);
+    }
+    motionAnimations.get(card)?.cancel();
+  });
+  return layout;
+}
+
+function animateCatalogueChange(visibleCards, previousLayout, familyHeadings, showEmpty, cause) {
   if (reducedMotion.matches) return;
-  visibleCards.slice(0, 9).forEach((card, index) => {
-    if (typeof card.animate !== "function") return;
-    card.animate(
+  window.requestAnimationFrame(() => {
+    let sequence = 0;
+    visibleCards.forEach((card) => {
+      const next = card.getBoundingClientRect();
+      if (next.bottom < -180 || next.top > window.innerHeight + 180) return;
+
+      const previous = previousLayout.get(card);
+      const deltaX = previous ? previous.left - next.left : 0;
+      const deltaY = previous ? previous.top - next.top : 0;
+      const moved = Math.abs(deltaX) > 1 || Math.abs(deltaY) > 1;
+      const canFlip = previous
+        && moved
+        && Math.abs(deltaX) < window.innerWidth * 0.55
+        && Math.abs(deltaY) < Math.min(window.innerHeight * 0.65, 520);
+
+      if (previous && !moved) return;
+      const delay = cause === "search" ? 0 : Math.min(sequence, 5) * 30;
+      const duration = cause === "search" ? 220 : 340;
+      const keyframes = canFlip
+        ? [
+            { opacity: 0.78, transform: `translate3d(${deltaX}px, ${deltaY}px, 0) scale(0.992)` },
+            { opacity: 1, transform: "translate3d(0, 0, 0) scale(1)" },
+          ]
+        : [
+            { opacity: 0, transform: "translate3d(0, 12px, 0) scale(0.985)" },
+            { opacity: 1, transform: "translate3d(0, 0, 0) scale(1)" },
+          ];
+
+      runMotion(card, keyframes, { duration, delay, easing: motionEaseOut }, "catalogue-card-reflow");
+      sequence += 1;
+    });
+
+    familyHeadings.forEach((heading, index) => {
+      const rect = heading.getBoundingClientRect();
+      if (rect.bottom < -120 || rect.top > window.innerHeight + 120) return;
+      runMotion(
+        heading,
+        [
+          { opacity: 0.35, transform: "translate3d(0, 8px, 0)" },
+          { opacity: 1, transform: "translate3d(0, 0, 0)" },
+        ],
+        { duration: 260, delay: index * 35, easing: motionEaseOut },
+        "catalogue-family-heading",
+      );
+    });
+
+    runMotion(
+      resultCount,
       [
-        { opacity: 0, transform: "translateY(10px)" },
-        { opacity: 1, transform: "translateY(0)" },
+        { opacity: 0.35, transform: "translate3d(0, -4px, 0)" },
+        { opacity: 1, transform: "translate3d(0, 0, 0)" },
       ],
-      { duration: 220, delay: index * 24, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
+      { duration: 180, easing: motionEaseOut },
+      "catalogue-result-count",
     );
+
+    if (showEmpty) {
+      runMotion(
+        emptyState,
+        [
+          { opacity: 0, transform: "translate3d(0, 8px, 0) scale(0.99)" },
+          { opacity: 1, transform: "translate3d(0, 0, 0) scale(1)" },
+        ],
+        { duration: 260, easing: motionEaseOut },
+        "catalogue-empty-state",
+      );
+    }
   });
 }
 
-function updateCatalogue({ animate = true } = {}) {
+function acknowledgeSelection(button) {
+  runMotion(
+    button,
+    [
+      { transform: "scale(0.97)" },
+      { transform: "scale(1)" },
+    ],
+    { duration: 180, easing: motionEaseOut },
+    "catalogue-filter-feedback",
+  );
+}
+
+function updateCatalogue({ animate = true, cause = "filter" } = {}) {
+  const previousLayout = animate ? captureVisibleCardLayout() : new Map();
+  const previousFamilyState = new Map(
+    families.map((family) => [
+      family,
+      {
+        visible: !family.hidden,
+        title: family.querySelector(".family-heading h2")?.textContent.trim() || "",
+      },
+    ]),
+  );
+  const emptyWasVisible = emptyState ? !emptyState.hidden : false;
   let visibleCount = 0;
   const visibleCards = [];
+  const familyHeadings = [];
 
   cards.forEach((card) => {
     const categories = card.dataset.category?.split(/\s+/) || [];
@@ -81,159 +228,122 @@ function updateCatalogue({ animate = true } = {}) {
   });
 
   families.forEach((family) => {
+    updateFamilyCopy(family);
     family.hidden = !family.querySelector("[data-model]:not([hidden])");
+    const previous = previousFamilyState.get(family);
+    const title = family.querySelector(".family-heading h2")?.textContent.trim() || "";
+    if (!family.hidden && (!previous?.visible || previous.title !== title)) {
+      const heading = family.querySelector(".family-heading");
+      if (heading) familyHeadings.push(heading);
+    }
   });
 
   if (resultCount) {
-    resultCount.classList.add("is-updating");
     resultCount.textContent = visibleCount === 0
       ? "לא נמצאו דגמים תואמים"
       : `${visibleCount} ${visibleCount === 1 ? "דגם מוצג" : "דגמים מוצגים"}`;
-    window.requestAnimationFrame(() => resultCount.classList.remove("is-updating"));
   }
-
   if (emptyState) emptyState.hidden = visibleCount !== 0;
-  if (animate) animateVisibleCards(visibleCards);
-  requestPageUpdate();
-}
-
-function getCardData(card) {
-  const specs = new Map();
-  card.querySelectorAll(".key-specs div").forEach((row) => {
-    const label = row.querySelector("dt")?.textContent.trim();
-    const value = row.querySelector("dd")?.textContent.trim();
-    if (label && value) specs.set(label, value);
-  });
-
-  return {
-    card,
-    name: card.querySelector("h3")?.textContent.trim() || "דגם",
-    type: card.querySelector(".model-meta span")?.textContent.trim() || "ציוד",
-    specs,
-    source: card.querySelector(".source-link")?.href || "",
-  };
-}
-
-function appendCell(row, tagName, text) {
-  const cell = document.createElement(tagName);
-  cell.textContent = text;
-  row.append(cell);
-  return cell;
-}
-
-function renderComparison() {
-  if (!comparisonTable) return;
-  comparisonTable.replaceChildren();
-  const items = [...selectedCards].map(getCardData);
-  if (items.length < 2) return;
-
-  const table = document.createElement("table");
-  table.className = "comparison-table";
-  const thead = document.createElement("thead");
-  const headRow = document.createElement("tr");
-  appendCell(headRow, "th", "נתון");
-  items.forEach((item) => appendCell(headRow, "th", item.name));
-  thead.append(headRow);
-
-  const tbody = document.createElement("tbody");
-  const typeRow = document.createElement("tr");
-  appendCell(typeRow, "th", "משפחה");
-  items.forEach((item) => appendCell(typeRow, "td", item.type));
-  tbody.append(typeRow);
-
-  const specLabels = [...new Set(items.flatMap((item) => [...item.specs.keys()]))];
-  specLabels.forEach((label) => {
-    const row = document.createElement("tr");
-    appendCell(row, "th", label);
-    items.forEach((item) => appendCell(row, "td", item.specs.get(label) || "—"));
-    tbody.append(row);
-  });
-
-  const sourceRow = document.createElement("tr");
-  appendCell(sourceRow, "th", "מסמך מקור");
-  items.forEach((item) => {
-    const cell = document.createElement("td");
-    const link = document.createElement("a");
-    link.href = item.source;
-    link.textContent = "פתיחת מפרט יצרן";
-    cell.append(link);
-    sourceRow.append(cell);
-  });
-  tbody.append(sourceRow);
-
-  table.append(thead, tbody);
-  comparisonTable.append(table);
-}
-
-function updateCompareTray(message = "") {
-  const count = selectedCards.size;
-  if (compareCount) compareCount.textContent = String(count);
-  if (compareTray) compareTray.hidden = count === 0;
-  if (compareOpen) compareOpen.disabled = count < 2;
-  if (compareStatus) {
-    compareStatus.textContent = message || (count === 1
-      ? "נבחר דגם אחד. בחרו דגם נוסף כדי להשוות."
-      : count > 1 ? `${count} דגמים מוכנים להשוואה.` : "ההשוואה נוקתה.");
+  if (animate) {
+    animateCatalogueChange(
+      visibleCards,
+      previousLayout,
+      familyHeadings,
+      visibleCount === 0 && !emptyWasVisible,
+      cause,
+    );
   }
-  if (comparisonSection && count < 2) comparisonSection.hidden = true;
 }
 
-function clearComparison() {
-  selectedCards.clear();
-  cards.forEach((card) => {
-    card.classList.remove("is-compared");
-    const checkbox = card.querySelector("[data-compare-checkbox]");
-    if (checkbox) checkbox.checked = false;
+function openPreview(card, trigger) {
+  if (!modelDialog || typeof modelDialog.showModal !== "function") return;
+  const image = card.querySelector(".model-visual img")?.cloneNode(true);
+  const meta = card.querySelector(".model-meta");
+  const title = card.querySelector("h3");
+  const specs = card.querySelector(".key-specs");
+  const note = card.querySelector(".model-note");
+  const sourceActions = card.querySelector(".source-actions");
+
+  if (dialogMedia) dialogMedia.replaceChildren(...(image ? [image] : []));
+  cloneChildren(meta, dialogMeta);
+  if (dialogTitle) dialogTitle.textContent = title?.textContent.trim() || "פרטי הדגם";
+  cloneChildren(specs, dialogSpecs);
+  cloneChildren(note, dialogNote);
+  cloneChildren(sourceActions, dialogActions);
+  lastPreviewTrigger = trigger;
+  modelDialog.classList.remove("is-closing");
+  modelDialog.getAnimations().forEach((animation) => {
+    if (animation.id === "catalogue-dialog-close") animation.cancel();
   });
-  if (comparisonTable) comparisonTable.replaceChildren();
-  updateCompareTray();
+  document.body.classList.add("dialog-open");
+  const sourceRect = card.getBoundingClientRect();
+  modelDialog.showModal();
+  const dialogRect = modelDialog.getBoundingClientRect();
+  const sourceCenterX = sourceRect.left + sourceRect.width / 2;
+  const sourceCenterY = sourceRect.top + sourceRect.height / 2;
+  const originX = clamp(((sourceCenterX - dialogRect.left) / dialogRect.width) * 100, 4, 96);
+  const originY = clamp(((sourceCenterY - dialogRect.top) / dialogRect.height) * 100, 4, 96);
+  const shiftY = clamp(sourceCenterY - (dialogRect.top + dialogRect.height / 2), -24, 24);
+  modelDialog.style.setProperty("--dialog-origin-x", `${originX.toFixed(2)}%`);
+  modelDialog.style.setProperty("--dialog-origin-y", `${originY.toFixed(2)}%`);
+  modelDialog.style.setProperty("--dialog-shift-y", `${shiftY.toFixed(1)}px`);
+  dialogClose?.focus();
+}
+
+function closePreview() {
+  if (!modelDialog?.open || modelDialog.classList.contains("is-closing")) return;
+  if (reducedMotion.matches || typeof modelDialog.animate !== "function") {
+    modelDialog.close();
+    return;
+  }
+
+  modelDialog.classList.add("is-closing");
+  const shiftY = modelDialog.style.getPropertyValue("--dialog-shift-y") || "0px";
+  const closing = runMotion(
+    modelDialog,
+    [
+      { opacity: 1, filter: "blur(0)", transform: "translate3d(0, 0, 0) scale(1)" },
+      { opacity: 0, filter: "blur(5px)", transform: `translate3d(0, ${shiftY}, 0) scale(0.96)` },
+    ],
+    { duration: 200, easing: "cubic-bezier(0.4, 0, 1, 1)", fill: "forwards" },
+    "catalogue-dialog-close",
+  );
+  if (!closing) {
+    modelDialog.close();
+    return;
+  }
+  closing.finished.then(() => {
+    if (modelDialog.open) modelDialog.close();
+  }).catch(() => {});
 }
 
 cards.forEach((card) => {
-  const name = card.querySelector("h3")?.textContent.trim() || "הדגם";
-  const compareLabel = document.createElement("label");
-  compareLabel.className = "model-compare";
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.dataset.compareCheckbox = "";
-  checkbox.setAttribute("aria-label", `הוספת ${name} להשוואה`);
-  const labelText = document.createElement("span");
-  labelText.textContent = "השוו";
-  compareLabel.append(checkbox, labelText);
-  card.prepend(compareLabel);
+  const title = card.querySelector("h3")?.textContent.trim() || "הדגם";
+  const previewButton = document.createElement("button");
+  previewButton.type = "button";
+  previewButton.className = "model-preview";
+  previewButton.textContent = "תצוגה מקדימה";
+  previewButton.setAttribute("aria-label", `פתיחת תצוגה מקדימה עבור ${title}`);
+  card.querySelector(".source-actions")?.before(previewButton);
 
-  const sourceActions = card.querySelector(".source-actions");
-  if (sourceActions) {
-    const sourceBadge = document.createElement("span");
-    sourceBadge.className = "source-verified";
-    sourceBadge.textContent = "נתונים ממסמך יצרן";
-    sourceActions.before(sourceBadge);
-  }
-
-  checkbox.addEventListener("change", () => {
-    if (checkbox.checked && selectedCards.size >= 3) {
-      checkbox.checked = false;
-      updateCompareTray("ניתן להשוות עד שלושה דגמים בכל פעם.");
-      return;
-    }
-
-    if (checkbox.checked) selectedCards.add(card);
-    else selectedCards.delete(card);
-    card.classList.toggle("is-compared", checkbox.checked);
-    updateCompareTray();
+  previewButton.addEventListener("click", () => openPreview(card, previewButton));
+  card.addEventListener("click", (event) => {
+    if (event.target.closest("a, button, input, label")) return;
+    openPreview(card, previewButton);
   });
 });
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     setActiveFilter(button.dataset.filter || "all");
-    updateCatalogue();
+    updateCatalogue({ cause: "filter" });
+    acknowledgeSelection(button);
   });
 });
 
 searchInput?.addEventListener("input", () => {
   searchTerm = normalize(searchInput.value);
-  updateCatalogue();
+  updateCatalogue({ cause: "search" });
 });
 
 clearSearch?.addEventListener("click", () => {
@@ -243,100 +353,42 @@ clearSearch?.addEventListener("click", () => {
     searchInput.focus();
   }
   setActiveFilter("all");
-  updateCatalogue();
-});
-
-viewButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    document.body.dataset.catalogueView = button.dataset.view || "grid";
-    viewButtons.forEach((candidate) => {
-      candidate.setAttribute("aria-pressed", String(candidate === button));
-    });
-  });
+  updateCatalogue({ cause: "reset" });
 });
 
 guideForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-  const data = new FormData(guideForm);
-  const task = String(data.get("task") || "");
-  if (!task) return;
-  setActiveFilter(task);
+  const filter = String(new FormData(guideForm).get("task") || "all");
+  setActiveFilter(filter);
   searchTerm = "";
   if (searchInput) searchInput.value = "";
-  updateCatalogue();
+  updateCatalogue({ cause: "filter" });
   if (guideResult) {
-    guideResult.textContent = `נקודת התחלה: ${filterNames[task]}. הצגנו את המשפחה הרלוונטית; כעת השוו נתוני מפתח ואמתו את התצורה במסמך היצרן.`;
+    guideResult.textContent = `נקודת התחלה: ${filterNames[filter] || filterNames.all}. כעת פתחו דגם ואמתו את התצורה במסמך היצרן.`;
   }
-  const firstVisibleFamily = families.find((family) => !family.hidden);
-  firstVisibleFamily?.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "start" });
 });
 
-compareOpen?.addEventListener("click", () => {
-  if (selectedCards.size < 2 || !comparisonSection) return;
-  renderComparison();
-  comparisonSection.hidden = false;
-  comparisonSection.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "start" });
+dialogClose?.addEventListener("click", closePreview);
+
+modelDialog?.addEventListener("cancel", (event) => {
+  event.preventDefault();
+  closePreview();
 });
 
-comparisonClear?.addEventListener("click", clearComparison);
+modelDialog?.addEventListener("click", (event) => {
+  if (event.target !== modelDialog) return;
+  const rect = modelDialog.getBoundingClientRect();
+  const inside = event.clientX >= rect.left && event.clientX <= rect.right
+    && event.clientY >= rect.top && event.clientY <= rect.bottom;
+  if (!inside) closePreview();
+});
 
-function updatePageState() {
-  frameRequested = false;
-  const pageTravel = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-  const progress = Math.min(1, Math.max(0, window.scrollY / pageTravel));
-  if (pageProgress) pageProgress.style.transform = `scaleX(${progress.toFixed(4)})`;
+modelDialog?.addEventListener("close", () => {
+  modelDialog.classList.remove("is-closing");
+  document.body.classList.remove("dialog-open");
+  lastPreviewTrigger?.focus();
+  lastPreviewTrigger = null;
+});
 
-  const activationLine = window.innerHeight * 0.48;
-  let activeSection = themeSections.find((section) => !section.hidden) || themeSections[0];
-  let smallestDistance = Number.POSITIVE_INFINITY;
-
-  themeSections.forEach((section) => {
-    if (section.hidden) return;
-    const rect = section.getBoundingClientRect();
-    const distance = activationLine >= rect.top && activationLine <= rect.bottom
-      ? 0
-      : Math.min(Math.abs(rect.top - activationLine), Math.abs(rect.bottom - activationLine));
-    if (distance < smallestDistance) {
-      activeSection = section;
-      smallestDistance = distance;
-    }
-  });
-
-  const theme = activeSection?.dataset.theme || "catalogue-intro";
-  if (document.body.dataset.activeTheme !== theme) {
-    document.body.dataset.activeTheme = theme;
-    themeColor?.setAttribute("content", themeColors[theme] || themeColors["catalogue-intro"]);
-  }
-}
-
-function requestPageUpdate() {
-  if (frameRequested) return;
-  frameRequested = true;
-  window.requestAnimationFrame(updatePageState);
-}
-
-window.addEventListener("scroll", requestPageUpdate, { passive: true });
-window.addEventListener("resize", requestPageUpdate, { passive: true });
-
-const revealGroups = [...document.querySelectorAll(".reveal-group")];
-if (!reducedMotion.matches && "IntersectionObserver" in window) {
-  document.documentElement.classList.add("motion-ready");
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -7%" },
-  );
-  revealGroups.forEach((group) => revealObserver.observe(group));
-} else {
-  revealGroups.forEach((group) => group.classList.add("is-visible"));
-}
-
-document.body.dataset.catalogueView = "grid";
+setActiveFilter(activeFilter, { updateUrl: false });
 updateCatalogue({ animate: false });
-updateCompareTray();
-requestPageUpdate();
