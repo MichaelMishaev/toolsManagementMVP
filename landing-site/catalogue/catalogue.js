@@ -8,6 +8,9 @@ const emptyState = document.querySelector("[data-empty-state]");
 const clearSearch = document.querySelector("[data-clear-search]");
 const guideForm = document.querySelector("[data-guide-form]");
 const guideResult = document.querySelector("[data-guide-result]");
+const showcaseLinks = [...document.querySelectorAll(".catalogue-family-showcase a")];
+const modelsSection = document.querySelector("#models");
+const modelsTitle = document.querySelector("#models-title");
 const modelDialog = document.querySelector("[data-model-dialog]");
 const dialogClose = document.querySelector("[data-dialog-close]");
 const dialogMedia = document.querySelector("[data-dialog-media]");
@@ -370,21 +373,41 @@ cards.forEach((card) => {
   const detailLink = document.createElement("a");
   detailLink.className = "model-detail-link";
   detailLink.href = detailHref;
-  detailLink.textContent = "עמוד הדגם";
+  detailLink.textContent = "לפרטי הדגם";
   detailLink.setAttribute("aria-label", `פתיחת עמוד הדגם ${title}`);
-
-  const previewButton = document.createElement("button");
-  previewButton.type = "button";
-  previewButton.className = "model-preview";
-  previewButton.textContent = "הצצה מהירה";
-  previewButton.setAttribute("aria-label", `פתיחת תצוגה מקדימה עבור ${title}`);
-  primaryActions.append(detailLink, previewButton);
+  primaryActions.append(detailLink);
   card.querySelector(".source-actions")?.before(primaryActions);
 
-  previewButton.addEventListener("click", () => openPreview(card, previewButton));
   card.addEventListener("click", (event) => {
     if (event.target.closest("a, button, input, label")) return;
     window.location.href = detailHref;
+  });
+});
+
+showcaseLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const filter = new URL(link.href, window.location.href).searchParams.get("filter") || "all";
+    if (!allowedFilters.has(filter)) return;
+
+    event.preventDefault();
+    setActiveFilter(filter, { updateUrl: false });
+    setActiveMaker("all", { updateUrl: false });
+    searchTerm = "";
+    if (searchInput) searchInput.value = "";
+    updateCatalogue({ animate: false, cause: "filter" });
+
+    const url = new URL(window.location.href);
+    if (filter === "all") url.searchParams.delete("filter");
+    else url.searchParams.set("filter", filter);
+    url.searchParams.delete("maker");
+    url.hash = "models";
+    window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+
+    modelsSection?.scrollIntoView({ behavior: "instant", block: "start" });
+    if (modelsTitle) {
+      modelsTitle.tabIndex = -1;
+      modelsTitle.focus({ preventScroll: true });
+    }
   });
 });
 

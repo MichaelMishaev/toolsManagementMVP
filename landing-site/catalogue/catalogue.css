@@ -1,3 +1,7 @@
+.catalogue-document {
+  scroll-behavior: auto;
+}
+
 .catalogue-page {
   --catalogue-surface: #fffdf8;
   --catalogue-soft: #efebe3;
@@ -402,7 +406,7 @@
   width: 100%;
   margin-block-start: auto;
   padding-block-start: 1rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 0.55rem;
 }
 
