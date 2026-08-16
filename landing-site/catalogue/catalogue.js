@@ -445,14 +445,18 @@ clearSearch?.addEventListener("click", () => {
 
 guideForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-  const filter = String(new FormData(guideForm).get("task") || "all");
+  const guideData = new FormData(guideForm);
+  const filter = String(guideData.get("task") || "all");
+  const scale = String(guideData.get("scale") || "");
+  const terrain = String(guideData.get("terrain") || "");
+  const pace = String(guideData.get("pace") || "");
   setActiveFilter(filter);
   setActiveMaker("all");
   searchTerm = "";
   if (searchInput) searchInput.value = "";
   updateCatalogue({ cause: "filter" });
   if (guideResult) {
-    guideResult.textContent = `נקודת התחלה: ${filterNames[filter] || filterNames.all}. כעת פתחו דגם ואמתו את התצורה במסמך היצרן.`;
+    guideResult.textContent = `נקודת פתיחה לפי סוג המשימה: ${filterNames[filter] || filterNames.all}. בהשוואת הדגמים בדקו את הבחירות שלכם: היקף עבודה — ${scale}; תנאי שטח — ${terrain}; קצב עבודה — ${pace}. את התצורה המדויקת יש לאמת במסמך היצרן.`;
   }
 });
 
