@@ -15,6 +15,9 @@ colors:
   lift-lime: "#a4c944"
   lift-lime-light: "#c9e879"
   lift-lime-ink: "#172208"
+  whatsapp-deep: "#075e54"
+  whatsapp-hover: "#064e46"
+  whatsapp-signal: "#25d366"
   dark-field: "#101012"
   border-soft: "rgba(29, 29, 31, 0.09)"
   white: "#ffffff"
@@ -124,7 +127,7 @@ This is a Hebrew-first, RTL commercial product experience with a user-pinned 202
 
 Mobbin references are translated by behavior rather than copied: the Apple Store screen supports the split-tone editorial promise, compact product-family rail, contextual selection help, and horizontally browsable latest-product stages; Daylight and Samara support the single environmental product stage; Square supports image-first family wayfinding; Klarna and Urban Outfitters support compact, visible catalogue filters and active-state clarity. The resulting composition remains Hebrew RTL, uses Lift Pro's verified machinery, and keeps the catalogue's source constraints intact.
 
-The story proceeds in a fixed commercial order: understand the offer, choose an image-led equipment family, inspect selected models at editorial scale, see ownership support, learn why the company exists, then open a full model page or manufacturer source. Until an approved contact destination exists, the site routes visitors to catalogue, model, selection, company, and document surfaces and never implies that a message, quote request, or form submission has been sent.
+The story proceeds in a fixed commercial order: understand the offer, choose an image-led equipment family, inspect selected models at editorial scale, see ownership support, learn why the company exists, then open a full model page or manufacturer source. Each full model page may open a dedicated WhatsApp enquiry to the approved public destination, but the site never implies that a message was sent before the visitor completes the action in WhatsApp.
 
 **Key Characteristics:**
 
@@ -165,6 +168,8 @@ The palette is a cool near-white field with black-gray typography, a precise blu
 **The One Blue Voice Rule.** Blue communicates action, selection, or verified product emphasis; it does not fill large reading fields.
 
 **The Rare Lime Rule.** Lime is a Lift Pro signal, not a dominant interface theme. Keep it small enough that every appearance still means something.
+
+**The WhatsApp Service Rule.** WhatsApp teal and green appear only on explicit WhatsApp enquiry actions; they never become general page accents.
 
 **The Contained Night Rule.** Dark material belongs only to the service-and-ownership proof section. Never turn the page back into a continuous dark industrial wall.
 
@@ -287,5 +292,5 @@ Content groups reveal once with a 520ms opacity-and-16px rise using the `ease-ou
 - **Don't** crop, frame, backdrop, or partially conceal the canonical logo or hero machine.
 - **Don't** spread glass across ordinary reading surfaces or use lime as the dominant interface color.
 - **Don't** invent prices, finance terms, stock, delivery times, warranty terms, certifications, testimonials, or contact details.
-- **Don't** imply that a message, quote request, or form submission was sent while no approved commercial contact destination exists.
+- **Don't** imply that a WhatsApp message, quote request, or form submission was sent before the visitor completes the external action.
 - **Don't** use raw PDF embeds as the customer-facing catalogue; semantic HTML is the primary equipment experience and PDFs remain optional source downloads.

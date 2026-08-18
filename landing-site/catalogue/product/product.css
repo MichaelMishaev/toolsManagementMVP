@@ -153,17 +153,116 @@
 
 .product-actions {
   display: flex;
-  margin-block-start: 2rem;
+  margin-block-start: 1.5rem;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: 0.5rem;
 }
 
 .product-actions .button {
+  min-height: 3rem;
+  padding: 0.68rem 1rem;
   text-decoration: none;
 }
 
 .product-actions .source-download {
   display: none;
+}
+
+.product-actions .product-whatsapp-link {
+  display: flex;
+  width: auto;
+  min-height: 3rem;
+  padding: 0.68rem 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.58rem;
+  border: 0;
+  background: #075e54;
+  color: #fff;
+  box-shadow: 0 0.45rem 1rem rgba(7, 94, 84, 0.17);
+  transition: background-color 180ms ease, box-shadow 180ms ease, transform 100ms ease-out;
+}
+
+.product-whatsapp-link svg {
+  width: 1.18rem;
+  height: 1.18rem;
+  flex: 0 0 auto;
+  overflow: visible;
+  fill: none;
+  stroke: #25d366;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.75;
+}
+
+.product-whatsapp-link svg path:last-child {
+  fill: #25d366;
+  stroke: none;
+}
+
+.product-whatsapp-label {
+  font-size: 0.92rem;
+  font-weight: 720;
+  line-height: 1.25;
+  unicode-bidi: isolate;
+}
+
+.product-actions .product-whatsapp-link:hover {
+  background: #064e46;
+  color: #fff;
+  box-shadow: 0 0.65rem 1.35rem rgba(7, 94, 84, 0.24);
+}
+
+.product-actions .product-whatsapp-link:active {
+  transform: scale(0.97);
+}
+
+.product-actions .product-whatsapp-link:focus-visible {
+  outline: 3px solid #0071e3;
+  outline-offset: 3px;
+}
+
+.product-source-link {
+  gap: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.product-source-link span {
+  font-size: 0.74rem;
+  font-weight: 560;
+}
+
+.product-source-link span::before {
+  margin-inline-end: 0.35rem;
+  content: "·";
+}
+
+.product-compare-link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.35rem;
+  align-items: center;
+  color: #0066cc;
+  font-size: 0.9rem;
+  font-weight: 620;
+  text-decoration: none;
+}
+
+.product-compare-link::after {
+  margin-inline-start: 0.35rem;
+  content: "←";
+  transition: transform 160ms ease;
+}
+
+.product-compare-link:hover::after {
+  transform: translateX(-0.2rem);
+}
+
+.product-compare-link:focus-visible {
+  outline: 3px solid #0071e3;
+  outline-offset: 2px;
+  border-radius: 0.7rem;
 }
 
 .product-assurance,
@@ -372,8 +471,13 @@
     font-size: clamp(3rem, 16vw, 4.7rem);
   }
 
+  .product-actions {
+    align-items: center;
+    justify-content: flex-start;
+  }
+
   .product-actions .button {
-    width: 100%;
+    width: auto;
   }
 
   .assurance-points,
@@ -392,8 +496,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .product-visual > img {
+  .product-visual > img,
+  .product-actions .product-whatsapp-link {
     animation: none;
+    transition: none;
   }
 }
 

@@ -65,6 +65,10 @@
     "vision": "Build one of Israel's young, innovative and competitive equipment companies, bringing new technologies, electric equipment, smart systems and quality machines at prices that help businesses work, grow and profit.",
     "qualifiedPartsClaim": "In many cases, spare parts may cost approximately 35%-40% less than customary official-importer pricing, depending on the part, model and supply source."
   },
+  "contact": {
+    "whatsappDestination": "+972532414062",
+    "approvedFor": "Public model-specific catalogue enquiries"
+  },
   "hero": {
     "title": "ציוד גדול. מחיר שעובד.",
     "description": "מלגזות, צמ״ה וציוד כבד ביבוא ישיר, עם אחריות, שירות וחלפים.",
@@ -103,7 +107,6 @@
   "openDecisions": [
     "Approved commercial phone number",
     "Approved commercial email address",
-    "Approved WhatsApp destination",
     "Lead-form handling destination",
     "Verified warranty terms by model",
     "Verified inventory and delivery-time data"

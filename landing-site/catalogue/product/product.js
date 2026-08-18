@@ -8,6 +8,7 @@ const actions = document.querySelector("[data-product-actions]");
 const breadcrumb = document.querySelector("[data-breadcrumb-model]");
 const related = document.querySelector("[data-related-models]");
 const errorState = document.querySelector("[data-product-error]");
+const whatsappDestination = document.body.dataset.whatsappDestination?.replace(/\D/g, "") || "";
 
 const slugifyModel = (value) => value
   .normalize("NFKC")
@@ -21,6 +22,49 @@ const cloneChildren = (source, destination) => {
 };
 
 const catalogueUrl = new URL("../index.html", window.location.href);
+
+function createWhatsAppIcon() {
+  const namespace = "http://www.w3.org/2000/svg";
+  const icon = document.createElementNS(namespace, "svg");
+  icon.setAttribute("viewBox", "0 0 24 24");
+  icon.setAttribute("aria-hidden", "true");
+  icon.setAttribute("focusable", "false");
+
+  const bubble = document.createElementNS(namespace, "path");
+  bubble.setAttribute("d", "M20.4 11.6a8.4 8.4 0 0 1-12.5 7.3L3.5 20l1.2-4.2a8.4 8.4 0 1 1 15.7-4.2Z");
+  const phone = document.createElementNS(namespace, "path");
+  phone.setAttribute("d", "M8.2 7.4c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.5l.8 2c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.7 1.2 1.6 2.1 2.8 2.7.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.9.9c.3.1.5.3.5.5 0 .3-.2 1.5-1 2.1-.7.6-1.7.8-2.7.5-1.1-.3-2.5-.9-4.1-2.3-1.3-1.2-2.2-2.7-2.5-3.7-.4-1.1 0-2.1.4-2.5.2-.2.5-.6.8-1Z");
+  icon.append(bubble, phone);
+  return icon;
+}
+
+function createWhatsAppLink(modelName, manufacturer) {
+  if (!whatsappDestination) return null;
+  const currentUrl = new URL(window.location.href);
+  currentUrl.hash = "";
+  const message = [
+    "שלום לצוות Lift Pro 26,",
+    `אני מתעניין/ת בדגם ${manufacturer} ${modelName} שראיתי באתר.`,
+    "אשמח לקבל מידע על מחיר, זמינות והתאמה לצורך שלי.",
+  ];
+  if (currentUrl.protocol === "http:" || currentUrl.protocol === "https:") message.push(currentUrl.href);
+
+  const link = document.createElement("a");
+  link.className = "button product-whatsapp-link";
+  link.href = `https://wa.me/${whatsappDestination}?text=${encodeURIComponent(message.join("\n"))}`;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.setAttribute("aria-label", `פתיחת WhatsApp לשאלה על דגם ${modelName}`);
+
+  const label = document.createElement("strong");
+  label.className = "product-whatsapp-label";
+  const channel = document.createElement("bdi");
+  channel.dir = "ltr";
+  channel.textContent = "WhatsApp";
+  label.append("שאלו ב־", channel);
+  link.append(createWhatsAppIcon(), label);
+  return link;
+}
 
 function resolveCardAssets(card) {
   card.querySelectorAll("img[src]").forEach((image) => {
@@ -77,6 +121,7 @@ async function loadProduct() {
 
   resolveCardAssets(card);
   const modelName = card.querySelector("h3")?.textContent.trim() || "דגם";
+  const manufacturer = card.querySelector(".model-meta bdi")?.textContent.trim() || "";
   const productImage = card.querySelector(".model-visual img")?.cloneNode(true);
   const sourceActions = card.querySelector(".source-actions")?.cloneNode(true);
 
@@ -88,12 +133,21 @@ async function loadProduct() {
   actions.replaceChildren();
 
   if (sourceActions) {
-    sourceActions.querySelectorAll("a").forEach((link) => link.classList.add("button"));
+    const sourceLink = sourceActions.querySelector(".source-link");
+    if (sourceLink) {
+      const sourceMeta = sourceLink.querySelector("span")?.textContent.trim() || "PDF";
+      const sourceMetaLabel = document.createElement("span");
+      sourceMetaLabel.textContent = sourceMeta;
+      sourceLink.classList.add("button", "product-source-link");
+      sourceLink.replaceChildren("מפרט היצרן", sourceMetaLabel);
+    }
     const backLink = document.createElement("a");
-    backLink.className = "button button-secondary";
+    backLink.className = "product-compare-link";
     backLink.href = `../index.html?filter=${encodeURIComponent((card.dataset.category || "all").split(/\s+/)[0])}#models`;
-    backLink.textContent = "השוואה לדגמים נוספים";
+    backLink.textContent = "השוואה לדגמים";
     actions.append(...sourceActions.children, backLink);
+    const whatsappLink = createWhatsAppLink(modelName, manufacturer);
+    if (whatsappLink) actions.prepend(whatsappLink);
   }
 
   breadcrumb.textContent = modelName;
