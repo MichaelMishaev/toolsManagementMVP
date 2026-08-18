@@ -736,6 +736,10 @@ img {
   object-fit: cover;
 }
 
+.document-card img.document-card-model-image {
+  object-position: center 72%;
+}
+
 .document-card:hover {
   border-color: var(--navy);
   transform: translateY(-2px);

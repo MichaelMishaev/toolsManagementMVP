@@ -1511,13 +1511,39 @@
 }
 
 .catalogue-page .header-action {
-  border-color: var(--ai-ink);
-  background: var(--ai-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-color: #075e54;
+  background: #075e54;
   color: #fff;
 }
 
 .catalogue-page .header-action:hover {
-  background: #30322b;
+  border-color: #064e46;
+  background: #064e46;
+}
+
+.catalogue-page .header-action:focus-visible {
+  outline: 3px solid #25d366;
+  outline-offset: 3px;
+}
+
+.catalogue-page .catalogue-whatsapp-action svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.65;
+}
+
+@media (max-width: 64rem) {
+  .catalogue-page .header-action {
+    display: none;
+  }
 }
 
 .catalogue-hero {

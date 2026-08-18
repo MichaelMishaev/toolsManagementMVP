@@ -31,6 +31,14 @@
       "actor": "Codex",
       "source": "client-feedback",
       "summary": "Implemented a restrained WhatsApp-first homepage funnel with one visible WhatsApp action per viewport, tap-to-call access, campaign-aware drafts, and no automatic send."
+    },
+    {
+      "version": 2,
+      "date": "2026-08-18",
+      "action": "catalogue-desktop-cta-added",
+      "actor": "Codex",
+      "source": "customer-bug-report-and-mobbin-review",
+      "summary": "Added one green campaign-aware WhatsApp action to the desktop catalogue header while keeping model cards free of repeated contact buttons."
     }
   ]
 }
