@@ -125,9 +125,9 @@ Verified equipment should feel understandable before it feels heavy. The world u
 
 This is a Hebrew-first, RTL commercial product experience with a user-pinned 2026 Apple-style discipline, not an imitation of Apple branding or exact layouts. The interface is quiet enough for manufacturer-backed facts to carry authority. Blue marks navigation and action, while Lift Pro lime remains a rare ownership-and-brand signal. Translucent material is reserved for navigation and compact evidence details; primary reading surfaces remain solid and legible.
 
-Mobbin references are translated by behavior rather than copied: the Apple Store screen supports the split-tone editorial promise, compact product-family rail, contextual selection help, and horizontally browsable latest-product stages; Daylight and Samara support the single environmental product stage; Square supports image-first family wayfinding; Klarna and Urban Outfitters support compact, visible catalogue filters and active-state clarity. The resulting composition remains Hebrew RTL, uses Lift Pro's verified machinery, and keeps the catalogue's source constraints intact.
+Mobbin references are translated by behavior rather than copied: the Apple Store screen supports the split-tone editorial promise, compact product-family rail, contextual selection help, and image-led latest-product stages; Daylight and Samara support the single environmental product stage; Square supports image-first family wayfinding; Klarna and Urban Outfitters support compact, visible catalogue filters and active-state clarity. The resulting composition remains Hebrew RTL, uses Lift Pro's verified machinery, and keeps the catalogue's source constraints intact.
 
-The story proceeds in a fixed commercial order: understand the offer, choose an image-led equipment family, inspect selected models at editorial scale, see ownership support, learn why the company exists, then open a full model page or manufacturer source. Each full model page may open a dedicated WhatsApp enquiry to the approved public destination, but the site never implies that a message was sent before the visitor completes the action in WhatsApp.
+The story proceeds in a fixed commercial order: understand the offer, choose an image-led equipment family, inspect selected models at editorial scale, see ownership support, learn why the company exists, then open a full model page or manufacturer source. The homepage offers one visible WhatsApp action per viewport: in the hero on desktop/tablet and in a compact contact dock on mobile. Each full model page may open a dedicated model-specific WhatsApp enquiry. The site never implies that a message was sent before the visitor completes the action in WhatsApp.
 
 **Key Characteristics:**
 
@@ -200,7 +200,7 @@ The page uses logical RTL flow and a centered spatial model. The first viewport 
 
 Each major story beat occupies its own rounded field with generous vertical space. The sequence is offer, image-led equipment families, selected product stages, direct-sourcing value, service and spare-parts support, company origin, then catalogue and manufacturer-document actions. The page uses native document flow and native scrolling; no section pins the viewport or captures the scroll gesture.
 
-At the intermediate breakpoint (64rem), the header action hides and complex grids compress. Below 47.99rem, the navigation becomes a floating menu, two-column structures become one column, equipment cards shorten, and final actions expand to full width. Below 24rem, hero actions stack. The same semantic and visual reading order is preserved from the 20rem minimum viewport upward, with no horizontal overflow.
+At the intermediate breakpoint (64rem), the header action hides and complex grids compress. Selected-model stages use a contained two-column grid, with the final model spanning the next row. Below 47.99rem, the navigation becomes a floating menu, selected models stack as full-width vertical stages, equipment cards shorten, and final actions expand to full width. Below 24rem, hero actions stack. The same semantic and visual reading order is preserved from the 20rem minimum viewport upward, with no internal horizontal scrolling or page overflow.
 
 **The Complete Machine Rule.** The hero product remains fully identifiable inside one manufacturer-supplied field photograph. Never detach it from its source scene, silhouette it behind copy, or use it as a texture.
 
@@ -246,6 +246,10 @@ Buttons are direct, calm, and immediately responsive.
 ### Navigation
 
 The navigation is a floating, translucent pill anchored at the RTL reading origin. Its logo preserves the complete approved transparent artwork and native aspect ratio. Desktop links stay quiet until hover or active state; the primary catalogue action uses Decision Blue. On mobile, a circular control opens a rounded glass menu, Escape closes it and returns focus, and selecting a link closes it.
+
+### Commercial Contact
+
+Contact stays singular and contextual. Desktop/tablet place the only homepage WhatsApp action in the hero and publish the phone number in the navigation area; narrow mobile replaces the hero WhatsApp action with one persistent two-choice dock for WhatsApp or a phone call. No homepage section, category card, or final CTA repeats WhatsApp. WhatsApp teal appears only on the explicit enquiry action, and the visitor always reviews the prefilled draft before sending.
 
 ### Equipment Cards
 

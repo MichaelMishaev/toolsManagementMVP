@@ -10,10 +10,10 @@
     <meta name="theme-color" content="#f4f0e8" />
     <title>Lift Pro 26 Israel | ציוד גדול. חשיבה חדשה.</title>
     <link rel="icon" href="../assets/brand/lift-pro-26-logo-transparent.png" type="image/png" />
-    <link rel="stylesheet" href="./styles.css?v=27" />
-    <script type="module" src="./hero.js?v=6"></script>
+    <link rel="stylesheet" href="./styles.css?v=29" />
+    <script type="module" src="./hero.js?v=7"></script>
   </head>
-  <body data-active-theme="hero">
+  <body data-active-theme="hero" data-whatsapp-destination="972532414062">
     <!--
       THESIS: verified equipment should feel understandable before it feels heavy; this refuses the category's dark industrial wall and scroll-trapped hero.
       OWN-WORLD: bright spatial fields, one complete machine, precise system type, calm depth, and translucent material only for navigation and focused detail.
@@ -52,7 +52,16 @@
           <a href="#service">שירות וחלפים</a>
           <a href="./about/index.html">אודות</a>
         </nav>
-        <a class="header-action" href="./catalogue/index.html">לכל הדגמים</a>
+        <a
+          class="header-phone"
+          href="tel:+972532414062"
+          data-lead-channel="phone"
+          data-lead-context="homepage-header"
+          aria-label="התקשרו לליפט פרו 26 במספר 053-241-4062"
+        >
+          <span>שיחה ישירה</span>
+          <bdi>053-241-4062</bdi>
+        </a>
       </div>
     </header>
 
@@ -68,9 +77,23 @@
                 כדי שתבחרו כלי שמתאים לעבודה ולעסק, לא רק למפרט.
               </p>
               <div class="hero-actions">
-                <a class="button" href="./catalogue/index.html">לצפייה בקטלוג</a>
-                <a class="button button-secondary" href="#equipment">איזה ציוד מתאים לי?</a>
+                <a
+                  class="button whatsapp-action"
+                  href="https://wa.me/972532414062"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-whatsapp-link
+                  data-lead-channel="whatsapp"
+                  data-lead-context="homepage-hero"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.4 11.6a8.4 8.4 0 0 1-12.5 7.3L3.5 20l1.2-4.2a8.4 8.4 0 1 1 15.7-4.2Z"></path><path d="M8.2 7.4c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.5l.8 2c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.7 1.2 1.6 2.1 2.8 2.7.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.9.9c.3.1.5.3.5.5 0 .3-.2 1.5-1 2.1-.7.6-1.7.8-2.7.5-1.1-.3-2.5-.9-4.1-2.3-1.3-1.2-2.2-2.7-2.5-3.7-.4-1.1 0-2.1.4-2.5.2-.2.5-.6.8-1Z"></path></svg>
+                  <span>ייעוץ מהיר ב־<bdi>WhatsApp</bdi></span>
+                </a>
+                <a class="button button-secondary" href="./catalogue/index.html">לצפייה בקטלוג</a>
               </div>
+              <p class="hero-contact-note">
+                מעדיפים לדבר? <a href="tel:+972532414062" data-lead-channel="phone" data-lead-context="homepage-hero">053-241-4062</a>
+              </p>
               <p class="hero-source-note">22 דגמים מ־LOVOL ומ־NICOSAIL, עם נתוני מפתח ומסמכי מקור.</p>
             </div>
             <aside class="hero-help" aria-label="קיצורי דרך לבחירת ציוד">
@@ -330,5 +353,30 @@
         </nav>
       </div>
     </footer>
+
+    <aside class="mobile-contact-dock" aria-label="יצירת קשר מהירה">
+      <a
+        class="mobile-whatsapp-action"
+        href="https://wa.me/972532414062"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-whatsapp-link
+        data-lead-channel="whatsapp"
+        data-lead-context="homepage-mobile-dock"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.4 11.6a8.4 8.4 0 0 1-12.5 7.3L3.5 20l1.2-4.2a8.4 8.4 0 1 1 15.7-4.2Z"></path><path d="M8.2 7.4c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.5l.8 2c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.7 1.2 1.6 2.1 2.8 2.7.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.9.9c.3.1.5.3.5.5 0 .3-.2 1.5-1 2.1-.7.6-1.7.8-2.7.5-1.1-.3-2.5-.9-4.1-2.3-1.3-1.2-2.2-2.7-2.5-3.7-.4-1.1 0-2.1.4-2.5.2-.2.5-.6.8-1Z"></path></svg>
+        <span>WhatsApp</span>
+      </a>
+      <a
+        class="mobile-phone-action"
+        href="tel:+972532414062"
+        data-lead-channel="phone"
+        data-lead-context="homepage-mobile-dock"
+        aria-label="התקשרו לליפט פרו 26 במספר 053-241-4062"
+      >
+        <span>התקשרו</span>
+        <bdi>053-241-4062</bdi>
+      </a>
+    </aside>
   </body>
 </html>

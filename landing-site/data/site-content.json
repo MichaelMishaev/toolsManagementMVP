@@ -67,7 +67,9 @@
   },
   "contact": {
     "whatsappDestination": "+972532414062",
-    "approvedFor": "Public model-specific catalogue enquiries"
+    "displayPhone": "053-241-4062",
+    "approvedFor": "Public commercial phone calls and WhatsApp equipment enquiries",
+    "attribution": "Homepage WhatsApp enquiries include the source page and available UTM campaign context in the visitor-visible prefilled message"
   },
   "hero": {
     "title": "ציוד גדול. מחיר שעובד.",
@@ -105,7 +107,6 @@
     }
   },
   "openDecisions": [
-    "Approved commercial phone number",
     "Approved commercial email address",
     "Lead-form handling destination",
     "Verified warranty terms by model",

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "feature_id": "FT-011",
+  "slug": "whatsapp-first-commercial-leads",
+  "title": "WhatsApp-First Commercial Leads",
+  "current": {
+    "status": "implemented",
+    "phase": "phase-1.1",
+    "priority": "P0",
+    "mvp_suitability": {
+      "suitable": true,
+      "classification": "recommended",
+      "reason": "The contained static-site change directly supports the client's commercial-launch priority without changing the field-service MVP or adding an external messaging integration."
+    },
+    "mcp_suitability": {
+      "applicable": false,
+      "mode": "not-applicable",
+      "reason": "The visitor chooses whether to send a customer-visible WhatsApp message; the public conversion path gains no safe value from MCP exposure."
+    },
+    "prd_alignment": {
+      "type": "extension",
+      "references": ["Section 8", "Section 10"],
+      "notes": "This is a commercial-site extension. It preserves the PRD boundary that automatic external WhatsApp notifications are outside the field-service MVP."
+    }
+  },
+  "history": [
+    {
+      "version": 1,
+      "date": "2026-08-18",
+      "action": "created-and-implemented",
+      "actor": "Codex",
+      "source": "client-feedback",
+      "summary": "Implemented a restrained WhatsApp-first homepage funnel with one visible WhatsApp action per viewport, tap-to-call access, campaign-aware drafts, and no automatic send."
+    }
+  ]
+}

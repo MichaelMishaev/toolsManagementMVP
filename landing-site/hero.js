@@ -5,6 +5,9 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const revealGroups = [...document.querySelectorAll(".reveal-group")];
 const themedSections = [...document.querySelectorAll("[data-page-section][data-theme]")];
 const themeColor = document.querySelector('meta[name="theme-color"]');
+const whatsappDestination = document.body.dataset.whatsappDestination?.replace(/\D/g, "") || "";
+const whatsappLinks = [...document.querySelectorAll("[data-whatsapp-link]")];
+const leadLinks = [...document.querySelectorAll("[data-lead-channel]")];
 
 const themeColors = {
   hero: "#f4f0e8",
@@ -14,6 +17,56 @@ const themeColors = {
   about: "#f2ede4",
   final: "#fffdf8",
 };
+
+const campaignKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+
+function cleanAttributionValue(value) {
+  return value?.trim().slice(0, 80) || "";
+}
+
+function getCampaignAttribution() {
+  const params = new URLSearchParams(window.location.search);
+  return Object.fromEntries(
+    campaignKeys
+      .map((key) => [key, cleanAttributionValue(params.get(key))])
+      .filter(([, value]) => value),
+  );
+}
+
+function buildWhatsAppHref() {
+  if (!whatsappDestination) return "";
+  const attribution = getCampaignAttribution();
+  const pageUrl = new URL(window.location.href);
+  pageUrl.hash = "";
+  const message = [
+    "שלום לצוות Lift Pro 26,",
+    "הגעתי דרך האתר ואני רוצה להתייעץ לגבי ציוד.",
+    "סוג העבודה / הציוד: ___",
+    "אזור בארץ: ___",
+    "מועד רכישה משוער: ___",
+    `עמוד באתר: ${pageUrl.href}`,
+  ];
+  const campaign = attribution.utm_campaign || attribution.utm_source;
+  if (campaign) message.push(`מקור הקמפיין: ${campaign}`);
+  return `https://wa.me/${whatsappDestination}?text=${encodeURIComponent(message.join("\n"))}`;
+}
+
+function emitLeadIntent(link) {
+  const attribution = getCampaignAttribution();
+  const detail = {
+    event: "lead_intent_opened",
+    channel: link.dataset.leadChannel || "unknown",
+    placement: link.dataset.leadContext || "unknown",
+    page_path: window.location.pathname,
+    ...attribution,
+  };
+  window.dispatchEvent(new CustomEvent("liftpro:lead-intent", { detail }));
+  if (Array.isArray(window.dataLayer)) window.dataLayer.push(detail);
+}
+
+const whatsappHref = buildWhatsAppHref();
+if (whatsappHref) whatsappLinks.forEach((link) => { link.href = whatsappHref; });
+leadLinks.forEach((link) => link.addEventListener("click", () => emitLeadIntent(link)));
 
 function closeMenu({ returnFocus = false } = {}) {
   if (!menuToggle || !siteMenu) return;
