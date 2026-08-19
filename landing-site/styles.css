@@ -2595,7 +2595,7 @@ body:not(.inner-page) .equipment-section {
   position: relative;
   z-index: 5;
   width: min(calc(100% - 4rem), 80rem);
-  margin-block-start: -4.5rem;
+  margin-block-start: 1rem;
   padding-block: clamp(3.5rem, 6vw, 5.5rem);
   background: #fff;
   box-shadow: 0 1.6rem 4rem rgba(27, 32, 38, 0.16);
@@ -2877,7 +2877,7 @@ body:not(.inner-page) .final-cta .button-secondary {
 
   body:not(.inner-page) .equipment-section {
     width: calc(100% - 1.5rem);
-    margin-block-start: -2.75rem;
+    margin-block-start: 1rem;
   }
 
   body:not(.inner-page) .equipment-grid {
