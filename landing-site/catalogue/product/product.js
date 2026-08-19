@@ -75,15 +75,20 @@ function createWhatsAppLink(modelName, manufacturer) {
   link.href = `https://wa.me/${whatsappDestination}?text=${encodeURIComponent(message.join("\n"))}`;
   link.target = "_blank";
   link.rel = "noopener noreferrer";
-  link.setAttribute("aria-label", `פתיחת WhatsApp לשאלה על דגם ${modelName}`);
+  link.setAttribute("aria-label", `פתיחת WhatsApp לייעוץ על דגם ${modelName}`);
 
+  const copy = document.createElement("span");
+  copy.className = "product-whatsapp-copy";
   const label = document.createElement("strong");
-  label.className = "product-whatsapp-label";
+  const prefix = document.createElement("span");
+  prefix.className = "product-whatsapp-prefix";
+  prefix.textContent = "ייעוץ ב־";
   const channel = document.createElement("bdi");
   channel.dir = "ltr";
   channel.textContent = "WhatsApp";
-  label.append("שאלו ב־", channel);
-  link.append(createWhatsAppIcon(), label);
+  label.append(prefix, channel);
+  copy.append(label);
+  link.append(createWhatsAppIcon(), copy);
   return link;
 }
 
@@ -166,13 +171,16 @@ async function loadProduct() {
       sourceLink.classList.add("button", "product-source-link");
       sourceLink.replaceChildren("מפרט היצרן", sourceMetaLabel);
     }
+    const contactDock = document.createElement("div");
+    contactDock.className = "product-contact-dock";
     const backLink = document.createElement("a");
     backLink.className = "product-compare-link";
     backLink.href = `../index.html?filter=${encodeURIComponent((card.dataset.category || "all").split(/\s+/)[0])}#models`;
     backLink.textContent = "השוואה לדגמים";
-    actions.append(...sourceActions.children, backLink);
     const whatsappLink = createWhatsAppLink(modelName, manufacturer);
-    if (whatsappLink) actions.prepend(whatsappLink);
+    if (whatsappLink) contactDock.append(whatsappLink);
+    if (sourceLink) contactDock.append(sourceLink);
+    actions.append(contactDock, backLink);
   }
 
   breadcrumb.textContent = modelName;

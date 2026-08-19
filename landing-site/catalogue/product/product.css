@@ -155,16 +155,33 @@
 }
 
 .product-actions {
-  display: flex;
+  display: grid;
   margin-block-start: 1.5rem;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  justify-items: start;
+  gap: 0.35rem;
 }
 
-.product-actions .button {
-  min-height: 3rem;
-  padding: 0.68rem 1rem;
+.product-contact-dock {
+  display: grid;
+  width: min(100%, 27rem);
+  min-height: 4rem;
+  padding: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 1rem 2.8rem rgba(9, 21, 25, 0.16), inset 0 1px 0 #fff;
+  grid-template-columns: minmax(0, 1.08fr) minmax(7.5rem, 0.92fr);
+  gap: 0.35rem;
+  backdrop-filter: blur(22px) saturate(165%);
+}
+
+.product-contact-dock .button {
+  width: 100%;
+  min-width: 0;
+  min-height: 3.25rem;
+  padding: 0.65rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
   text-decoration: none;
 }
 
@@ -174,12 +191,9 @@
 
 .product-actions .product-whatsapp-link {
   display: flex;
-  width: auto;
-  min-height: 3rem;
-  padding: 0.68rem 1rem;
   align-items: center;
-  justify-content: center;
-  gap: 0.58rem;
+  justify-content: flex-start;
+  gap: 0.5rem;
   border: 0;
   background: #075e54;
   color: #fff;
@@ -204,11 +218,17 @@
   stroke: none;
 }
 
-.product-whatsapp-label {
-  font-size: 0.92rem;
-  font-weight: 720;
-  line-height: 1.25;
-  unicode-bidi: isolate;
+.product-whatsapp-copy {
+  min-width: 0;
+  line-height: 1;
+  text-align: start;
+}
+
+.product-whatsapp-copy strong {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 740;
+  white-space: nowrap;
 }
 
 .product-actions .product-whatsapp-link:hover {
@@ -228,7 +248,19 @@
 
 .product-source-link {
   gap: 0.35rem;
+  border: 1px solid rgba(0, 113, 227, 0.28);
+  background: rgba(255, 255, 255, 0.62);
+  color: #0066cc;
   font-size: 0.9rem;
+  box-shadow: none;
+  backdrop-filter: blur(12px) saturate(140%);
+}
+
+.product-source-link:hover {
+  border-color: rgba(0, 113, 227, 0.42);
+  background: rgba(255, 255, 255, 0.9);
+  color: #0066cc;
+  box-shadow: 0 0.45rem 1.2rem rgba(0, 113, 227, 0.12);
 }
 
 .product-source-link span {
@@ -475,12 +507,20 @@
   }
 
   .product-actions {
-    align-items: center;
-    justify-content: flex-start;
+    width: 100%;
+    justify-items: stretch;
   }
 
-  .product-actions .button {
-    width: auto;
+  .product-contact-dock {
+    width: 100%;
+  }
+
+  .product-compare-link {
+    width: max-content;
+  }
+
+  .product-source-link span {
+    display: none;
   }
 
   .assurance-points,
@@ -495,6 +535,12 @@
 
   .related-card {
     grid-template-rows: 13rem auto;
+  }
+}
+
+@media (max-width: 22rem) {
+  .product-whatsapp-prefix {
+    display: none;
   }
 }
 

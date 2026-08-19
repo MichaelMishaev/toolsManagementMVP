@@ -982,6 +982,10 @@ img {
   --lime: #a4c944;
   --lime-strong: #c9e879;
   --lime-ink: #172208;
+  --whatsapp-deep: #075e54;
+  --whatsapp-hover: #064e46;
+  --whatsapp-signal: #25d366;
+  --control-shadow: 0 0.55rem 1.5rem rgba(0, 91, 187, 0.16);
   --border: rgba(29, 29, 31, 0.09);
   --border-dark: rgba(255, 255, 255, 0.18);
   --radius: 2rem;
@@ -1163,21 +1167,23 @@ body {
 }
 
 .button {
-  min-height: 3.05rem;
-  padding: 0.72rem 1.25rem;
+  min-height: 3.25rem;
+  padding: 0.78rem 1.35rem;
   border: 0;
   border-radius: 999px;
   background: var(--navy);
   color: #fff;
   font-size: 0.9rem;
-  font-weight: 620;
+  font-weight: 680;
+  letter-spacing: -0.01em;
   box-shadow: none;
-  transition: transform 100ms ease-out, background-color 180ms ease, box-shadow 180ms ease;
+  touch-action: manipulation;
+  transition: transform 100ms var(--ease-out), background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
 }
 
 .button:hover {
   background: #0077ed;
-  box-shadow: 0 0.5rem 1.4rem rgba(0, 113, 227, 0.2);
+  box-shadow: var(--control-shadow);
 }
 
 .button-secondary {
@@ -2991,7 +2997,7 @@ body:not(.inner-page) .final-cta .button-secondary {
 }
 
 .whatsapp-action {
-  gap: 0.55rem;
+  gap: 0.65rem;
 }
 
 .whatsapp-action svg,
@@ -3000,19 +3006,20 @@ body:not(.inner-page) .final-cta .button-secondary {
   height: 1.25rem;
   flex: none;
   fill: none;
-  stroke: currentColor;
+  stroke: var(--whatsapp-signal);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.65;
 }
 
 body:not(.inner-page) .hero-actions .whatsapp-action {
-  background: #075e54;
+  min-width: 13.5rem;
+  background: var(--whatsapp-deep);
   color: #fff;
 }
 
 body:not(.inner-page) .hero-actions .whatsapp-action:hover {
-  background: #064e46;
+  background: var(--whatsapp-hover);
   box-shadow: 0 0.8rem 2rem rgba(7, 94, 84, 0.26);
 }
 
@@ -3044,6 +3051,10 @@ body:not(.inner-page) .hero-actions .whatsapp-action:hover {
     padding-block-end: calc(5.35rem + env(safe-area-inset-bottom));
   }
 
+  .site-footer a {
+    scroll-margin-block-end: calc(5.35rem + env(safe-area-inset-bottom));
+  }
+
   body:not(.inner-page) .hero-actions .whatsapp-action,
   body:not(.inner-page) .hero-contact-note {
     display: none;
@@ -3056,49 +3067,99 @@ body:not(.inner-page) .hero-actions .whatsapp-action:hover {
     z-index: 120;
     display: grid;
     min-height: 4rem;
-    padding: 0.4rem;
+    padding: 0.35rem;
     border: 1px solid rgba(255, 255, 255, 0.72);
     border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.82);
+    background: rgba(255, 255, 255, 0.88);
     box-shadow: 0 1rem 2.8rem rgba(9, 21, 25, 0.24), inset 0 1px 0 #fff;
-    grid-template-columns: 1.08fr 0.92fr;
-    gap: 0.4rem;
+    grid-template-columns: minmax(0, 1.08fr) minmax(7.5rem, 0.92fr);
+    gap: 0.35rem;
     backdrop-filter: blur(22px) saturate(165%);
   }
 
   .mobile-contact-dock a {
     display: inline-flex;
     min-width: 0;
-    min-height: 3.2rem;
+    min-height: 3.25rem;
+    padding-inline: 0.7rem;
     align-items: center;
     justify-content: center;
-    border-radius: 0.7rem;
-    font-size: 1rem;
-    font-weight: 720;
+    border-radius: 999px;
+    font-size: 0.86rem;
+    font-weight: 680;
     text-decoration: none;
+    touch-action: manipulation;
+    transition: transform 100ms var(--ease-out), background-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .mobile-contact-dock a:active {
+    transform: scale(0.97);
+  }
+
+  .mobile-contact-dock a:focus-visible {
+    outline: 3px solid #0071e3;
+    outline-offset: 2px;
   }
 
   .mobile-whatsapp-action {
-    gap: 0.45rem;
-    background: #075e54;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    background: var(--whatsapp-deep);
     color: #fff;
+    box-shadow: 0 0.5rem 1.2rem rgba(7, 94, 84, 0.2);
+  }
+
+  .mobile-whatsapp-action:hover {
+    background: var(--whatsapp-hover);
+  }
+
+  .mobile-whatsapp-action svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .contact-action-copy {
+    display: grid;
+    min-width: 0;
+    gap: 0.1rem;
+    text-align: start;
+  }
+
+  .contact-action-copy strong,
+  .contact-action-copy small {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .contact-action-copy strong {
+    font-size: 0.82rem;
+    font-weight: 740;
+  }
+
+  .contact-action-copy small {
+    display: none;
   }
 
   .mobile-phone-action {
+    padding-inline: 0.45rem !important;
     flex-direction: column;
     border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.58);
     color: var(--ink);
     line-height: 1.05;
   }
 
   .mobile-phone-action span {
     color: var(--ink-muted);
-    font-size: 0.74rem;
+    font-size: 0.64rem;
+    font-weight: 620;
   }
 
   .mobile-phone-action bdi {
     margin-block-start: 0.18rem;
-    font-size: 1rem;
+    font-size: 0.82rem;
+    font-weight: 740;
+    white-space: nowrap;
   }
 }
 
