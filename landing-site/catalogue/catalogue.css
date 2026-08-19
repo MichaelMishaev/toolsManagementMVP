@@ -313,6 +313,10 @@
   transition: transform 260ms var(--ease-out);
 }
 
+.model-visual img[data-src] {
+  opacity: 0;
+}
+
 .model-card:hover .model-visual img {
   transform: scale(1.025);
 }
@@ -1477,6 +1481,13 @@
   .dialog-close {
     background: #f7f7f9;
     backdrop-filter: none;
+  }
+}
+
+@supports (content-visibility: auto) {
+  .model-family {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 72rem;
   }
 }
 

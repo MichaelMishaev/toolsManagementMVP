@@ -9,9 +9,9 @@
     />
     <meta name="theme-color" content="#f4f0e8" />
     <title>Lift Pro 26 Israel | ציוד גדול. חשיבה חדשה.</title>
-    <link rel="icon" href="../assets/brand/lift-pro-26-logo-transparent.png" type="image/png" />
-    <link rel="stylesheet" href="./styles.css?v=31" />
-    <script defer src="./hero.js?v=8"></script>
+    <link rel="icon" href="./assets/brand/lift-pro-26-logo-runtime.webp" type="image/webp" />
+    <link rel="stylesheet" href="./styles.css?v=32" />
+    <script defer src="./hero.js?v=9"></script>
   </head>
   <body data-active-theme="hero" data-whatsapp-destination="972532414062">
     <!--
@@ -38,9 +38,10 @@
         </button>
         <a class="brand" href="./index.html" aria-label="ליפט פרו 26 ישראל בע״מ — דף הבית">
           <img
-            src="../assets/brand/lift-pro-26-logo-transparent.png"
-            width="1635"
-            height="962"
+            src="./assets/brand/lift-pro-26-logo-runtime.webp"
+            width="320"
+            height="188"
+            decoding="async"
             alt=""
           />
           <span>ליפט פרו 26<small>ישראל בע״מ</small></span>
@@ -116,9 +117,13 @@
             <div class="hero-scene">
               <img
                 class="hero-scene-photo"
-                src="./assets/hero/lovol-fl918-quarry-catalogue.webp"
-                width="1920"
-                height="1440"
+                src="./assets/hero/lovol-fl918-quarry-768.webp"
+                srcset="./assets/hero/lovol-fl918-quarry-768.webp 768w, ./assets/hero/lovol-fl918-quarry-1440.webp 1440w"
+                sizes="(max-width: 48rem) 100vw, 50vw"
+                width="768"
+                height="576"
+                decoding="async"
+                fetchpriority="high"
                 alt="מעמיס אופני LOVOL FL918 באתר עבודה הררי"
               />
               <div class="hero-scene-label" aria-hidden="true">
@@ -155,19 +160,19 @@
           <div class="equipment-grid">
             <a class="equipment-card reveal-group" href="./catalogue/index.html?filter=mini#models">
               <span class="equipment-card-copy"><small>8 דגמים</small><h3>מיני מחפרים</h3><p>חפירה ופיתוח במרחבים צפופים ובאתרים עירוניים.</p><span class="card-link-label">לכל המיני מחפרים <i aria-hidden="true">←</i></span></span>
-              <span class="equipment-card-media"><img src="./assets/categories/mini-excavators-v1.webp" width="720" height="540" loading="lazy" decoding="async" alt="מיני מחפר קומפקטי בעבודת תשתית באתר עירוני" /></span>
+              <span class="equipment-card-media"><img data-deferred-src="./assets/categories/mini-excavators-v1.webp" width="720" height="540" loading="lazy" decoding="async" alt="מיני מחפר קומפקטי בעבודת תשתית באתר עירוני" /></span>
             </a>
             <a class="equipment-card reveal-group" href="./catalogue/index.html?filter=excavator#models">
               <span class="equipment-card-copy"><small>7 דגמים</small><h3>מחפרים</h3><p>עבודות עפר, תשתית וחפירה בהיקפים שונים.</p><span class="card-link-label">לכל המחפרים <i aria-hidden="true">←</i></span></span>
-              <span class="equipment-card-media"><img src="./assets/categories/excavators-v1.webp" width="720" height="540" loading="lazy" decoding="async" alt="מחפר זחלי בעבודת עפר באתר מחצבה" /></span>
+              <span class="equipment-card-media"><img data-deferred-src="./assets/categories/excavators-v1.webp" width="720" height="540" loading="lazy" decoding="async" alt="מחפר זחלי בעבודת עפר באתר מחצבה" /></span>
             </a>
             <a class="equipment-card reveal-group" href="./catalogue/index.html?filter=loader#models">
               <span class="equipment-card-copy"><small>7 דגמים</small><h3>מעמיסים</h3><p>העמסה ושינוע באתרי עבודה, מחצבות ותשתיות.</p><span class="card-link-label">לכל המעמיסים <i aria-hidden="true">←</i></span></span>
-              <span class="equipment-card-media"><img src="./assets/categories/wheel-loaders-v1.webp" width="720" height="540" loading="lazy" decoding="async" alt="מעמיס אופני נושא אגרגט במחצבת אבן" /></span>
+              <span class="equipment-card-media"><img data-deferred-src="./assets/categories/wheel-loaders-v1.webp" width="720" height="540" loading="lazy" decoding="async" alt="מעמיס אופני נושא אגרגט במחצבת אבן" /></span>
             </a>
             <a class="equipment-card reveal-group" href="./catalogue/index.html?filter=electric#models">
               <span class="equipment-card-copy"><small>6 דגמים</small><h3>ציוד חשמלי</h3><p>מחפרים ומעמיסים חשמליים מתוך מסמכי היצרן.</p><span class="card-link-label">לכל הדגמים החשמליים <i aria-hidden="true">←</i></span></span>
-              <span class="equipment-card-media"><img src="./assets/categories/electric-equipment-v1.webp" width="720" height="540" loading="lazy" decoding="async" alt="מעמיס חשמלי קומפקטי בחצר תעשייתית" /></span>
+              <span class="equipment-card-media"><img data-deferred-src="./assets/categories/electric-equipment-v1.webp" width="720" height="540" loading="lazy" decoding="async" alt="מעמיס חשמלי קומפקטי בחצר תעשייתית" /></span>
             </a>
           </div>
         </div>
@@ -199,7 +204,7 @@
                 <a href="./catalogue/product/index.html?model=okw40u">לעמוד הדגם <span aria-hidden="true">←</span></a>
               </div>
               <a class="featured-media" href="./catalogue/product/index.html?model=okw40u" tabindex="-1" aria-hidden="true">
-                <img src="./assets/catalogue/okw40u.webp" width="1273" height="1800" loading="lazy" decoding="async" alt="" />
+                <img src="./assets/catalogue/cards/okw40u.webp" width="720" height="1018" loading="lazy" decoding="async" alt="" />
               </a>
             </article>
 
@@ -214,7 +219,7 @@
                 <a href="./catalogue/product/index.html?model=fr390f-ep">לעמוד הדגם <span aria-hidden="true">←</span></a>
               </div>
               <a class="featured-media" href="./catalogue/product/index.html?model=fr390f-ep" tabindex="-1" aria-hidden="true">
-                <img src="./assets/catalogue/fr390f-ep.webp" width="1800" height="824" loading="lazy" decoding="async" alt="" />
+                <img src="./assets/catalogue/cards/fr390f-ep.webp" width="720" height="330" loading="lazy" decoding="async" alt="" />
               </a>
             </article>
 
@@ -229,7 +234,7 @@
                 <a href="./catalogue/product/index.html?model=fl980-e-ultra">לעמוד הדגם <span aria-hidden="true">←</span></a>
               </div>
               <a class="featured-media" href="./catalogue/product/index.html?model=fl980-e-ultra" tabindex="-1" aria-hidden="true">
-                <img src="./assets/catalogue/fl980-e-ultra.webp" width="1800" height="824" loading="lazy" decoding="async" alt="" />
+                <img src="./assets/catalogue/cards/fl980-e-ultra.webp" width="720" height="330" loading="lazy" decoding="async" alt="" />
               </a>
             </article>
           </div>

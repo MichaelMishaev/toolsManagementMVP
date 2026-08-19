@@ -88,8 +88,12 @@ function createWhatsAppLink(modelName, manufacturer) {
 }
 
 function resolveCardAssets(card) {
-  card.querySelectorAll("img[src]").forEach((image) => {
-    image.src = new URL(image.getAttribute("src"), catalogueUrl).href;
+  card.querySelectorAll("img").forEach((image) => {
+    const source = image.dataset.productSrc || image.getAttribute("src") || image.dataset.src;
+    if (!source) return;
+    image.src = new URL(source, catalogueUrl).href;
+    image.removeAttribute("data-src");
+    image.removeAttribute("data-product-src");
     image.loading = "eager";
     image.decoding = "async";
   });
@@ -109,7 +113,10 @@ function createRelatedCard(card) {
   const visual = document.createElement("span");
   visual.className = "related-card-visual";
   if (image) {
-    image.src = new URL(image.getAttribute("src"), catalogueUrl).href;
+    const source = image.dataset.src || image.getAttribute("src") || image.dataset.productSrc;
+    if (source) image.src = new URL(source, catalogueUrl).href;
+    image.removeAttribute("data-src");
+    image.removeAttribute("data-product-src");
     image.loading = "lazy";
     image.alt = "";
     visual.append(image);

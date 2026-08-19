@@ -2300,6 +2300,13 @@ body.dialog-open > .site-footer {
   }
 }
 
+@supports (content-visibility: auto) {
+  body:not(.inner-page) main > .page-section:not(.hero) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 52rem;
+  }
+}
+
 /* Static industrial sculptures: Ploy-inspired page punctuation translated
    into Lift Pro quarry, hydraulic, navy, blue, and lime materials. */
 body:not(.inner-page) .featured-section,
@@ -2315,7 +2322,7 @@ body:not(.inner-page) .final-cta::before {
   position: absolute;
   z-index: -1;
   display: block;
-  background-image: url("./assets/decor/industrial-mineral-clusters-v1.webp");
+  background-image: url("./assets/decor/industrial-mineral-clusters-runtime.webp");
   background-repeat: no-repeat;
   content: "";
   pointer-events: none;
@@ -2683,7 +2690,7 @@ body:not(.inner-page) .featured-product {
 body:not(.inner-page) .value-section {
   background:
     linear-gradient(90deg, rgba(239, 236, 227, 0.96), rgba(247, 245, 239, 0.82)),
-    url("./assets/hero/quarry-morning-v1.webp") center / cover;
+    url("./assets/hero/quarry-morning-runtime.webp") center / cover;
 }
 
 body:not(.inner-page) .value-layout {
@@ -2711,7 +2718,7 @@ body:not(.inner-page) .service-section {
   padding-block: clamp(7rem, 13vw, 13rem);
   background:
     linear-gradient(180deg, rgba(13, 23, 29, 0.12), rgba(13, 23, 29, 0.72)),
-    url("./assets/hero/quarry-morning-v1.webp") center 60% / cover;
+    url("./assets/hero/quarry-morning-runtime.webp") center 60% / cover;
 }
 
 body:not(.inner-page) .service-layout {

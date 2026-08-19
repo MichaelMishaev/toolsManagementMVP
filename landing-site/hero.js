@@ -9,6 +9,28 @@ const themeColor = document.querySelector('meta[name="theme-color"]');
 const whatsappDestination = document.body.dataset.whatsappDestination?.replace(/\D/g, "") || "";
 const whatsappLinks = [...document.querySelectorAll("[data-whatsapp-link]")];
 const leadLinks = [...document.querySelectorAll("[data-lead-channel]")];
+const deferredImages = [...document.querySelectorAll("img[data-deferred-src]")];
+
+function loadDeferredImage(image) {
+  const source = image?.dataset.deferredSrc;
+  if (!source) return;
+  image.src = source;
+  image.removeAttribute("data-deferred-src");
+  image.decoding = "async";
+}
+
+if ("IntersectionObserver" in window) {
+  const deferredImageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      loadDeferredImage(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: "400px 0px", threshold: 0.01 });
+  deferredImages.forEach((image) => deferredImageObserver.observe(image));
+} else {
+  deferredImages.forEach(loadDeferredImage);
+}
 
 const themeColors = {
   hero: "#f4f0e8",
