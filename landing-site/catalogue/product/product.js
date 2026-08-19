@@ -1,3 +1,4 @@
+(() => {
 const stage = document.querySelector("[data-product-stage]");
 const media = document.querySelector("[data-product-media]");
 const meta = document.querySelector("[data-product-meta]");
@@ -22,6 +23,26 @@ const cloneChildren = (source, destination) => {
 };
 
 const catalogueUrl = new URL("../index.html", window.location.href);
+
+function parseCatalogueHtml(catalogueHtml) {
+  return new DOMParser().parseFromString(catalogueHtml, "text/html");
+}
+
+async function loadCatalogueDocument() {
+  const embeddedCards = window.__LIFT_PRO_CATALOGUE_CARDS__ || "";
+  if (window.location.protocol === "file:" && embeddedCards) {
+    return parseCatalogueHtml(`<main>${embeddedCards}</main>`);
+  }
+
+  try {
+    const response = await fetch(catalogueUrl);
+    if (!response.ok) throw new Error(`catalogue-${response.status}`);
+    return parseCatalogueHtml(await response.text());
+  } catch (error) {
+    if (embeddedCards) return parseCatalogueHtml(`<main>${embeddedCards}</main>`);
+    throw error;
+  }
+}
 
 function createWhatsAppIcon() {
   const namespace = "http://www.w3.org/2000/svg";
@@ -111,10 +132,7 @@ async function loadProduct() {
   const requestedModel = slugifyModel(new URLSearchParams(window.location.search).get("model") || "");
   if (!requestedModel) throw new Error("missing-model");
 
-  const response = await fetch(catalogueUrl);
-  if (!response.ok) throw new Error(`catalogue-${response.status}`);
-  const catalogueHtml = await response.text();
-  const documentCopy = new DOMParser().parseFromString(catalogueHtml, "text/html");
+  const documentCopy = await loadCatalogueDocument();
   const cards = [...documentCopy.querySelectorAll("[data-model]")];
   const card = cards.find((candidate) => slugifyModel(candidate.querySelector("h3")?.textContent || "") === requestedModel);
   if (!card) throw new Error("unknown-model");
@@ -168,3 +186,4 @@ loadProduct().catch(() => {
   errorState.hidden = false;
   document.title = "הדגם לא נמצא | Lift Pro 26 Israel";
 });
+})();

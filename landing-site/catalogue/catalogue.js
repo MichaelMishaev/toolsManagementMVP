@@ -1,3 +1,4 @@
+(() => {
 const cards = [...document.querySelectorAll("[data-model]")];
 const families = [...document.querySelectorAll("[data-family]")];
 const filterButtons = [...document.querySelectorAll("[data-filter]")];
@@ -485,3 +486,4 @@ modelDialog?.addEventListener("close", () => {
 setActiveFilter(activeFilter, { updateUrl: false });
 setActiveMaker(activeMaker, { updateUrl: false });
 updateCatalogue({ animate: false });
+})();

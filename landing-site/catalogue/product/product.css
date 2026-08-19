@@ -25,6 +25,9 @@
 }
 
 .product-breadcrumbs a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
   color: #0066cc;
   text-decoration: none;
 }

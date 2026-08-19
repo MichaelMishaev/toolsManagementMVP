@@ -305,8 +305,10 @@
 
 .model-visual img {
   display: block;
-  width: 92%;
-  height: 92%;
+  width: auto;
+  height: auto;
+  max-width: 92%;
+  max-height: 10rem;
   object-fit: contain;
   transition: transform 260ms var(--ease-out);
 }
@@ -2006,7 +2008,16 @@
 
 .source-link,
 .source-download {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
   color: #506711;
+}
+
+.catalogue-results-toolbar > a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
 }
 
 .catalogue-help {
@@ -2175,12 +2186,31 @@
   }
 
   .model-card {
-    grid-template-columns: 7.8rem minmax(0, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     border-radius: 1.1rem;
   }
 
   .model-visual {
-    border-inline-end: 1px solid var(--ai-line);
+    min-height: 0;
+    padding: 0.55rem;
+    border-block-end: 1px solid var(--ai-line);
+    border-inline-end: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .model-visual.portrait {
+    aspect-ratio: 4 / 3;
+  }
+
+  .model-visual img {
+    position: absolute;
+    inset: 0.55rem;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    width: calc(100% - 1.1rem);
+    height: calc(100% - 1.1rem);
   }
 
   .model-visual::after {
@@ -2211,7 +2241,7 @@
   }
 
   .model-card {
-    grid-template-columns: 6.6rem minmax(0, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 

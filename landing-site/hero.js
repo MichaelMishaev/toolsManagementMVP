@@ -1,3 +1,4 @@
+(() => {
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const siteMenu = document.querySelector("[data-site-menu]");
 const header = document.querySelector("[data-site-header]");
@@ -149,11 +150,40 @@ if (!reducedMotion.matches && "IntersectionObserver" in window) {
         observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -8%" },
+    { threshold: 0.01, rootMargin: "20% 0px 20%" },
   );
-  revealGroups.forEach((group) => revealObserver.observe(group));
+  const initialActivationLine = window.innerHeight * 1.2;
+  revealGroups.forEach((group) => {
+    if (group.getBoundingClientRect().top <= initialActivationLine) {
+      revealObserver.observe(group);
+      return;
+    }
+    group.classList.add("is-visible");
+  });
+
+  const revealReachedGroups = () => {
+    const activationLine = window.innerHeight * 1.2;
+    revealGroups.forEach((group) => {
+      if (group.classList.contains("is-visible") || group.getBoundingClientRect().top > activationLine) return;
+      group.classList.add("is-visible");
+      revealObserver.unobserve(group);
+    });
+  };
+  window.addEventListener("scroll", revealReachedGroups, { passive: true });
+  window.addEventListener("resize", revealReachedGroups, { passive: true });
+  revealReachedGroups();
+
+  // Entrance motion must never become a content-visibility dependency. This
+  // fail-safe covers fast scrollbar drags, anchor jumps and throttled observers.
+  window.setTimeout(() => {
+    revealGroups.forEach((group) => {
+      group.classList.add("is-visible");
+      revealObserver.unobserve(group);
+    });
+  }, 1200);
 } else {
   revealGroups.forEach((group) => group.classList.add("is-visible"));
 }
 
 updateActiveTheme();
+})();
