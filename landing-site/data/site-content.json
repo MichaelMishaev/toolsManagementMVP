@@ -100,6 +100,10 @@
     "status": "implemented",
     "page": "./catalogue/index.html",
     "publicModelCount": 22,
+    "additionalEquipmentPage": "./catalogue/additional-equipment.html",
+    "additionalModelNames": 43,
+    "additionalTechnicalPdfCount": 11,
+    "privateSources": ["micro-excavator supplier quotation", "ZL910 supplier quotation"],
     "publicManufacturers": ["LOVOL", "NICOSAIL"],
     "excludedSource": {
       "model": "FR1000F-E",

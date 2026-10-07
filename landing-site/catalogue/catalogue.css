@@ -191,6 +191,23 @@
   text-underline-offset: 0.2rem;
 }
 
+.catalogue-extension-link {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0.55rem 0;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.catalogue-extension-link a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: #d9f2a6;
+  font-weight: 800;
+  text-underline-offset: 0.2rem;
+}
+
 .pdf-guidance,
 .selection-guide {
   display: none;

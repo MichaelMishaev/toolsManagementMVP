@@ -25,7 +25,7 @@ Visitors evaluate excavators, mini excavators, wheel loaders, electric equipment
 ## Capabilities and Constraints
 
 - Static Hebrew-first RTL commercial website.
-- Semantic HTML catalogue with 22 public models, one standalone URL per model, quick previews, related-model navigation, and optional source-PDF downloads.
+- Semantic HTML catalogue with 22 detailed standalone model pages, quick previews, related-model navigation, and optional source-PDF downloads. An additional equipment page lists 43 distinct model names or configurations from the newly supplied documents and links 11 public technical PDFs. Supplier quotations with prices remain private.
 - No invented prices, stock, delivery times, finance terms, warranty terms, certifications, testimonials, or contact details.
 - The homepage provides one visible WhatsApp action per viewport plus tap-to-call access to the approved public destination `+972 53-241-4062`. The catalogue provides one green WhatsApp consultation action per viewport—inside the desktop header and inside the shared mobile contact dock—without repeating it on model cards. The visitor-visible draft includes qualification prompts, the current page, and available campaign context. Each model detail page keeps its dedicated model-specific enquiry. The visitor must still review and send every message in WhatsApp.
 
