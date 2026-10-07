@@ -2528,8 +2528,28 @@ body:not(.inner-page) .hero-lead {
   color: rgba(255, 255, 255, 0.84);
 }
 
+body:not(.inner-page) .hero-model-data {
+  max-width: 37rem;
+  margin-block: 0.9rem 0;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.4rem;
+  background: rgba(9, 17, 23, 0.62);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.5;
+  backdrop-filter: blur(10px);
+}
+
 body:not(.inner-page) .hero-source-note {
   color: rgba(255, 255, 255, 0.68);
+}
+
+body:not(.inner-page) .hero-source-note a {
+  color: #fff;
+  font-weight: 700;
+  text-underline-offset: 0.25rem;
 }
 
 body:not(.inner-page) .hero-actions .button {
@@ -2595,8 +2615,7 @@ body:not(.inner-page) .hero-scene::after {
 }
 
 body:not(.inner-page) .hero-scene-photo {
-  object-position: center 56%;
-  transform: scale(1.02);
+  object-position: center 66%;
 }
 
 body:not(.inner-page) .hero-scene-label {
@@ -2903,7 +2922,7 @@ body:not(.inner-page) .final-cta .button-secondary {
   }
 
   body:not(.inner-page) .hero-scene-photo {
-    object-position: 45% 56%;
+    object-position: center 66%;
   }
 
   body:not(.inner-page) .hero-scene-label,

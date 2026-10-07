@@ -160,6 +160,12 @@ async function loadProduct() {
   title.textContent = modelName;
   cloneChildren(card.querySelector(".key-specs"), specs);
   cloneChildren(card.querySelector(".model-note"), note);
+  const extraDetails = card.querySelector("template[data-product-details]")?.content;
+  if (extraDetails) {
+    specs.append(...[...extraDetails.querySelectorAll("dl > div")].map((item) => item.cloneNode(true)));
+    const extraNote = extraDetails.querySelector("p");
+    if (extraNote) note.replaceChildren(extraNote.cloneNode(true));
+  }
   actions.replaceChildren();
 
   if (sourceActions) {

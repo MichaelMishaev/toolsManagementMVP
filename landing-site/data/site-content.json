@@ -74,9 +74,10 @@
   "hero": {
     "title": "ציוד גדול. מחיר שעובד.",
     "description": "מלגזות, צמ״ה וציוד כבד ביבוא ישיר, עם אחריות, שירות וחלפים.",
-    "interaction": "One stable complete loader image over a product-free quarry environment with native scrolling, no sticky scrub track and no frame swapping.",
-    "environmentAsset": "./assets/hero/quarry-morning-v1.webp",
-    "environmentPolicy": "Generated atmosphere only: no machinery, people, logos, specifications or commercial claims."
+    "interaction": "One stable FL960-E Ultra manufacturer image, with responsive desktop and mobile sources, native scrolling, no sticky scrub track and no frame swapping.",
+    "desktopAsset": "./assets/hero/lovol-fl960-e-ultra-desktop.webp",
+    "mobileAsset": "./assets/hero/lovol-fl960-e-ultra-mobile.webp",
+    "assetSource": "The approved LOVOL electric wheel loader catalogue. Additional product figures and equipment features are identified as coming from the customer-supplied promotional image."
   },
   "landingPage": {
     "primaryAction": {
