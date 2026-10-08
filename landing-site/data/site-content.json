@@ -97,6 +97,8 @@
   },
   "catalogue": {
     "sourceDirectory": "./catalogue/",
+    "featuredPosterAsset": "./assets/catalogue/lovol-fl960-e-ultra-poster.jpeg",
+    "featuredPosterSource": "Customer-supplied LOVOL FL960-E Ultra promotional image dated 2026-10-07; shown intact at the catalogue opening.",
     "customerExperience": "designed semantic HTML with visual family navigation, combined family and manufacturer filters, quick previews, standalone model URLs, related-model navigation and optional source-PDF downloads",
     "status": "implemented",
     "page": "./catalogue/index.html",

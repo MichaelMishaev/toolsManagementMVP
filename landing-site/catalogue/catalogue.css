@@ -1625,7 +1625,49 @@
   position: relative;
   display: grid;
   max-width: 76rem;
+  grid-template-columns: minmax(0, 1fr) minmax(17rem, 23rem);
+  align-items: center;
+  column-gap: clamp(2rem, 5vw, 5rem);
   justify-items: center;
+}
+
+.catalogue-feature-poster {
+  width: 100%;
+  margin: 0;
+}
+
+.catalogue-feature-image {
+  display: block;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  box-shadow: 0 1.5rem 3.5rem rgba(23, 24, 20, 0.18);
+}
+
+.catalogue-feature-image:focus-visible {
+  outline: 3px solid var(--ai-ink);
+  outline-offset: 4px;
+}
+
+.catalogue-feature-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.catalogue-feature-poster figcaption {
+  margin-block-start: 0.7rem;
+  color: var(--ai-ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.catalogue-feature-poster figcaption a {
+  color: inherit;
+  text-underline-offset: 0.2rem;
+}
+
+.catalogue-family-showcase {
+  grid-column: 1 / -1;
 }
 
 .catalogue-kicker {
@@ -2131,6 +2173,15 @@
 @media (max-width: 47.99rem) {
   .catalogue-hero {
     padding-block: 3.6rem 1.5rem;
+  }
+
+  .catalogue-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .catalogue-feature-poster {
+    width: min(100%, 21rem);
+    margin-block-start: 1.75rem;
   }
 
   .catalogue-hero::before {
