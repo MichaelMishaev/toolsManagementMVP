@@ -42,7 +42,7 @@ Visitors evaluate excavators, mini excavators, wheel loaders, electric equipment
 - Brand policy and approved artwork: `../assets/brand/README.md` and `../assets/brand/lift-pro-26-logo-transparent.png`.
 - Model specifications and imagery: approved PDFs under `catalogue/` and derived product images under `assets/catalogue/`.
 - Hero imagery: the responsive LOVOL FL960-E Ultra images under `assets/hero/` are derived directly from the approved manufacturer electric-loader catalogue. The supplied promotional image informs additional model details, with configuration qualification where needed.
-- Catalogue opening poster: `assets/catalogue/lovol-fl960-e-ultra-poster.jpeg` is the intact promotional image supplied by Michael, with a full-size view and a link to the source-qualified model page.
+- Catalogue header: the FL960-E Ultra manufacturer image, exact model name, three source-qualified specifications, model details, and all-model navigation lead the page. The intact promotional image supplied by Michael remains available from a secondary link.
 - Category photography: the five lightweight images under `assets/categories/` are OpenAI-generated editorial scenes used only to distinguish equipment and document families. They do not depict an exact stocked model, manufacturer specification, or delivery commitment.
 - Decorative sculpture: `assets/decor/industrial-mineral-clusters-v1.webp` is generated editorial artwork inspired by quarry stone and machine geometry. It is background decoration only and must not be treated as a product, component, specification, or manufacturer claim.
 
