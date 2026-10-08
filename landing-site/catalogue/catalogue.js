@@ -77,11 +77,10 @@ let lastPreviewTrigger = null;
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
 function loadDeferredImage(image) {
-  const source = image?.dataset.src || image?.dataset.catalogueSrc;
+  const source = image?.dataset.src;
   if (!source) return;
   image.src = source;
   image.removeAttribute("data-src");
-  image.removeAttribute("data-catalogue-src");
   image.decoding = "async";
   image.loading = "lazy";
 }
@@ -104,25 +103,6 @@ function queueVisibleCardImages(visibleCards) {
     else loadDeferredImage(image);
   });
 }
-
-function queueShowcaseImages() {
-  const images = [...document.querySelectorAll("img[data-catalogue-src]")];
-  if (!("IntersectionObserver" in window)) {
-    images.forEach(loadDeferredImage);
-    return;
-  }
-  const observer = new IntersectionObserver((entries, currentObserver) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      loadDeferredImage(entry.target);
-      currentObserver.unobserve(entry.target);
-    });
-  }, { rootMargin: "0px", threshold: 0.01 });
-  images.forEach((image) => observer.observe(image));
-}
-
-if (document.readyState === "complete") queueShowcaseImages();
-else window.addEventListener("load", () => window.requestAnimationFrame(queueShowcaseImages), { once: true });
 
 function cloneChildren(source, destination) {
   if (!destination) return;
