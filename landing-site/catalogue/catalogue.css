@@ -2462,3 +2462,317 @@
     border-color: #fff;
   }
 }
+
+/* Featured machine: an editorial product stage above the catalogue grid. */
+.catalogue-hero {
+  padding-block: clamp(4rem, 6vw, 5.8rem) 2.5rem;
+  background: #f2f3ee;
+}
+
+.catalogue-hero-grid {
+  max-width: 78rem;
+  grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+  column-gap: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+}
+
+.catalogue-feature-copy {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem 0 1.5rem 0.5rem;
+}
+
+.catalogue-feature-copy .catalogue-kicker {
+  margin-block-end: clamp(1.6rem, 3vw, 3rem);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: #496045;
+  font-size: 0.78rem;
+  letter-spacing: 0;
+  backdrop-filter: none;
+}
+
+.catalogue-hero .catalogue-feature-copy h1 {
+  max-width: none;
+  margin: 0;
+  color: #1b2520;
+  line-height: 0.96;
+}
+
+.catalogue-hero .catalogue-feature-copy h1 span {
+  display: block;
+  color: inherit;
+}
+
+.catalogue-hero .catalogue-feature-copy h1 span::after {
+  display: none;
+}
+
+.catalogue-hero .catalogue-feature-copy h1 .catalogue-model-make {
+  margin-block-end: 0.7rem;
+  font-size: clamp(1.15rem, 1.8vw, 1.8rem);
+  font-weight: 760;
+  letter-spacing: 0.14em;
+  line-height: 1;
+}
+
+.catalogue-hero .catalogue-feature-copy h1 .catalogue-model-name {
+  direction: ltr;
+  font-size: clamp(2.8rem, 4.6vw, 5.3rem);
+  font-weight: 860;
+  letter-spacing: -0.075em;
+  line-height: 0.98;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.catalogue-model-name i {
+  margin-left: 0.18em;
+  color: #63951f;
+  font-style: normal;
+  font-weight: 650;
+}
+
+.catalogue-feature-copy .catalogue-lead {
+  max-width: 30rem;
+  margin-block-start: clamp(1.5rem, 2.7vw, 2.6rem);
+  color: #46514b;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.catalogue-feature-actions {
+  margin-block-start: 2rem;
+  gap: 1.3rem;
+}
+
+.catalogue-feature-actions a {
+  min-height: 3.2rem;
+  border-radius: 0.3rem;
+}
+
+.catalogue-feature-primary {
+  padding-inline: 1.5rem;
+}
+
+.catalogue-feature-actions .catalogue-feature-secondary {
+  padding-inline: 0;
+  border: 0;
+  border-bottom: 1px solid #aebcb0;
+  border-radius: 0;
+}
+
+.catalogue-feature-sources {
+  margin-block-start: 1.1rem;
+}
+
+.catalogue-feature-machine {
+  align-self: stretch;
+}
+
+.catalogue-machine-stage {
+  position: relative;
+  display: grid;
+  min-height: clamp(23rem, 39vw, 34rem);
+  overflow: hidden;
+  border: 1px solid #e1e7dc;
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(134deg, transparent 0 53%, rgba(115, 160, 66, 0.11) 53% 73%, transparent 73%),
+    radial-gradient(ellipse at 48% 32%, #fff 12%, #e7ede3 80%);
+  place-items: center;
+}
+
+.catalogue-machine-stage::after {
+  position: absolute;
+  inset: auto 5% 5% 5%;
+  height: 1px;
+  background: rgba(38, 56, 40, 0.17);
+  content: "";
+}
+
+.catalogue-stage-index {
+  position: absolute;
+  inset: 1.25rem auto auto 1.35rem;
+  z-index: 1;
+  color: #647366;
+  direction: rtl;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+}
+
+.catalogue-stage-wordmark {
+  position: absolute;
+  inset: 14% auto auto 5%;
+  color: #dce6d6;
+  direction: ltr;
+  font-size: clamp(5.5rem, 10vw, 10rem);
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 1;
+  user-select: none;
+}
+
+.catalogue-feature-machine .catalogue-machine-stage img {
+  position: relative;
+  z-index: 1;
+  width: 104%;
+  max-width: none;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  mix-blend-mode: multiply;
+  transform: translateX(-1%);
+}
+
+.catalogue-feature-machine figcaption {
+  margin-block-start: 0.6rem;
+  color: #69756d;
+  font-size: 0.69rem;
+  text-align: left;
+}
+
+.catalogue-feature-specs {
+  margin: 1.1rem 0 0;
+  padding: clamp(1.25rem, 2vw, 1.8rem) clamp(1.25rem, 3vw, 2.5rem);
+  border: 0;
+  border-radius: 0.65rem;
+  background: #202d27;
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+.catalogue-feature-specs > div {
+  padding-inline: clamp(1rem, 3vw, 2.5rem);
+}
+
+.catalogue-feature-specs > div + div {
+  border-inline-start-color: rgba(255, 255, 255, 0.22);
+}
+
+.catalogue-feature-specs dt {
+  color: #c0cdc0;
+  font-size: 0.8rem;
+}
+
+.catalogue-feature-specs dd {
+  margin-block-start: 0.35rem;
+  color: #fff;
+  font-size: clamp(1.7rem, 2.8vw, 2.6rem);
+  letter-spacing: -0.04em;
+}
+
+.catalogue-feature-specs dd small {
+  color: #aed272;
+  font-size: 0.52em;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.catalogue-family-showcase {
+  margin-block-start: clamp(2rem, 4vw, 3.5rem);
+  grid-row: 3;
+}
+
+@media (max-width: 47.99rem) {
+  .catalogue-hero {
+    padding-block: 3.25rem 1.5rem;
+  }
+
+  .catalogue-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .catalogue-feature-copy {
+    padding: 0;
+    grid-row: 1;
+  }
+
+  .catalogue-feature-copy .catalogue-kicker {
+    margin-block-end: 1.25rem;
+  }
+
+  .catalogue-hero .catalogue-feature-copy h1 .catalogue-model-name {
+    font-size: clamp(2.45rem, 9vw, 4.3rem);
+  }
+
+  .catalogue-feature-copy .catalogue-lead {
+    margin-block-start: 1rem;
+  }
+
+  .catalogue-feature-actions {
+    margin-block-start: 1.25rem;
+  }
+
+  .catalogue-feature-machine {
+    margin-block: 1.6rem 0;
+    grid-row: 2;
+  }
+
+  .catalogue-machine-stage {
+    min-height: 0;
+    aspect-ratio: 1.35;
+  }
+
+  .catalogue-stage-wordmark {
+    inset-block-start: 20%;
+    font-size: clamp(4.5rem, 18vw, 7.5rem);
+  }
+
+  .catalogue-feature-machine .catalogue-machine-stage img {
+    width: 100%;
+  }
+
+  .catalogue-feature-specs {
+    margin: 0;
+    grid-row: 3;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .catalogue-feature-specs > div {
+    padding-inline: 0.55rem;
+  }
+
+  .catalogue-feature-specs > div:nth-child(3) {
+    margin: 0;
+    padding-block-start: 0;
+    padding-inline-start: 0.55rem;
+    border-block-start: 0;
+    border-inline-start: 1px solid rgba(255, 255, 255, 0.22);
+    grid-column: auto;
+  }
+
+  .catalogue-feature-specs dd {
+    font-size: clamp(1.05rem, 4.3vw, 1.45rem);
+  }
+
+  .catalogue-feature-specs dt {
+    font-size: 0.65rem;
+  }
+
+  .catalogue-family-showcase {
+    grid-row: 4;
+  }
+}
+
+@media (max-width: 23rem) {
+  .catalogue-hero .catalogue-feature-copy h1 .catalogue-model-name {
+    font-size: 2.15rem;
+  }
+
+  .catalogue-feature-actions {
+    gap: 0.8rem;
+  }
+
+  .catalogue-feature-actions a {
+    font-size: 0.78rem;
+  }
+
+  .catalogue-feature-specs {
+    padding-inline: 0.65rem;
+  }
+}
